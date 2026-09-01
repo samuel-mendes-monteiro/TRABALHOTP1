@@ -19,7 +19,7 @@ void Email::validate(std::string value){
     }
 
 
-    // Encontra a posição do '@'
+    // Encontra a posição do '@' e garante que apenas um @ esteja no email
 
     size_t atPosition = value.find('@'); // size_t usado paa guardar posicao dentro da string
     if (atPosition == std::string::npos || value.find('@', atPosition + 1) != std::string::npos) { //std::string::npos significa que nao foi achado
@@ -107,6 +107,6 @@ void Email::validate(std::string value){
 
         if(!hasPart) throw std::invalid_argument("Invalid domain structure.");
 
-}
+        }
 
 }
