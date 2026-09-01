@@ -108,3 +108,5 @@ void Email::validate(std::string value){
         if(!hasPart) throw std::invalid_argument("Invalid domain structure.");
 
 }
+
+}
