@@ -16,7 +16,7 @@ Name Person::getName() const {
     return name;
 }
 
-void Person::setPassword(Password senha) {
+void Person::setPassword(Password password) {
     this->password = password;
 }
 
@@ -24,7 +24,7 @@ Password Person::getPassword() const {
     return password;
 }
 
-void Person::setRole(Role papel) {
+void Person::setRole(Role role) {
     this->role = role;
 }
 
