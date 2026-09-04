@@ -45,7 +45,8 @@ void Email::validate(std::string value){
     for (size_t i = 0; i < localPart.length(); i++)
     {
         char c = localPart[i];
-        bool isValidChar = std::islower(c) || std::isdigit(c) || c == '.' || c == '-';
+        bool isValidChar = false;
+        if(std::islower(c) || std::isdigit(c) || c == '.' || c == '-'){ isValidChar = true;}
         if (!isValidChar)
         {
             throw std::invalid_argument("Local part contains invalid characters.");
