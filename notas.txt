@@ -10,3 +10,6 @@ QUADRO(BOARD) FUNCIONANDO
 
 
 cpptime stemp: corrigir formato horas substr() ta errado...   mt trabalho...
+
+
+fazer: mudar mensagens de erro do ingles para portugues...
