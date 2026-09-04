@@ -1,0 +1,12 @@
+PESSOAS(PERSON) COM ERRO
+
+PROJETOS(PROJECT) COM ERRO - cpp time stemp
+
+TASK(TAREFAS)   COM ERRO - cpp time stemp
+
+QUADRO(BOARD) FUNCIONANDO
+
+
+
+
+cpptime stemp: corrigir formato horas substr() ta errado...   mt trabalho...
