@@ -17,13 +17,40 @@ private:
     Limit limit;
 
 public:
+    /**
+     * @brief Define o identificador da pessoa.
+     * @param identifier Instância da classe identifier.
+     */
+
     void setIdentifier(Identifier identifier);
+    /**
+     * @brief Obtem o identificador do quadro.
+     * @return identifier Instancica armazenada
+     */
+
     Identifier getIdentifier() const;
+    /**
+     * @brief Define o nome da pessoa.
+     * @param name Instância armazenada
+     */
 
     void setName(Name nome);
+    /**
+     * @brief Obtem o nome do quadro.
+     * @return name Instancica armaenada
+     */
     Name getName() const;
 
+    /**
+     * @brief Define o limite do quadro
+     * @param limit Instancia da classe limit.
+     */
     void setLimit(Limit limit);
+
+    /**
+     * @brief Obtém o limite do quadro.
+     * @return limite Instância de limit armazenada.
+     */
     Limit getLimit() const;
 };
 

@@ -8,26 +8,26 @@ Email Person::getEmail() const {
     return email;
 }
 
-void Person::setNome(Name name) {
+void Person::setName(Name name) {
     this->name = name;
 }
 
-Name Person::getNome() const {
+Name Person::getName() const {
     return name;
 }
 
-void Person::setSenha(Password senha) {
+void Person::setPassword(Password senha) {
     this->password = password;
 }
 
-Password Person::getSenha() const {
+Password Person::getPassword() const {
     return password;
 }
 
-void Person::setPapel(Role papel) {
+void Person::setRole(Role papel) {
     this->role = role;
 }
 
-Role Person::getPapel() const {
+Role Person::getRole() const {
     return role;
 }

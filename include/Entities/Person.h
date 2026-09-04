@@ -11,7 +11,7 @@
  * 
  * Uma pessoa é caracterizada por e-mail (chave primária), nome, senha e papel.
  */
-class Person {
+class Person{
 private:
     Email email;
     Name name;
@@ -35,37 +35,37 @@ public:
      * @brief Define o nome da pessoa.
      * @param name Instância da classe Name.
      */
-    void setNome(Name name);
+    void setName(Name name);
     
     /**
      * @brief Obtém o nome da pessoa.
      * @return Name Instância de Name armazenada.
      */
-    Name getNome() const;
+    Name getName() const;
 
     /**
      * @brief Define a senha da pessoa.
      * @param password Instância da classe Password.
      */
-    void setSenha(Password password);
+    void setPassword(Password password);
     
     /**
      * @brief Obtém a senha da pessoa.
      * @return Password Instância de Password armazenada.
      */
-    Password getSenha() const;
+    Password getPassword() const;
 
     /**
      * @brief Define o papel da pessoa.
      * @param role Instância da classe Role.
      */
-    void setPapel(Role role);
+    void setRole(Role role);
     
     /**
      * @brief Obtém o papel da pessoa.
      * @return Role Instância de Role armazenada.
      */
-    Role getPapel() const;
+    Role getRole() const;
 };
 
 #endif
