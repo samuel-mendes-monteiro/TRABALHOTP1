@@ -54,12 +54,12 @@ void Timestamp::validate(std::string value) {
         hour = std::stoi(sHour);
         minute = std::stoi(sMin);
     } catch (...) {
-        throw std::invalid_argument("Timestamp contains non-numeric characters.");
+        throw std::invalid_argument("Caracteres não numericos na marca de data.");
     }
 
     // Validação do Ano (2000 a 2099)
     if (year < 2000 || year > 2099) {
-        throw std::invalid_argument("Invalid year. Must be between 2000 and 2099.");
+        throw std::invalid_argument("Ano invalido. Necessariamente entre 2000 e 2099.");
     }
 
     // Validação do Mês (JAN a DEZ)[cite: 1]

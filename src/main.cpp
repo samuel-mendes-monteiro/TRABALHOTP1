@@ -44,7 +44,7 @@ int main() {
         std::cout << " 7. Atualizar Projeto" << std::endl;
         std::cout << " 8. Excluir Projeto" << std::endl;
         
-        std::cout << "\n--- GESTAO DE QUADROS (BOARDS) ---" << std::endl;
+        std::cout << "\n--- GESTAO DE QUADROS ---" << std::endl;
         std::cout << " 9. Cadastrar Quadro" << std::endl;
         std::cout << "10. Consultar Quadro" << std::endl;
         std::cout << "11. Atualizar Quadro" << std::endl;
