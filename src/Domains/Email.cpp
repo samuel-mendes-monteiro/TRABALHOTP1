@@ -29,7 +29,7 @@ void Email::validate(std::string value){
     // separar email em parte local e dominio
 
     std::string localPart = value.substr(0, atPosition); /// ex: samuel.monteiro
-    std::string domainPart = value.substr(atPosition + 1);  //// @aluno.unb.br fryfy
+    std::string domainPart = value.substr(atPosition + 1);  //// @aluno.unb.br 
 
     // Validação parte local do email
 
