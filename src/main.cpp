@@ -13,6 +13,8 @@
 #include "../include/Presentation/BoardController.h"
 #include "../include/Presentation/TaskController.h"
 
+using namespace std;
+
 int main() {
     // 1. Instanciação dos Serviços Concretos (Armazenamento em memória)
     PersonService personService;
@@ -29,43 +31,43 @@ int main() {
     int option = 0;
 
     do {
-        std::cout << "\n========================================" << std::endl;
-        std::cout << "      SISTEMA DE GESTAO KANBAN (TP1)    " << std::endl;
-        std::cout << "========================================" << std::endl;
-        std::cout << "--- GESTAO DE PESSOAS ---" << std::endl;
-        std::cout << " 1. Cadastrar Pessoa" << std::endl;
-        std::cout << " 2. Consultar Pessoa" << std::endl;
-        std::cout << " 3. Atualizar Pessoa" << std::endl;
-        std::cout << " 4. Excluir Pessoa" << std::endl;
+        cout << "\n========================================" << endl;
+        cout << "      SISTEMA DE GESTAO KANBAN (TP1)    " << endl;
+        cout << "========================================" << endl;
+        cout << "--- GESTAO DE PESSOAS ---" << endl;
+        cout << " 1. Cadastrar Pessoa" << endl;
+        cout << " 2. Consultar Pessoa" << endl;
+        cout << " 3. Atualizar Pessoa" << endl;
+        cout << " 4. Excluir Pessoa" << endl;
         
-        std::cout << "\n--- GESTAO DE PROJETOS ---" << std::endl;
-        std::cout << " 5. Cadastrar Projeto" << std::endl;
-        std::cout << " 6. Consultar Projeto" << std::endl;
-        std::cout << " 7. Atualizar Projeto" << std::endl;
-        std::cout << " 8. Excluir Projeto" << std::endl;
+        cout << "\n--- GESTAO DE PROJETOS ---" << endl;
+        cout << " 5. Cadastrar Projeto" << endl;
+        cout << " 6. Consultar Projeto" << endl;
+        cout << " 7. Atualizar Projeto" << endl;
+        cout << " 8. Excluir Projeto" << endl;
         
-        std::cout << "\n--- GESTAO DE QUADROS ---" << std::endl;
-        std::cout << " 9. Cadastrar Quadro" << std::endl;
-        std::cout << "10. Consultar Quadro" << std::endl;
-        std::cout << "11. Atualizar Quadro" << std::endl;
-        std::cout << "12. Excluir Quadro" << std::endl;
+        cout << "\n--- GESTAO DE QUADROS ---" << endl;
+        cout << " 9. Cadastrar Quadro" << endl;
+        cout << "10. Consultar Quadro" << endl;
+        cout << "11. Atualizar Quadro" << endl;
+        cout << "12. Excluir Quadro" << endl;
         
-        std::cout << "\n--- GESTAO DE CARTOES DE ATIVIDADE ---" << std::endl;
-        std::cout << "13. Cadastrar Cartao" << std::endl;
-        std::cout << "14. Consultar Cartao" << std::endl;
-        std::cout << "15. Atualizar Cartao" << std::endl;
-        std::cout << "16. Excluir Cartao" << std::endl;
-        std::cout << "17. Mover Cartao (Colunas)" << std::endl;
-        std::cout << "18. Consultar Metricas (WIP)" << std::endl;
+        cout << "\n--- GESTAO DE CARTOES DE ATIVIDADE ---" << endl;
+        cout << "13. Cadastrar Cartao" << endl;
+        cout << "14. Consultar Cartao" << endl;
+        cout << "15. Atualizar Cartao" << endl;
+        cout << "16. Excluir Cartao" << endl;
+        cout << "17. Mover Cartao (Colunas)" << endl;
+        cout << "18. Consultar Metricas (WIP)" << endl;
         
-        std::cout << "\n 0. Sair" << std::endl;
-        std::cout << "========================================" << std::endl;
-        std::cout << "Escolha uma opcao: ";
+        cout << "\n 0. Sair" << endl;
+        cout << "========================================" << endl;
+        cout << "Escolha uma opcao: ";
         
-        if (!(std::cin >> option)) {
-            std::cout << "[ERRO] Entrada invalida. Tente novamente." << std::endl;
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
+        if (!(cin >> option)) {
+            cout << "[ERRO] Entrada invalida. Tente novamente." << endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
             continue;
         }
 
@@ -94,13 +96,13 @@ int main() {
                 case 18: taskController.handleReadMetrics(); break;
                 
                 case 0:
-                    std::cout << "Encerrando o sistema Kanban. Ate logo!" << std::endl;
+                    cout << "Encerrando o sistema Kanban. Ate logo!" << endl;
                     break;
                 default:
-                    std::cout << "[AVISO] Opcao desconhecida. Tente novamente." << std::endl;
+                    cout << "[AVISO] Opcao desconhecida. Tente novamente." << endl;
             }
         } catch (const std::exception& e) {
-            std::cerr << "[ERRO CRITICO]: " << e.what() << std::endl;
+            cerr << "[ERRO CRITICO]: " << e.what() << endl;
         }
 
     } while (option != 0);
