@@ -18,7 +18,7 @@ Task TaskService::readTask(const Identifier& identifier) {
             return t;
         }
     }
-    throw std::invalid_argument("Task not found.");
+    throw std::invalid_argument("Cartão não encontrado");
 }
 
 bool TaskService::updateTask(const Task& task) {
