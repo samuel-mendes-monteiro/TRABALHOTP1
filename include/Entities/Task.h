@@ -25,6 +25,7 @@ private:
     Timestamp entryDate;
     Timestamp startDate;
     Timestamp endDate;
+    Identifier boardId;
 
 public:
     void setIdentifier(Identifier identifier);
@@ -53,6 +54,10 @@ public:
 
     void setEndDate(Timestamp endDate);
     Timestamp getEndDate() const;
+
+    void setBoardId(Identifier boardId);
+    Identifier getBoardId() const;
+
 };
 
 #endif

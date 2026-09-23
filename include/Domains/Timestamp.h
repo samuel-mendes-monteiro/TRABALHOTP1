@@ -14,8 +14,8 @@ class Timestamp {
 private:
     std::string value;
     void validate(std::string value);
-    bool isLeapYear(int year);// bisexto
-    int getDaysInMonth(int month, int year);
+    bool isLeapYear(int year)const;// bisexto
+    int getDaysInMonth(int month, int year)const;
 
 public:
     /**
@@ -30,6 +30,19 @@ public:
      * @return std::string O timestamp armazenado.
      */
     std::string getValue() const;
+
+    /**
+     * @brief Converte o timestamp armazenado num valor linear de minutos,
+     * contado a partir de 01-JAN-2000-00:00.
+     *
+     * Serve só pra poder subtrair dois timestamps (ex.: endDate.toMinutes()
+     * - startDate.toMinutes() = tempo de ciclo em minutos). O ano-base é
+     * arbitrário: só a diferença entre dois valores importa, não o valor
+     * absoluto.
+     *
+     * @return long long minutos desde a data-base.
+     */
+    long long toMinutes() const;
 };
 
 #endif

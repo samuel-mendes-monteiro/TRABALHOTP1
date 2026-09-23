@@ -31,6 +31,33 @@ public:
      */
     
     virtual bool moveTask(const Identifier& identifier, const State& newState , const Timestamp& moveTime) = 0;
+    /**
+     * @brief Serviço 22: tempo de ciclo de um cartão (FAZENDO -> FEITO), em minutos.
+     * @throw std::invalid_argument se o cartão não existe ou ainda não chegou em FEITO.
+     */
+    virtual long long readCycleTime(const Identifier& taskId) = 0;
+    /**
+     * @brief Serviço 23: média do tempo de ciclo dos cartões concluídos de um quadro, em minutos.
+     * @throw std::invalid_argument se o quadro não tem nenhum cartão concluído.
+     */
+    virtual long long readAverageCycleTime(const Identifier& boardId) = 0;
+ 
+    /**
+     * @brief Serviço 24: lead time de um cartão (A FAZER -> FEITO), em minutos.
+     * @throw std::invalid_argument se o cartão não existe ou ainda não chegou em FEITO.
+     */
+    virtual long long readLeadTime(const Identifier& taskId) = 0;
+ 
+    /**
+     * @brief Serviço 25: média do lead time dos cartões concluídos de um quadro, em minutos.
+     * @throw std::invalid_argument se o quadro não tem nenhum cartão concluído.
+     */
+    virtual long long readAverageLeadTime(const Identifier& boardId) = 0;
+ 
+    /**
+     * @brief Serviço 26: WIP de um quadro — número de cartões atualmente em FAZENDO.
+     */
+    virtual int readWip(const Identifier& boardId) = 0;
 };
-
+ 
 #endif

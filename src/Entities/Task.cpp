@@ -71,3 +71,11 @@ void Task::setEndDate(Timestamp endDate) {
 Timestamp Task::getEndDate() const {
     return endDate;
 }
+
+void Task::setBoardId(Identifier boardId) {
+    this->boardId = boardId;
+}
+ 
+Identifier Task::getBoardId() const {
+    return boardId;
+}

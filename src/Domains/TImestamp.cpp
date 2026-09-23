@@ -1,11 +1,11 @@
 #include "../../include/Domains/Timestamp.h"
 #include <stdexcept>
 
-bool Timestamp::isLeapYear(int year) {
+bool Timestamp::isLeapYear(int year)const{
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
-int Timestamp::getDaysInMonth(int month, int year) {
+int Timestamp::getDaysInMonth(int month, int year)const {
     switch (month) {
         case 1:  // JAN
         case 3:  // MAR
@@ -94,4 +94,53 @@ void Timestamp::setValue(std::string value) {
 
 std::string Timestamp::getValue() const {
     return value;
+}
+
+
+
+
+long long Timestamp::toMinutes() const {
+    // value ja foi validado em setValue, entao o parse aqui e seguro.
+    std::string sDay = value.substr(0, 2);
+    std::string sMonth = value.substr(3, 3);
+    std::string sYear = value.substr(7, 4);
+    std::string sHour = value.substr(12, 2);
+    std::string sMin = value.substr(15, 2);
+ 
+    int day = std::stoi(sDay);
+    int year = std::stoi(sYear);
+    int hour = std::stoi(sHour);
+    int minute = std::stoi(sMin);
+ 
+    std::string months[12] = {"JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"};
+    int monthNum = 0;
+    for (int i = 0; i < 12; ++i) {
+        if (sMonth == months[i]) {
+            monthNum = i + 1;
+            break;
+        }
+    }
+ 
+    long long totalDays = 0;
+ 
+    // dias acumulados dos anos completos desde 2000 ate year - 1
+    for (int y = 2000; y < year; ++y) {
+
+        if (isLeapYear(y))
+        {
+            totalDays+=366;
+        }else{ totalDays += 365;}
+        
+        
+    }
+ 
+    // dias acumulados dos meses completos do ano atual
+    for (int m = 1; m < monthNum; ++m) {
+        totalDays += getDaysInMonth(m, year);
+    }
+ 
+    // dias completos do mes atual (day - 1, porque o dia atual ainda nao fechou)
+    totalDays += (day - 1);
+ 
+    return totalDays * 24 * 60 + hour * 60 + minute;
 }

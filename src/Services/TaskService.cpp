@@ -56,8 +56,78 @@ bool TaskService::moveTask(const Identifier& identifier, const State& newState,c
                 t.setStartDate(moveTime);
                 return true;
             }
-            return false; // Movimentação inválida pelas regras do negócio
+            return false; // Movimentação inválida
         }
     }
-    return false; // movimentações invalidas
+    return false;
 }
+
+
+long long TaskService::readCycleTime(const Identifier& taskId) {
+    for (const auto& t : tasks) {
+        if (t.getIdentifier().getValue() == taskId.getValue()) {
+            if (t.getState().getValue() != "FEITO") {
+                throw std::invalid_argument("Tempo de ciclo indisponivel: cartao ainda nao chegou em FEITO.");
+            }
+            return t.getEndDate().toMinutes() - t.getStartDate().toMinutes();
+        }
+    }
+    throw std::invalid_argument("Task not found.");
+}
+ 
+long long TaskService::readAverageCycleTime(const Identifier& boardId) {
+    long long soma = 0;
+    int quantidade = 0;
+ 
+    for (const auto& t : tasks) {
+        if (t.getBoardId().getValue() == boardId.getValue() && t.getState().getValue() == "FEITO") {
+            soma += t.getEndDate().toMinutes() - t.getStartDate().toMinutes();
+            quantidade++;
+        }
+    }
+ 
+    if (quantidade == 0) {
+        throw std::invalid_argument("Nenhum cartao concluido neste quadro ainda.");
+    }
+    return soma / quantidade;
+}
+ 
+long long TaskService::readLeadTime(const Identifier& taskId) {
+    for (const auto& t : tasks) {
+        if (t.getIdentifier().getValue() == taskId.getValue()) {
+            if (t.getState().getValue() != "FEITO") {
+                throw std::invalid_argument("Lead time indisponivel: cartao ainda nao chegou em FEITO.");
+            }
+            return t.getEndDate().toMinutes() - t.getEntryDate().toMinutes();
+        }
+    }
+    throw std::invalid_argument("Task not found.");
+}
+ 
+long long TaskService::readAverageLeadTime(const Identifier& boardId) {
+    long long soma = 0;
+    int quantidade = 0;
+ 
+    for (const auto& t : tasks) {
+        if (t.getBoardId().getValue() == boardId.getValue() && t.getState().getValue() == "FEITO") {
+            soma += t.getEndDate().toMinutes() - t.getEntryDate().toMinutes();
+            quantidade++;
+        }
+    }
+ 
+    if (quantidade == 0) {
+        throw std::invalid_argument("Nenhum cartao concluido neste quadro ainda.");
+    }
+    return soma / quantidade;
+}
+ 
+int TaskService::readWip(const Identifier& boardId) {
+    int contagem = 0;
+    for (const auto& t : tasks) {
+        if (t.getBoardId().getValue() == boardId.getValue() && t.getState().getValue() == "FAZENDO") {
+            contagem++;
+        }
+    }
+    return contagem;
+}
+ 

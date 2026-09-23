@@ -9,8 +9,6 @@ fazer:
     ver adaptaçoes necessarias para codeblocks
     pdf separado diagrama uml dos dominios/entidades/ etc explciacao no pdf do trablalho
     parte de interfaces
-    ver camada de servico e como vai ser armazenado, fila,pilha,lista,SQLite
-    camada apresntacao , validacao de entrada de usuario?
     erro critico em presentation/taskcontrollet.cpp - atualizar um cartao apaga o estado e os horarrios
     implementar funcionalidade de duracao de cartao ? - subtrair datas e etc, MUITO trabalho
     CARATAO DE ATIVIDADE NAO MOSTRA ESTADO ATUAL,NAO SEI POR QUE
@@ -20,4 +18,4 @@ fazer:
     CARTAO DE ATIVIDADE MTS ERROS, impossivel listar todos
     
 
-
+    cartao de atividade naoa tualiza estado MOVER CARTAO. erro mais grave

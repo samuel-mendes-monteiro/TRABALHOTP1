@@ -19,6 +19,12 @@ public:
     bool updateTask(const Task& task) override;
     bool deleteTask(const Identifier& identifier) override;
     bool moveTask(const Identifier& identifier, const State& newState, const Timestamp& moveTime) override;
+
+    long long readCycleTime(const Identifier& taskId) override;
+    long long readAverageCycleTime(const Identifier& boardId) override;
+    long long readLeadTime(const Identifier& taskId) override;
+    long long readAverageLeadTime(const Identifier& boardId) override;
+    int readWip(const Identifier& boardId) override;
 };
 
 #endif
