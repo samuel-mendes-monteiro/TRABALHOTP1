@@ -19,3 +19,8 @@ fazer:
     
 
     cartao de atividade naoa tualiza estado MOVER CARTAO. erro mais grave
+
+    VERIFICAR SE CARTAO CABE NO QUADRO NA HORA D ADICIONAR
+
+    
+    INFINITAS COISAS
