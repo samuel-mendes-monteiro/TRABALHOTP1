@@ -15,7 +15,7 @@ TaskController::TaskController(ITaskService* service) {
 }
 
 void TaskController::handleCreateTask() {
-    std::string idStr, nameStr, descStr, prioStr, sizeStr, entryStr, boardIdStr;
+    std::string idStr, nameStr, descStr, prioStr, sizeStr, entryStr, boardIdStr,stateStr;
 
     std::cout << "\n--- CADASTRAR CARTAO DE ATIVIDADE ---" << std::endl;
     std::cout << "Digite o identificador (6 caracteres, 3 letras e 3 digitos): ";
@@ -34,6 +34,10 @@ void TaskController::handleCreateTask() {
     std::cout << "Digite a data de entrada (DIA-MES-ANO-HORARIO): ";
     std::cin >> entryStr;
 
+            // Todo cartao novo nasce em A FAZER -- nao e uma escolha do usuario.
+
+    stateStr = "A FAZER";
+
     try {
         Identifier identifier; identifier.setValue(idStr);
         Identifier boardId; boardId.setValue(boardIdStr);
@@ -42,9 +46,8 @@ void TaskController::handleCreateTask() {
         Priority priority; priority.setValue(prioStr);
         Size size; size.setValue(sizeStr);
         Timestamp entryDate; entryDate.setValue(entryStr);
-
-        // Todo cartao novo nasce em A FAZER -- nao e uma escolha do usuario.
-        State state; state.setValue("A FAZER");
+        State state; state.setValue(stateStr);
+        
 
         Task task;
         task.setIdentifier(identifier);
@@ -80,6 +83,7 @@ void TaskController::handleReadTask() {
         std::cout << "[ENCONTRADO]" << std::endl;
         std::cout << "Identificador: " << task.getIdentifier().getValue() << std::endl;
         std::cout << "Nome: " << task.getName().getValue() << std::endl;
+        std::cout << "Descrição: " << task.getDescription().getValue() <<std::endl;
         std::cout << "Estado atual: " << task.getState().getValue() << std::endl;
         std::cout << "Prioridade: " << task.getPriority().getValue() << std::endl;
     } catch (const std::exception& e) {
