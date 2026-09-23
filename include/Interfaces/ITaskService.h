@@ -17,7 +17,20 @@ public:
     virtual Task readTask(const Identifier& identifier) = 0;
     virtual bool updateTask(const Task& task) = 0;
     virtual bool deleteTask(const Identifier& identifier) = 0;
-    virtual bool moveTask(const Identifier& identifier, const State& newState) = 0;
+
+
+    /**
+     * @brief Move um cartão entre colunas do quadro (A FAZER -> FAZENDO ou FAZENDO -> FEITO).
+     * @param identifier Identificador do cartão a ser movido.
+     * @param newState Novo estado desejado.
+     * @param moveTime Horário em que a movimentação ocorreu; gravado como
+     *        startDate (entrada em FAZENDO) ou endDate (entrada em FEITO),
+     *        conforme a transição.
+     * @return true se a movimentação foi aplicada, false se a transição é
+     *         inválida pelas regras do Kanban ou o cartão não existe.
+     */
+    
+    virtual bool moveTask(const Identifier& identifier, const State& newState , const Timestamp& moveTime) = 0;
 };
 
 #endif

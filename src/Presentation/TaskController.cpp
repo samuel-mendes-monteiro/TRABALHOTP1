@@ -154,19 +154,21 @@ void TaskController::handleDeleteTask() {
 }
 
 void TaskController::handleMoveTask() {
-    std::string idStr, newStateStr;
+    std::string idStr, newStateStr,timeStr;
     std::cout << "\n--- MOVER CARTAO DE ATIVIDADE ---" << std::endl;
     std::cout << "Digite o identificador do cartao: ";
     std::cin >> idStr;
     std::cout << "Digite o novo estado (FAZENDO ou FEITO): ";
     std::cin.ignore();
     std::getline(std::cin, newStateStr);
+    std::cout << "Digite o horario da movimentacao (DIA-MES-ANO-HORARIO): ";
+    std::cin >> timeStr;
 
     try {
         Identifier identifier; identifier.setValue(idStr);
         State newState; newState.setValue(newStateStr);
-
-        if (taskService->moveTask(identifier, newState)) {
+        Timestamp moveTime;moveTime.setValue(timeStr);
+        if (taskService->moveTask(identifier, newState,moveTime)) {
             std::cout << "[SUCESSO] Cartao movimentado com sucesso!" << std::endl;
         } else {
             std::cout << "[ERRO] Movimentacao invalida pelas regras do Kanban ou cartao nao encontrado." << std::endl;

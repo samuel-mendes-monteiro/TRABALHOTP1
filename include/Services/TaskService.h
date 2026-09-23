@@ -18,7 +18,7 @@ public:
     Task readTask(const Identifier& identifier) override;
     bool updateTask(const Task& task) override;
     bool deleteTask(const Identifier& identifier) override;
-    bool moveTask(const Identifier& identifier, const State& newState) override;
+    bool moveTask(const Identifier& identifier, const State& newState, const Timestamp& moveTime) override;
 };
 
 #endif

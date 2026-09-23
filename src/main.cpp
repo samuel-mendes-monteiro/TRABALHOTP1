@@ -96,7 +96,7 @@ int main() {
                 case 18: taskController.handleReadMetrics(); break;
                 
                 case 0:
-                    cout << "Encerrando o sistema Kanban. Ate logo!" << endl;
+                    cout << "Encerrando o Sistema Kanban. Ate logo!" << endl;
                     break;
                 default:
                     cout << "[AVISO] Opcao desconhecida. Tente novamente." << endl;

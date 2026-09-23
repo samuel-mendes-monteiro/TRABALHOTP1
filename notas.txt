@@ -12,6 +12,12 @@ fazer:
     ver camada de servico e como vai ser armazenado, fila,pilha,lista,SQLite
     camada apresntacao , validacao de entrada de usuario?
     erro critico em presentation/taskcontrollet.cpp - atualizar um cartao apaga o estado e os horarrios
+    implementar funcionalidade de duracao de cartao ? - subtrair datas e etc, MUITO trabalho
+    CARATAO DE ATIVIDADE NAO MOSTRA ESTADO ATUAL,NAO SEI POR QUE
+    CARTAO DE ATIVIDADE NAO MSOTRA DESCRICAO
+    CARTAO ATIVIDADE - MOVER CARATO errado
+    CONSULTAR METRICAS (WIP) NAO funciONAK
+    CARTAO DE ATIVIDADE MTS ERROS, impossivel listar todos
     
 
 

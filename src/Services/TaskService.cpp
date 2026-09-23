@@ -43,7 +43,7 @@ bool TaskService::deleteTask(const Identifier& identifier) {
     return false;
 }
 
-bool TaskService::moveTask(const Identifier& identifier, const State& newState) {
+bool TaskService::moveTask(const Identifier& identifier, const State& newState,const Timestamp& moveTime) {
     for (auto& t : tasks) {
         if (t.getIdentifier().getValue() == identifier.getValue()) {
             std::string currentState = t.getState().getValue();
@@ -53,10 +53,11 @@ bool TaskService::moveTask(const Identifier& identifier, const State& newState) 
             if ((currentState == "A FAZER" && targetState == "FAZENDO") ||
                 (currentState == "FAZENDO" && targetState == "FEITO")) {
                 t.setState(newState);
+                t.setStartDate(moveTime);
                 return true;
             }
             return false; // Movimentação inválida pelas regras do negócio
         }
     }
-    return false;
+    return false; // movimentações invalidas
 }
