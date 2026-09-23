@@ -26,8 +26,6 @@ void TaskController::handleCreateTask() {
     std::getline(std::cin, descStr);
     std::cout << "Digite a prioridade (ALTA, MEDIA, BAIXA): ";
     std::cin >> prioStr;
-    std::cout << "Digite o estado (A FAZER, FAZENDO, FEITO): ";
-    std::cin.ignore();
     std::getline(std::cin, stateStr);
     std::cout << "Digite o tamanho (GRANDE, MEDIO, PEQUENO): ";
     std::cin >> sizeStr;
@@ -39,7 +37,10 @@ void TaskController::handleCreateTask() {
         Name name; name.setValue(nameStr);
         Text description; description.setValue(descStr);
         Priority priority; priority.setValue(prioStr);
-        State state; state.setValue(stateStr);
+
+        State state; state.setValue("A FAZER");
+        // Todo cartao novo nasce em A FAZER -- nao e uma escolha do usuario.
+
         Size size; size.setValue(sizeStr);
         Timestamp entryDate; entryDate.setValue(entryStr);
 
@@ -85,34 +86,43 @@ void TaskController::handleReadTask() {
 
 void TaskController::handleUpdateTask() {
     std::string idStr, nameStr, descStr, prioStr, sizeStr;
-
+ 
     std::cout << "\n--- ATUALIZAR CARTAO DE ATIVIDADE ---" << std::endl;
     std::cout << "Digite o identificador do cartao a ser atualizado: ";
     std::cin >> idStr;
-    std::cout << "Digite o novo nome: ";
-    std::cin.ignore();
-    std::getline(std::cin, nameStr);
-    std::cout << "Digite a nova descricao: ";
-    std::getline(std::cin, descStr);
-    std::cout << "Digite a nova prioridade (ALTA, MEDIA, BAIXA): ";
-    std::cin >> prioStr;
-    std::cout << "Digite o novo tamanho (GRANDE, MEDIO, PEQUENO): ";
-    std::cin >> sizeStr;
-
+ 
     try {
-        Identifier identifier; identifier.setValue(idStr);
+        Identifier identifier;
+        identifier.setValue(idStr);
+ 
+        // Parte do cartao JA EXISTENTE em vez de um Task vazio. Assim
+        // state, entryDate, startDate e endDate mantem o valor que ja
+        // tinham -- so os campos abaixo sao sobrescritos.
+        Task task = taskService->readTask(identifier);
+ 
+        std::cout << "Digite o novo nome: ";
+        std::cin.ignore();
+        std::getline(std::cin, nameStr);
+        std::cout << "Digite a nova descricao: ";
+        std::getline(std::cin, descStr);
+        std::cout << "Digite a nova prioridade (ALTA, MEDIA, BAIXA): ";
+        std::cin >> prioStr;
+        std::cout << "Digite o novo tamanho (GRANDE, MEDIO, PEQUENO): ";
+        std::cin >> sizeStr;
+ 
         Name name; name.setValue(nameStr);
         Text description; description.setValue(descStr);
         Priority priority; priority.setValue(prioStr);
         Size size; size.setValue(sizeStr);
-
-        Task task;
-        task.setIdentifier(identifier);
+ 
         task.setName(name);
         task.setDescription(description);
         task.setPriority(priority);
         task.setSize(size);
-
+        // identifier, state, entryDate, startDate, endDate: sem alteracao.
+        // Estado e datas de transicao sao responsabilidade exclusiva do
+        // handleMoveTask, nunca de uma atualizacao generica de cadastro.
+ 
         if (taskService->updateTask(task)) {
             std::cout << "[SUCESSO] Cartao atualizado com sucesso!" << std::endl;
         } else {
