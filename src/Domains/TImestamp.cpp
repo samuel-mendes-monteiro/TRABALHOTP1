@@ -28,7 +28,7 @@ int Timestamp::getDaysInMonth(int month, int year) {
 }
 
 void Timestamp::validate(std::string value) {
-    // Formato esperado: DD-MM-AAAA-HH:MM (Ex: 25-02-2026-14:30 -> 19 caracteres)
+    // Formato esperado: DD-MMM-AAAA-HH:MM (Ex: 25-FEV-2026-14:30 -> 17 caracteres)
     if (value.length() != 17) {
         throw std::invalid_argument("Tamanho invalido das datas.");
     }

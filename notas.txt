@@ -11,6 +11,7 @@ fazer:
     parte de interfaces
     ver camada de servico e como vai ser armazenado, fila,pilha,lista,SQLite
     camada apresntacao , validacao de entrada de usuario?
+    erro critico em presentation/taskcontrollet.cpp - atualizar um cartao apaga o estado e os horarrios
     
 
 
