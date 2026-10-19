@@ -12,7 +12,7 @@
  */
 class Board {
 private:
-    Identifier identifier;
+    Identifier identifier, projectId;
     Name name;
     Limit limit;
 
@@ -52,6 +52,10 @@ public:
      * @return limite Instância de limit armazenada.
      */
     Limit getLimit() const;
+
+
+    void setProjectId(Identifier projectId);
+    Identifier getProjectId() const;
 };
 
 #endif

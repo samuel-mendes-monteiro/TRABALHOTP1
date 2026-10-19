@@ -43,23 +43,30 @@ bool TaskService::deleteTask(const Identifier& identifier) {
     return false;
 }
 
-bool TaskService::moveTask(const Identifier& identifier, const State& newState,const Timestamp& moveTime) {
+bool TaskService::moveTask(const Identifier& identifier, const State& newState, const Timestamp& moveTime) {
     for (auto& t : tasks) {
         if (t.getIdentifier().getValue() == identifier.getValue()) {
             std::string currentState = t.getState().getValue();
             std::string targetState = newState.getValue();
 
-            // Validação das regras de movimentação do Kanban: A FAZER -> FAZENDO e FAZENDO -> FEITO
-            if ((currentState == "A FAZER" && targetState == "FAZENDO") ||
-                (currentState == "FAZENDO" && targetState == "FEITO")) {
+            // A FAZER -> FAZENDO: grava a data de início
+            if (currentState == "A FAZER" && targetState == "FAZENDO") {
                 t.setState(newState);
                 t.setStartDate(moveTime);
                 return true;
             }
+
+            // FAZENDO -> FEITO: grava a data de término
+            if (currentState == "FAZENDO" && targetState == "FEITO") {
+                t.setState(newState);
+                t.setEndDate(moveTime);
+                return true;
+            }
+
             return false; // Movimentação inválida
         }
     }
-    return false;
+    return false; // Cartão não encontrado
 }
 
 

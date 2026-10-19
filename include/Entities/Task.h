@@ -8,6 +8,7 @@
 #include "../Domains/State.h"
 #include "../Domains/Size.h"
 #include "../Domains/Timestamp.h"
+#include "../Domains/Email.h"
 
 /**
  * @brief Classe que representa a entidade Cartão de Atividade (Task).
@@ -26,8 +27,14 @@ private:
     Timestamp startDate;
     Timestamp endDate;
     Identifier boardId;
+    Email developerEmail;
 
 public:
+
+
+    void setDeveloperEmail(Email developerEmail);
+    Email getDeveloperEmail() const;
+
     void setIdentifier(Identifier identifier);
     Identifier getIdentifier() const;
 

@@ -22,6 +22,19 @@ int main() {
     BoardService boardService;
     TaskService taskService;
 
+
+
+
+
+    //containers
+
+
+    PersonContainer  personContainer;
+    ProjectContainer projectContainer;
+    BoardContainer   boardContainer;
+    TaskContainer    taskContainer;
+
+    
     // 2. Instanciação dos Controladores com Injeção de Dependência das Interfaces/Serviços
     PersonController personController(&personService);
     ProjectController projectController(&projectService);

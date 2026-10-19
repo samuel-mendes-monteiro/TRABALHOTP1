@@ -39,3 +39,11 @@ void Project::setEnd(Timestamp end) {
 Timestamp Project::getEnd() const {
     return end;
 }
+
+void Project::setManagerEmail(Email managerEmail) {
+    this->managerEmail = managerEmail;
+}
+
+Email Project::getManagerEmail() const {
+    return managerEmail;
+}

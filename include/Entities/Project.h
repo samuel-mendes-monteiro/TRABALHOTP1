@@ -5,6 +5,7 @@
 #include "../Domains/Name.h"
 #include "../Domains/Text.h"
 #include "../Domains/Timestamp.h"
+#include "../Domains/Email.h"
 
 /**
  * @brief Classe que representa a entidade Projeto.
@@ -18,8 +19,14 @@ private:
     Text description;
     Timestamp start;
     Timestamp end;
+    // ...campos existentes...
+    Email managerEmail;
 
 public:
+    // ...
+    void setManagerEmail(Email managerEmail);
+    Email getManagerEmail() const;
+
     void setIdentifier(Identifier identifier);
     Identifier getIdentifier() const;
 

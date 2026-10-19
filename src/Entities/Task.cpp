@@ -79,3 +79,11 @@ void Task::setBoardId(Identifier boardId) {
 Identifier Task::getBoardId() const {
     return boardId;
 }
+
+void Task::setDeveloperEmail(Email developerEmail) {
+    this->developerEmail = developerEmail;
+}
+
+Email Task::getDeveloperEmail() const {
+    return developerEmail;
+}

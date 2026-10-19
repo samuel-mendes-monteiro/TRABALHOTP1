@@ -23,3 +23,10 @@ void Board::setLimit(Limit limit) {
 Limit Board::getLimit() const {
     return limit;
 }
+void Board::setProjectId(Identifier projectId) {
+    this->projectId = projectId;
+}
+
+Identifier Board::getProjectId() const {
+    return projectId;
+}

@@ -14,6 +14,7 @@ void State::validate(std::string value){
 void State::setValue(std::string value){
 
     validate(value);
+    this->value = value;
 
 }
 
