@@ -1,6 +1,6 @@
 #ifndef ITASK_SERVICE_H
 #define ITASK_SERVICE_H
-
+#include <vector>
 #include "../Entities/Task.h"
 
 /**
@@ -58,6 +58,9 @@ public:
      * @brief Serviço 26: WIP de um quadro — número de cartões atualmente em FAZENDO.
      */
     virtual int readWip(const Identifier& boardId) = 0;
+
+
+    virtual std::vector<Identifier> listTasks() = 0;
 };
  
 #endif

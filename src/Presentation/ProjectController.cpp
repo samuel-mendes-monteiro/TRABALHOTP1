@@ -6,12 +6,24 @@
 #include <iostream>
 #include <stdexcept>
 
-ProjectController::ProjectController(IProjectService* service) {
-    this->projectService = service;
+
+ProjectController::ProjectController(IProjectService* service, Session& session)
+    : projectService(service), session(session) {}
+
+void ProjectController::handleListProjects() {
+    std::cout << "\n--- LISTAR PROJETOS ---" << std::endl;
+    std::vector<Identifier> ids = projectService->listProjects();
+    if (ids.empty()) { std::cout << "Nenhum projeto cadastrado." << std::endl; return; }
+    for (const auto& id : ids) std::cout << id.getValue() << std::endl;
 }
 
 void ProjectController::handleCreateProject() {
     std::string idStr, nameStr, descStr, startStr, endStr;
+
+    if (!session.isManager()) {
+    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+    return;
+}
 
     std::cout << "\n--- CADASTRAR PROJETO ---" << std::endl;
     std::cout << "Digite o identificador (6 caracteres, 3 letras e 3 digitos): ";
@@ -34,6 +46,7 @@ void ProjectController::handleCreateProject() {
         Timestamp endDate; endDate.setValue(endStr);
 
         Project project;
+        project.setManagerEmail(session.getEmail());
         project.setIdentifier(identifier);
         project.setName(name);
         project.setDescription(description);
@@ -75,6 +88,11 @@ void ProjectController::handleReadProject() {
 void ProjectController::handleUpdateProject() {
     std::string idStr, nameStr, descStr, startStr, endStr;
 
+
+    if (!session.isManager()) {
+    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+    return;
+}
     std::cout << "\n--- ATUALIZAR PROJETO ---" << std::endl;
     std::cout << "Digite o identificador do projeto a ser atualizado: ";
     std::cin >> idStr;
@@ -90,6 +108,10 @@ void ProjectController::handleUpdateProject() {
 
     try {
         Identifier identifier; identifier.setValue(idStr);
+        if (projectService->readProject(identifier).getManagerEmail().getValue() != session.getEmail().getValue()) {
+    std::cout << "[ACESSO NEGADO] Apenas o gestor que criou o projeto pode altera-lo." << std::endl;
+    return;
+}
         Name name; name.setValue(nameStr);
         Text description; description.setValue(descStr);
         Timestamp startDate; startDate.setValue(startStr);
@@ -114,6 +136,11 @@ void ProjectController::handleUpdateProject() {
 
 void ProjectController::handleDeleteProject() {
     std::string idStr;
+
+    if (!session.isManager()) {
+    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+    return;
+}
     std::cout << "\n--- EXCLUIR PROJETO ---" << std::endl;
     std::cout << "Digite o identificador do projeto que deseja excluir: ";
     std::cin >> idStr;

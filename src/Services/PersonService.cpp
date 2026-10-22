@@ -1,44 +1,37 @@
 #include "../../include/Services/PersonService.h"
 #include <stdexcept>
-#include <algorithm>
+
+PersonService::PersonService(PersonContainer& persons, ProjectContainer& projects, TaskContainer& tasks)
+    : persons(persons), projects(projects), tasks(tasks) {}
 
 bool PersonService::createPerson(const Person& person) {
-    for (const auto& p : persons) {
-        if (p.getEmail().getValue() == person.getEmail().getValue()) {
-            return false; // Já cadastrado
-        }
-    }
-    persons.push_back(person);
-    return true;
+    return persons.insert(person);
 }
 
 Person PersonService::readPerson(const Email& email) {
-    for (const auto& p : persons) {
-        if (p.getEmail().getValue() == email.getValue()) {
-            return p;
-        }
-    }
-    throw std::invalid_argument("Person not found.");
+    Person out;
+    if (!persons.find(email, out)) throw std::invalid_argument("Pessoa nao encontrada.");
+    return out;
 }
 
 bool PersonService::updatePerson(const Person& person) {
-    for (auto& p : persons) {
-        if (p.getEmail().getValue() == person.getEmail().getValue()) {
-            p = person;
-            return true;
-        }
-    }
-    return false;
+    return persons.update(person);
 }
 
 bool PersonService::deletePerson(const Email& email) {
-    auto it = std::remove_if(persons.begin(), persons.end(), [&](const Person& p) {
-        return p.getEmail().getValue() == email.getValue();
-    });
+    if (!persons.exists(email)) return false;
 
-    if (it != persons.end()) {
-        persons.erase(it, persons.end());
-        return true;
-    }
-    return false;
+    // Bloqueio: pessoa com projetos (gestor) ou cartoes (desenvolvedor) nao pode sair.
+    if (!projects.getByManager(email).empty())
+        throw std::invalid_argument("Pessoa e gestora de projetos. Exclua os projetos antes.");
+    if (!tasks.getByDeveloper(email).empty())
+        throw std::invalid_argument("Pessoa possui cartoes de atividade. Exclua os cartoes antes.");
+
+    return persons.remove(email);
+}
+
+std::vector<Email> PersonService::listPersons() {
+    std::vector<Email> result;
+    for (const auto& p : persons.getAll()) result.push_back(p.getEmail());
+    return result;
 }

@@ -6,8 +6,14 @@
 #include <iostream>
 #include <stdexcept>
 
-PersonController::PersonController(IPersonService* service) {
-    this->personService = service;
+PersonController::PersonController(IPersonService* service, Session& session)
+    : personService(service), session(session) {}
+
+void PersonController::handleListPersons() {
+    std::cout << "\n--- LISTAR PESSOAS ---" << std::endl;
+    std::vector<Email> emails = personService->listPersons();
+    if (emails.empty()) { std::cout << "Nenhuma pessoa cadastrada." << std::endl; return; }
+    for (const auto& e : emails) std::cout << e.getValue() << std::endl;
 }
 
 void PersonController::handleCreatePerson() {
@@ -101,6 +107,9 @@ void PersonController::handleUpdatePerson() {
         person.setRole(role);
 
         if (personService->updatePerson(person)) {
+
+            if (emailStr == session.getEmail().getValue()) session.login(email, role);
+
             std::cout << "[SUCESSO] Dados atualizados com sucesso!" << std::endl;
         } else {
             std::cout << "[ERRO] Pessoa nao encontrada para atualizacao." << std::endl;
@@ -122,6 +131,11 @@ void PersonController::handleDeletePerson() {
 
         if (personService->deletePerson(email)) {
             std::cout << "[SUCESSO] Pessoa excluida com sucesso!" << std::endl;
+
+            if (emailStr == session.getEmail().getValue()) {
+        session.logout();
+        std::cout << "Sua conta foi excluida. Sessao encerrada." << std::endl;
+}
         } else {
             std::cout << "[ERRO] Pessoa nao encontrada." << std::endl;
         }

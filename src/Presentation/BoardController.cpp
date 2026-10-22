@@ -5,13 +5,28 @@
 #include <iostream>
 #include <stdexcept>
 
-BoardController::BoardController(IBoardService* service) {
-    this->boardService = service;
+BoardController::BoardController(IBoardService* service, Session& session)
+    : boardService(service), session(session) {}
+
+void BoardController::handleListBoards() {
+    std::cout << "\n--- LISTAR QUADROS ---" << std::endl;
+    std::vector<Identifier> ids = boardService->listBoards();
+    if (ids.empty()) { std::cout << "Nenhum quadro cadastrado." << std::endl; return; }
+    for (const auto& id : ids) std::cout << id.getValue() << std::endl;
 }
 
 void BoardController::handleCreateBoard() {
-    std::string idStr, nameStr;
-    int limitInt;
+    std::string idStr, nameStr, projStr;
+    int limitInt = 0;
+
+    if (!session.isManager()) {
+    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+    return;
+}
+
+    std::cout << "Digite o identificador do projeto do quadro: ";
+    std::cin >> projStr;
+
 
     std::cout << "\n--- CADASTRAR QUADRO ---" << std::endl;
     std::cout << "Digite o identificador (6 caracteres, 3 letras e 3 digitos): ";
@@ -24,10 +39,13 @@ void BoardController::handleCreateBoard() {
 
     try {
         Identifier identifier; identifier.setValue(idStr);
+        Identifier projectId; projectId.setValue(projStr);
+
         Name name; name.setValue(nameStr);
         Limit limit; limit.setValue(limitInt);
 
         Board board;
+        board.setProjectId(projectId);
         board.setIdentifier(identifier);
         board.setName(name);
         board.setLimit(limit);
@@ -54,6 +72,7 @@ void BoardController::handleReadBoard() {
         Board board = boardService->readBoard(identifier);
 
         std::cout << "[ENCONTRADO]" << std::endl;
+        std::cout << "Projeto: " << board.getProjectId().getValue() << std::endl;
         std::cout << "Identificador: " << board.getIdentifier().getValue() << std::endl;
         std::cout << "Nome: " << board.getName().getValue() << std::endl;
         std::cout << "Limite WIP: " << board.getLimit().getValue() << std::endl;
@@ -65,6 +84,11 @@ void BoardController::handleReadBoard() {
 void BoardController::handleUpdateBoard() {
     std::string idStr, nameStr;
     int limitInt;
+
+    if (!session.isManager()) {
+    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+    return;
+}
 
     std::cout << "\n--- ATUALIZAR QUADRO ---" << std::endl;
     std::cout << "Digite o identificador do quadro a ser atualizado: ";
@@ -96,6 +120,12 @@ void BoardController::handleUpdateBoard() {
 }
 
 void BoardController::handleDeleteBoard() {
+
+
+    if (!session.isManager()) {
+    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+    return;
+}
     std::string idStr;
     std::cout << "\n--- EXCLUIR QUADRO ---" << std::endl;
     std::cout << "Digite o identificador do quadro que deseja excluir: ";

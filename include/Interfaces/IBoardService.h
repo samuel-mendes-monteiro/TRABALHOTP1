@@ -1,6 +1,6 @@
 #ifndef IBOARD_SERVICE_H
 #define IBOARD_SERVICE_H
-
+#include <vector>
 #include "../Entities/Board.h"
 
 /**
@@ -16,6 +16,10 @@ public:
     virtual Board readBoard(const Identifier& identifier) = 0;
     virtual bool updateBoard(const Board& board) = 0;
     virtual bool deleteBoard(const Identifier& identifier) = 0;
+    
+    virtual std::vector<Identifier> listBoards() = 0;
+
+    
 };
 
 #endif

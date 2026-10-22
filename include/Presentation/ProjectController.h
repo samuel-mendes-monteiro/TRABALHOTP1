@@ -2,6 +2,8 @@
 #define PROJECT_CONTROLLER_H
 
 #include "../Interfaces/IProjectService.h"
+#include "Session.h"
+
 
 /**
  * @brief Classe controladora da camada de apresentação para gerenciar interações de Project.
@@ -13,17 +15,22 @@ class ProjectController {
 private:
     IProjectService* projectService;
 
+        Session& session;
+
+
 public:
     /**
      * @brief Construtor que recebe a referência para a interface de serviço de projetos.
      * @param service Ponteiro para uma implementação de IProjectService.
      */
-    ProjectController(IProjectService* service);
+    ProjectController(IProjectService* service, Session& session);
 
     /**
      * @brief Executa o fluxo de interação para criar um novo projeto.
      */
     void handleCreateProject();
+
+    void handleListProjects();
 
     /**
      * @brief Executa o fluxo de interação para ler/consultar os dados de um projeto.

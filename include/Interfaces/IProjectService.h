@@ -1,7 +1,7 @@
 
 #ifndef IPROJECT_SERVICE_H
 #define IPROJECT_SERVICE_H
-
+#include <vector>
 #include "../Entities/Project.h"
 
 /**
@@ -17,6 +17,8 @@ public:
     virtual Project readProject(const Identifier& identifier) = 0;
     virtual bool updateProject(const Project& project) = 0;
     virtual bool deleteProject(const Identifier& identifier) = 0;
+    virtual std::vector<Identifier> listProjects() = 0;
+
 };
 
 #endif

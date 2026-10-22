@@ -1,13 +1,19 @@
 #include <iostream>
 #include <stdexcept>
 
-// Includes dos Serviços Concretos (Camada de Serviço)
+#include "../include/Containers/PersonContainer.h"
+#include "../include/Containers/ProjectContainer.h"
+#include "../include/Containers/BoardContainer.h"
+#include "../include/Containers/TaskContainer.h"
+
+#include "../include/Services/AuthenticationService.h"
 #include "../include/Services/PersonService.h"
 #include "../include/Services/ProjectService.h"
 #include "../include/Services/BoardService.h"
 #include "../include/Services/TaskService.h"
 
-// Includes dos Controladores (Camada de Apresentação)
+#include "../include/Presentation/Session.h"
+#include "../include/Presentation/AuthController.h"
 #include "../include/Presentation/PersonController.h"
 #include "../include/Presentation/ProjectController.h"
 #include "../include/Presentation/BoardController.h"
@@ -16,103 +22,107 @@
 using namespace std;
 
 int main() {
-    // 1. Instanciação dos Serviços Concretos (Armazenamento em memória)
-    PersonService personService;
-    ProjectService projectService;
-    BoardService boardService;
-    TaskService taskService;
-
-
-
-
-
-    //containers
-
-
+    // Contêineres compartilhados
     PersonContainer  personContainer;
     ProjectContainer projectContainer;
     BoardContainer   boardContainer;
     TaskContainer    taskContainer;
 
-    
-    // 2. Instanciação dos Controladores com Injeção de Dependência das Interfaces/Serviços
-    PersonController personController(&personService);
-    ProjectController projectController(&projectService);
-    BoardController boardController(&boardService);
-    TaskController taskController(&taskService);
+    // Serviços
+    AuthenticationService authService(personContainer);
+    PersonService  personService(personContainer, projectContainer, taskContainer);
+    ProjectService projectService(projectContainer, personContainer, boardContainer, taskContainer);
+    BoardService   boardService(boardContainer, projectContainer, taskContainer);
+    TaskService    taskService(taskContainer, boardContainer, personContainer);
 
-    int option = 0;
+    // Sessão e controladoras
+    Session session;
+    AuthController    authController(&authService, session);
+    PersonController  personController(&personService, session);
+    ProjectController projectController(&projectService, session);
+    BoardController   boardController(&boardService, session);
+    TaskController    taskController(&taskService, session);
+
+    int option = -1;
 
     do {
-        cout << "\n========================================" << endl;
-        cout << "      SISTEMA DE GESTAO KANBAN (TP1)    " << endl;
-        cout << "========================================" << endl;
-        cout << "--- GESTAO DE PESSOAS ---" << endl;
-        cout << " 1. Cadastrar Pessoa" << endl;
-        cout << " 2. Consultar Pessoa" << endl;
-        cout << " 3. Atualizar Pessoa" << endl;
-        cout << " 4. Excluir Pessoa" << endl;
-        
-        cout << "\n--- GESTAO DE PROJETOS ---" << endl;
-        cout << " 5. Cadastrar Projeto" << endl;
-        cout << " 6. Consultar Projeto" << endl;
-        cout << " 7. Atualizar Projeto" << endl;
-        cout << " 8. Excluir Projeto" << endl;
-        
-        cout << "\n--- GESTAO DE QUADROS ---" << endl;
-        cout << " 9. Cadastrar Quadro" << endl;
-        cout << "10. Consultar Quadro" << endl;
-        cout << "11. Atualizar Quadro" << endl;
-        cout << "12. Excluir Quadro" << endl;
-        
-        cout << "\n--- GESTAO DE CARTOES DE ATIVIDADE ---" << endl;
-        cout << "13. Cadastrar Cartao" << endl;
-        cout << "14. Consultar Cartao" << endl;
-        cout << "15. Atualizar Cartao" << endl;
-        cout << "16. Excluir Cartao" << endl;
-        cout << "17. Mover Cartao (Colunas)" << endl;
-        cout << "18. Consultar Metricas (WIP)" << endl;
-        
-        cout << "\n 0. Sair" << endl;
-        cout << "========================================" << endl;
-        cout << "Escolha uma opcao: ";
-        
+        if (!session.isLoggedIn()) {
+            cout << "\n========================================" << endl;
+            cout << "      SISTEMA DE GESTAO KANBAN          " << endl;
+            cout << "========================================" << endl;
+            cout << " 1. Criar conta" << endl;
+            cout << " 2. Login" << endl;
+            cout << " 0. Sair" << endl;
+            cout << "Escolha uma opcao: ";
+        } else {
+            cout << "\n========================================" << endl;
+            cout << " Usuario: " << session.getEmail().getValue()
+                 << (session.isManager() ? " (GESTOR)" : " (DESENVOLVEDOR)") << endl;
+            cout << "========================================" << endl;
+            cout << " PESSOAS:   1 Criar  2 Ler  3 Atualizar  4 Excluir  5 Listar" << endl;
+            cout << " PROJETOS:  6 Criar  7 Ler  8 Atualizar  9 Excluir  10 Listar" << endl;
+            cout << " QUADROS:   11 Criar 12 Ler 13 Atualizar 14 Excluir 15 Listar" << endl;
+            cout << " CARTOES:   16 Criar 17 Ler 18 Atualizar 19 Excluir 20 Listar" << endl;
+            cout << " 21 Mover cartao" << endl;
+            cout << " 22 Tempo de ciclo   23 Tempo de ciclo medio" << endl;
+            cout << " 24 Lead time        25 Lead time medio       26 WIP" << endl;
+            cout << " 27 Logout    0 Sair" << endl;
+            cout << "Escolha uma opcao: ";
+        }
+
         if (!(cin >> option)) {
+            if (cin.eof()) break;
             cout << "[ERRO] Entrada invalida. Tente novamente." << endl;
             cin.clear();
             cin.ignore(10000, '\n');
+            option = -1;
             continue;
         }
 
         try {
-            switch (option) {
-                case 1: personController.handleCreatePerson(); break;
-                case 2: personController.handleReadPerson(); break;
-                case 3: personController.handleUpdatePerson(); break;
-                case 4: personController.handleDeletePerson(); break;
-                
-                case 5: projectController.handleCreateProject(); break;
-                case 6: projectController.handleReadProject(); break;
-                case 7: projectController.handleUpdateProject(); break;
-                case 8: projectController.handleDeleteProject(); break;
-                
-                case 9: boardController.handleCreateBoard(); break;
-                case 10: boardController.handleReadBoard(); break;
-                case 11: boardController.handleUpdateBoard(); break;
-                case 12: boardController.handleDeleteBoard(); break;
-                
-                case 13: taskController.handleCreateTask(); break;
-                case 14: taskController.handleReadTask(); break;
-                case 15: taskController.handleUpdateTask(); break;
-                case 16: taskController.handleDeleteTask(); break;
-                case 17: taskController.handleMoveTask(); break;
-                case 18: taskController.handleReadMetrics(); break;
-                
-                case 0:
-                    cout << "Encerrando o Sistema Kanban. Ate logo!" << endl;
-                    break;
-                default:
-                    cout << "[AVISO] Opcao desconhecida. Tente novamente." << endl;
+            if (!session.isLoggedIn()) {
+                switch (option) {
+                    case 1: personController.handleCreatePerson(); break;
+                    case 2: authController.handleLogin(); break;
+                    case 0: cout << "Encerrando o sistema. Ate logo!" << endl; break;
+                    default: cout << "[AVISO] Opcao desconhecida." << endl;
+                }
+            } else {
+                switch (option) {
+                    case 1:  personController.handleCreatePerson(); break;
+                    case 2:  personController.handleReadPerson(); break;
+                    case 3:  personController.handleUpdatePerson(); break;
+                    case 4:  personController.handleDeletePerson(); break;
+                    case 5:  personController.handleListPersons(); break;
+
+                    case 6:  projectController.handleCreateProject(); break;
+                    case 7:  projectController.handleReadProject(); break;
+                    case 8:  projectController.handleUpdateProject(); break;
+                    case 9:  projectController.handleDeleteProject(); break;
+                    case 10: projectController.handleListProjects(); break;
+
+                    case 11: boardController.handleCreateBoard(); break;
+                    case 12: boardController.handleReadBoard(); break;
+                    case 13: boardController.handleUpdateBoard(); break;
+                    case 14: boardController.handleDeleteBoard(); break;
+                    case 15: boardController.handleListBoards(); break;
+
+                    case 16: taskController.handleCreateTask(); break;
+                    case 17: taskController.handleReadTask(); break;
+                    case 18: taskController.handleUpdateTask(); break;
+                    case 19: taskController.handleDeleteTask(); break;
+                    case 20: taskController.handleListTasks(); break;
+                    case 21: taskController.handleMoveTask(); break;
+                    case 22: taskController.handleReadMetrics(1); break; // tempo de ciclo
+                    case 23: taskController.handleReadMetrics(2); break; // ciclo medio
+                    case 24: taskController.handleReadMetrics(3); break; // lead time
+                    case 25: taskController.handleReadMetrics(4); break; // lead time medio
+                    case 26: taskController.handleReadMetrics(5); break; // WIP
+
+                    case 27: authController.handleLogout(); break;
+                    case 0:  cout << "Encerrando o sistema. Ate logo!" << endl; break;
+                    default: cout << "[AVISO] Opcao desconhecida." << endl;
+                }
             }
         } catch (const std::exception& e) {
             cerr << "[ERRO CRITICO]: " << e.what() << endl;

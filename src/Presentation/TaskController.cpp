@@ -6,22 +6,30 @@
 #include "../../include/Domains/State.h"
 #include "../../include/Domains/Size.h"
 #include "../../include/Domains/Timestamp.h"
+#include "../../include/Domains/Email.h"
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
-TaskController::TaskController(ITaskService* service) {
-    this->taskService = service;
-}
+TaskController::TaskController(ITaskService* service, Session& session)
+    : taskService(service), session(session) {}
 
 void TaskController::handleCreateTask() {
-    std::string idStr, nameStr, descStr, prioStr, sizeStr, entryStr, boardIdStr,stateStr;
+    if (!session.isManager()) {
+        std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+        return;
+    }
+
+    std::string idStr, boardIdStr, devStr, nameStr, descStr, prioStr, sizeStr, entryStr;
 
     std::cout << "\n--- CADASTRAR CARTAO DE ATIVIDADE ---" << std::endl;
     std::cout << "Digite o identificador (6 caracteres, 3 letras e 3 digitos): ";
     std::cin >> idStr;
     std::cout << "Digite o identificador do quadro ao qual este cartao pertence: ";
     std::cin >> boardIdStr;
+    std::cout << "Digite o e-mail do desenvolvedor responsavel: ";
+    std::cin >> devStr;
     std::cout << "Digite o nome (ate 15 caracteres): ";
     std::cin.ignore();
     std::getline(std::cin, nameStr);
@@ -31,27 +39,26 @@ void TaskController::handleCreateTask() {
     std::cin >> prioStr;
     std::cout << "Digite o tamanho (GRANDE, MEDIO, PEQUENO): ";
     std::cin >> sizeStr;
-    std::cout << "Digite a data de entrada (DIA-MES-ANO-HORARIO): ";
+    std::cout << "Digite a data de entrada (DIA-MES-ANO-HORARIO, ex: 10-JAN-2026-08:00): ";
     std::cin >> entryStr;
 
-            // Todo cartao novo nasce em A FAZER -- nao e uma escolha do usuario.
-
-    stateStr = "A FAZER";
-
     try {
-        Identifier identifier; identifier.setValue(idStr);
-        Identifier boardId; boardId.setValue(boardIdStr);
-        Name name; name.setValue(nameStr);
-        Text description; description.setValue(descStr);
-        Priority priority; priority.setValue(prioStr);
-        Size size; size.setValue(sizeStr);
-        Timestamp entryDate; entryDate.setValue(entryStr);
-        State state; state.setValue(stateStr);
-        
+        Identifier identifier;  identifier.setValue(idStr);
+        Identifier boardId;     boardId.setValue(boardIdStr);
+        Email developer;        developer.setValue(devStr);
+        Name name;              name.setValue(nameStr);
+        Text description;       description.setValue(descStr);
+        Priority priority;      priority.setValue(prioStr);
+        Size size;              size.setValue(sizeStr);
+        Timestamp entryDate;    entryDate.setValue(entryStr);
+
+        // Todo cartao novo nasce em A FAZER -- nao e escolha do usuario.
+        State state;            state.setValue("A FAZER");
 
         Task task;
         task.setIdentifier(identifier);
         task.setBoardId(boardId);
+        task.setDeveloperEmail(developer);
         task.setName(name);
         task.setDescription(description);
         task.setPriority(priority);
@@ -83,15 +90,30 @@ void TaskController::handleReadTask() {
         std::cout << "[ENCONTRADO]" << std::endl;
         std::cout << "Identificador: " << task.getIdentifier().getValue() << std::endl;
         std::cout << "Nome: " << task.getName().getValue() << std::endl;
-        std::cout << "Descrição: " << task.getDescription().getValue() <<std::endl;
-        std::cout << "Estado atual: " << task.getState().getValue() << std::endl;
+        std::cout << "Descricao: " << task.getDescription().getValue() << std::endl;
         std::cout << "Prioridade: " << task.getPriority().getValue() << std::endl;
+        std::cout << "Estado atual: " << task.getState().getValue() << std::endl;
+        std::cout << "Tamanho: " << task.getSize().getValue() << std::endl;
+        std::cout << "Quadro: " << task.getBoardId().getValue() << std::endl;
+        std::cout << "Desenvolvedor: " << task.getDeveloperEmail().getValue() << std::endl;
+        std::cout << "Entrada: " << task.getEntryDate().getValue() << std::endl;
+
+        // Evita imprimir datas ainda vazias.
+        if (task.getState().getValue() != "A FAZER")
+            std::cout << "Inicio: " << task.getStartDate().getValue() << std::endl;
+        if (task.getState().getValue() == "FEITO")
+            std::cout << "Termino: " << task.getEndDate().getValue() << std::endl;
     } catch (const std::exception& e) {
         std::cout << "[ERRO]: " << e.what() << std::endl;
     }
 }
 
 void TaskController::handleUpdateTask() {
+    if (!session.isManager()) {
+        std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+        return;
+    }
+
     std::string idStr, nameStr, descStr, prioStr, sizeStr;
 
     std::cout << "\n--- ATUALIZAR CARTAO DE ATIVIDADE ---" << std::endl;
@@ -102,9 +124,8 @@ void TaskController::handleUpdateTask() {
         Identifier identifier;
         identifier.setValue(idStr);
 
-        // Parte do cartao JA EXISTENTE em vez de um Task vazio. Assim
-        // state, entryDate, startDate e endDate mantem o valor que ja
-        // tinham -- so os campos abaixo sao sobrescritos.
+        // Parte do cartao ja existente: estado, datas, quadro e desenvolvedor
+        // permanecem. Estado e datas so mudam via handleMoveTask.
         Task task = taskService->readTask(identifier);
 
         std::cout << "Digite o novo nome: ";
@@ -117,18 +138,15 @@ void TaskController::handleUpdateTask() {
         std::cout << "Digite o novo tamanho (GRANDE, MEDIO, PEQUENO): ";
         std::cin >> sizeStr;
 
-        Name name; name.setValue(nameStr);
-        Text description; description.setValue(descStr);
-        Priority priority; priority.setValue(prioStr);
-        Size size; size.setValue(sizeStr);
+        Name name;          name.setValue(nameStr);
+        Text description;   description.setValue(descStr);
+        Priority priority;  priority.setValue(prioStr);
+        Size size;          size.setValue(sizeStr);
 
         task.setName(name);
         task.setDescription(description);
         task.setPriority(priority);
         task.setSize(size);
-        // identifier, state, entryDate, startDate, endDate: sem alteracao.
-        // Estado e datas de transicao sao responsabilidade exclusiva do
-        // handleMoveTask, nunca de uma atualizacao generica de cadastro.
 
         if (taskService->updateTask(task)) {
             std::cout << "[SUCESSO] Cartao atualizado com sucesso!" << std::endl;
@@ -141,6 +159,11 @@ void TaskController::handleUpdateTask() {
 }
 
 void TaskController::handleDeleteTask() {
+    if (!session.isManager()) {
+        std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+        return;
+    }
+
     std::string idStr;
     std::cout << "\n--- EXCLUIR CARTAO DE ATIVIDADE ---" << std::endl;
     std::cout << "Digite o identificador do cartao que deseja excluir: ";
@@ -160,6 +183,16 @@ void TaskController::handleDeleteTask() {
     }
 }
 
+void TaskController::handleListTasks() {
+    std::cout << "\n--- LISTAR CARTOES ---" << std::endl;
+    std::vector<Identifier> ids = taskService->listTasks();
+    if (ids.empty()) {
+        std::cout << "Nenhum cartao cadastrado." << std::endl;
+        return;
+    }
+    for (const auto& id : ids) std::cout << id.getValue() << std::endl;
+}
+
 void TaskController::handleMoveTask() {
     std::string idStr, newStateStr, timeStr;
     std::cout << "\n--- MOVER CARTAO DE ATIVIDADE ---" << std::endl;
@@ -172,9 +205,9 @@ void TaskController::handleMoveTask() {
     std::cin >> timeStr;
 
     try {
-        Identifier identifier; identifier.setValue(idStr);
-        State newState; newState.setValue(newStateStr);
-        Timestamp moveTime; moveTime.setValue(timeStr);
+        Identifier identifier;  identifier.setValue(idStr);
+        State newState;         newState.setValue(newStateStr);
+        Timestamp moveTime;     moveTime.setValue(timeStr);
 
         if (taskService->moveTask(identifier, newState, moveTime)) {
             std::cout << "[SUCESSO] Cartao movimentado com sucesso!" << std::endl;
@@ -182,12 +215,13 @@ void TaskController::handleMoveTask() {
             std::cout << "[ERRO] Movimentacao invalida pelas regras do Kanban ou cartao nao encontrado." << std::endl;
         }
     } catch (const std::exception& e) {
+        // Inclui limite WIP atingido e datas incoerentes.
         std::cout << "[ERRO]: " << e.what() << std::endl;
     }
 }
 
 namespace {
-    // Formata minutos em algo legivel (dias/horas/minutos) so pra exibicao.
+    // Formata minutos em dias/horas/minutos so para exibicao.
     std::string formatMinutes(long long totalMinutes) {
         long long dias = totalMinutes / (24 * 60);
         long long horas = (totalMinutes % (24 * 60)) / 60;
@@ -196,32 +230,17 @@ namespace {
     }
 }
 
-void TaskController::handleReadMetrics() {
+void TaskController::handleReadMetrics(int metric) {
     std::cout << "\n--- METRICAS KANBAN ---" << std::endl;
-    std::cout << "1. Tempo de ciclo de um cartao" << std::endl;
-    std::cout << "2. Tempo de ciclo medio de um quadro" << std::endl;
-    std::cout << "3. Lead time de um cartao" << std::endl;
-    std::cout << "4. Lead time medio de um quadro" << std::endl;
-    std::cout << "5. WIP de um quadro" << std::endl;
-    std::cout << "Escolha: ";
-
-    int opcao;
-    if (!(std::cin >> opcao)) {
-        std::cin.clear();
-        std::cin.ignore(10000, '\n');
-        std::cout << "[ERRO] Opcao invalida." << std::endl;
-        return;
-    }
 
     try {
-        switch (opcao) {
+        switch (metric) {
             case 1: {
                 std::string idStr;
                 std::cout << "Identificador do cartao: ";
                 std::cin >> idStr;
                 Identifier id; id.setValue(idStr);
-                long long minutos = taskService->readCycleTime(id);
-                std::cout << "Tempo de ciclo: " << formatMinutes(minutos) << std::endl;
+                std::cout << "Tempo de ciclo: " << formatMinutes(taskService->readCycleTime(id)) << std::endl;
                 break;
             }
             case 2: {
@@ -229,8 +248,7 @@ void TaskController::handleReadMetrics() {
                 std::cout << "Identificador do quadro: ";
                 std::cin >> idStr;
                 Identifier id; id.setValue(idStr);
-                long long minutos = taskService->readAverageCycleTime(id);
-                std::cout << "Tempo de ciclo medio: " << formatMinutes(minutos) << std::endl;
+                std::cout << "Tempo de ciclo medio: " << formatMinutes(taskService->readAverageCycleTime(id)) << std::endl;
                 break;
             }
             case 3: {
@@ -238,8 +256,7 @@ void TaskController::handleReadMetrics() {
                 std::cout << "Identificador do cartao: ";
                 std::cin >> idStr;
                 Identifier id; id.setValue(idStr);
-                long long minutos = taskService->readLeadTime(id);
-                std::cout << "Lead time: " << formatMinutes(minutos) << std::endl;
+                std::cout << "Lead time: " << formatMinutes(taskService->readLeadTime(id)) << std::endl;
                 break;
             }
             case 4: {
@@ -247,8 +264,7 @@ void TaskController::handleReadMetrics() {
                 std::cout << "Identificador do quadro: ";
                 std::cin >> idStr;
                 Identifier id; id.setValue(idStr);
-                long long minutos = taskService->readAverageLeadTime(id);
-                std::cout << "Lead time medio: " << formatMinutes(minutos) << std::endl;
+                std::cout << "Lead time medio: " << formatMinutes(taskService->readAverageLeadTime(id)) << std::endl;
                 break;
             }
             case 5: {
@@ -256,12 +272,11 @@ void TaskController::handleReadMetrics() {
                 std::cout << "Identificador do quadro: ";
                 std::cin >> idStr;
                 Identifier id; id.setValue(idStr);
-                int wip = taskService->readWip(id);
-                std::cout << "WIP atual: " << wip << " cartao(oes) em FAZENDO." << std::endl;
+                std::cout << "WIP atual: " << taskService->readWip(id) << " cartao(oes) em FAZENDO." << std::endl;
                 break;
             }
             default:
-                std::cout << "[AVISO] Opcao invalida." << std::endl;
+                std::cout << "[AVISO] Metrica invalida." << std::endl;
         }
     } catch (const std::exception& e) {
         std::cout << "[ERRO]: " << e.what() << std::endl;

@@ -2,22 +2,27 @@
 #define PERSON_SERVICE_H
 
 #include "../Interfaces/IPersonService.h"
-#include <vector>
+#include "../Containers/PersonContainer.h"
+#include "../Containers/ProjectContainer.h"
+#include "../Containers/TaskContainer.h"
 
 /**
- * @brief Classe que implementa os serviços da entidade Person.
- * 
- * Responsável pela lógica de negócio e armazenamento em memória das pessoas.
+ * @brief Implementa os serviços da entidade Person usando contêineres compartilhados.
  */
 class PersonService : public IPersonService {
 private:
-    std::vector<Person> persons; // Armazenamento temporário em memória
+    PersonContainer& persons;
+    ProjectContainer& projects;
+    TaskContainer& tasks;
 
 public:
+    PersonService(PersonContainer& persons, ProjectContainer& projects, TaskContainer& tasks);
+
     bool createPerson(const Person& person) override;
     Person readPerson(const Email& email) override;
     bool updatePerson(const Person& person) override;
     bool deletePerson(const Email& email) override;
+    std::vector<Email> listPersons() override;
 };
 
 #endif

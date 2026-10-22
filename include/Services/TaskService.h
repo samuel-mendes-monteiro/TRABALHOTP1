@@ -2,22 +2,27 @@
 #define TASK_SERVICE_H
 
 #include "../Interfaces/ITaskService.h"
-#include <vector>
+#include "../Containers/TaskContainer.h"
+#include "../Containers/BoardContainer.h"
+#include "../Containers/PersonContainer.h"
 
 /**
- * @brief Classe que implementa os serviços da entidade Task (Cartão de Atividade).
- * 
- * Responsável pela lógica de negócio, movimentações e métricas (Cycle Time, Lead Time, WIP).
+ * @brief Implementa os serviços de Task: CRUD, movimentação (com limite WIP) e métricas.
  */
 class TaskService : public ITaskService {
 private:
-    std::vector<Task> tasks;
+    TaskContainer& tasks;
+    BoardContainer& boards;
+    PersonContainer& persons;
 
 public:
+    TaskService(TaskContainer& tasks, BoardContainer& boards, PersonContainer& persons);
+
     bool createTask(const Task& task) override;
     Task readTask(const Identifier& identifier) override;
     bool updateTask(const Task& task) override;
     bool deleteTask(const Identifier& identifier) override;
+    std::vector<Identifier> listTasks() override;
     bool moveTask(const Identifier& identifier, const State& newState, const Timestamp& moveTime) override;
 
     long long readCycleTime(const Identifier& taskId) override;

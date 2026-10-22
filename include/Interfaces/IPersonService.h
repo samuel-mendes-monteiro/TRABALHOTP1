@@ -1,6 +1,6 @@
 #ifndef IPERSON_SERVICE_H
 #define IPERSON_SERVICE_H
-
+#include <vector>
 #include "../Entities/Person.h"
 
 /**
@@ -16,6 +16,8 @@ public:
     virtual Person readPerson(const Email& email) = 0;
     virtual bool updatePerson(const Person& person) = 0;
     virtual bool deletePerson(const Email& email) = 0;
+    virtual std::vector<Email> listPersons() = 0;
+
 };
 
 #endif

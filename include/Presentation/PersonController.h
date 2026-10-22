@@ -2,6 +2,8 @@
 #define PERSON_CONTROLLER_H
 
 #include "../Interfaces/IPersonService.h"
+#include "Session.h"
+
 
 /**
  * @brief Classe controladora da camada de apresentação para gerenciar interações de Person.
@@ -13,17 +15,21 @@ class PersonController {
 private:
     IPersonService* personService;
 
+    Session& session;
+
 public:
     /**
      * @brief Construtor que recebe a referência para a interface de serviço de pessoas.
      * @param service Ponteiro para uma implementação de IPersonService.
      */
-    PersonController(IPersonService* service);
+    PersonController(IPersonService* service, Session& session);
 
     /**
      * @brief Executa o fluxo de interação para criar uma nova pessoa.
      */
     void handleCreatePerson();
+
+    void handleListPersons();
 
     /**
      * @brief Executa o fluxo de interação para ler/consultar os dados de uma pessoa.
