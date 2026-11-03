@@ -18,11 +18,11 @@ fazer:
     CARTAO DE ATIVIDADE MTS ERROS, impossivel listar todos
     
 
-    cartao de atividade naoa tualiza estado MOVER CARTAO. erro mais grave
+    cartao de atividade naoa tualiza estado MOVER CARTAO. erro mais grave ?
 
     VERIFICAR SE CARTAO CABE NO QUADRO NA HORA D ADICIONAR
 
-    Toda a parte de vericar usuario
+    Toda a parte de vericar usuario     OK
 
     
     INFINITAS COISAS
