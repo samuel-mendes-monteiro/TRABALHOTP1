@@ -1,23 +1,17 @@
 #include "../../include/Domains/State.h"
-#include <string.h>
+#include <stdexcept>
 
-
-
-void State::validate(std::string value){
-
-    if(value != "A FAZER" && value != "FEITO" && value != "FAZENDO"){
-        throw std::invalid_argument("Invalid state. Must be 'A FAZER', 'FAZENDO', or 'FEITO'.");
+void State::validate(std::string value) {
+    if (value != "A FAZER" && value != "FAZENDO" && value != "FEITO") {
+        throw std::invalid_argument("Estado invalido. Deve ser A FAZER, FAZENDO ou FEITO.");
     }
-
 }
 
-void State::setValue(std::string value){
-
+void State::setValue(std::string value) {
     validate(value);
     this->value = value;
-
 }
 
-std::string State::getValue()const{
+std::string State::getValue() const {
     return value;
 }

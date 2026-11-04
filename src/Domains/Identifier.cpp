@@ -2,23 +2,22 @@
 #include <cctype>
 
 void Identifier::validate(std::string value) {
-
-    // Verifica se a string tem 6 caracteres
+    // O identificador tem exatamente 6 caracteres.
     if (value.length() != 6) {
-        throw std::invalid_argument("Invalid length. Must be 6 characters.");
+        throw std::invalid_argument("Tamanho invalido. O identificador deve ter 6 caracteres.");
     }
 
-    // Verifica se os 3 primeiros caracteres são letras
+    // Os 3 primeiros caracteres sao letras.
     for (int i = 0; i < 3; ++i) {
-        if (!std::isalpha(value[i])) {
-            throw std::invalid_argument("Invalid format. First 3 characters must be letters.");
+        if (!std::isalpha(static_cast<unsigned char>(value[i]))) {
+            throw std::invalid_argument("Formato invalido. Os 3 primeiros caracteres devem ser letras.");
         }
     }
-    
-    // Verifica se os 3 últimos caracteres são dígitos
+
+    // Os 3 ultimos caracteres sao digitos.
     for (int i = 3; i < 6; ++i) {
-        if (!std::isdigit(value[i])) {
-            throw std::invalid_argument("Invalid format. Last 3 characters must be digits.");
+        if (!std::isdigit(static_cast<unsigned char>(value[i]))) {
+            throw std::invalid_argument("Formato invalido. Os 3 ultimos caracteres devem ser digitos.");
         }
     }
 }

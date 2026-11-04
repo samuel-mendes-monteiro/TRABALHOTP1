@@ -15,6 +15,17 @@ Person PersonService::readPerson(const Email& email) {
 }
 
 bool PersonService::updatePerson(const Person& person) {
+    Person existing;
+    if (!persons.find(person.getEmail(), existing)) return false;
+
+    // Trocar o papel de quem ja tem vinculos deixaria projetos/cartoes inconsistentes.
+    if (existing.getRole().getValue() != person.getRole().getValue()) {
+        if (!projects.getByManager(person.getEmail()).empty())
+            throw std::invalid_argument("Pessoa e gestora de projetos. Nao e possivel trocar o papel.");
+        if (!tasks.getByDeveloper(person.getEmail()).empty())
+            throw std::invalid_argument("Pessoa possui cartoes de atividade. Nao e possivel trocar o papel.");
+    }
+
     return persons.update(person);
 }
 

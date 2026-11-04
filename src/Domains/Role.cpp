@@ -3,7 +3,7 @@
 
 void Role::validate(std::string value) {
     if (value != "GESTOR" && value != "DESENVOLVEDOR") {
-        throw std::invalid_argument("Invalid role. Must be 'GESTOR' or 'DESENVOLVEDOR'.");
+        throw std::invalid_argument("Papel invalido. Deve ser GESTOR ou DESENVOLVEDOR.");
     }
 }
 

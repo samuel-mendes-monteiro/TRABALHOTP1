@@ -3,7 +3,7 @@
 
 void Priority::validate(std::string value) {
     if (value != "ALTA" && value != "MEDIA" && value != "BAIXA") {
-        throw std::invalid_argument("Invalid priority. Must be 'ALTA', 'MEDIA', or 'BAIXA'.");
+        throw std::invalid_argument("Prioridade invalida. Deve ser ALTA, MEDIA ou BAIXA.");
     }
 }
 

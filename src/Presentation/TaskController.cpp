@@ -31,7 +31,7 @@ void TaskController::handleCreateTask() {
     std::cout << "Digite o e-mail do desenvolvedor responsavel: ";
     std::cin >> devStr;
     std::cout << "Digite o nome (ate 15 caracteres): ";
-    std::cin.ignore();
+    std::cin.ignore(10000, '\n');
     std::getline(std::cin, nameStr);
     std::cout << "Digite a descricao (ate 30 caracteres, terminada em ponto): ";
     std::getline(std::cin, descStr);
@@ -129,7 +129,7 @@ void TaskController::handleUpdateTask() {
         Task task = taskService->readTask(identifier);
 
         std::cout << "Digite o novo nome: ";
-        std::cin.ignore();
+        std::cin.ignore(10000, '\n');
         std::getline(std::cin, nameStr);
         std::cout << "Digite a nova descricao: ";
         std::getline(std::cin, descStr);
@@ -199,7 +199,7 @@ void TaskController::handleMoveTask() {
     std::cout << "Digite o identificador do cartao: ";
     std::cin >> idStr;
     std::cout << "Digite o novo estado (FAZENDO ou FEITO): ";
-    std::cin.ignore();
+    std::cin.ignore(10000, '\n');
     std::getline(std::cin, newStateStr);
     std::cout << "Digite o horario da movimentacao (DIA-MES-ANO-HORARIO): ";
     std::cin >> timeStr;

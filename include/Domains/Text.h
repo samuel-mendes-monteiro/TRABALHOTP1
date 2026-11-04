@@ -6,7 +6,7 @@
 
 /**
  * @brief Classe que representa o domínio Texto.
- * 
+ *
  * Um texto possui até 30 caracteres, iniciando com letra maiúscula, terminando com ponto,
  * contendo letras, dígitos, espaços ou pontuações permitidas, sem pontuações consecutivas.
  */
@@ -14,7 +14,7 @@ class Text {
 private:
     std::string value;
     void validate(std::string value);
-    bool isPunctuation(char c);
+    bool isPunctuation(char c) const;
 
 public:
     /**

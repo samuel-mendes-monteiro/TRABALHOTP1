@@ -20,9 +20,9 @@ void BoardController::handleCreateBoard() {
     int limitInt = 0;
 
     if (!session.isManager()) {
-    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
-    return;
-}
+        std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+        return;
+    }
 
     std::cout << "Digite o identificador do projeto do quadro: ";
     std::cin >> projStr;
@@ -32,10 +32,10 @@ void BoardController::handleCreateBoard() {
     std::cout << "Digite o identificador (6 caracteres, 3 letras e 3 digitos): ";
     std::cin >> idStr;
     std::cout << "Digite o nome do quadro (ate 15 caracteres): ";
-    std::cin.ignore();
+    std::cin.ignore(10000, '\n');
     std::getline(std::cin, nameStr);
     std::cout << "Digite o limite WIP (1 a 25): ";
-    std::cin >> limitInt;
+    if (!(std::cin >> limitInt)) { std::cin.clear(); std::cin.ignore(10000, '\n'); limitInt = 0; }
 
     try {
         Identifier identifier; identifier.setValue(idStr);
@@ -86,18 +86,18 @@ void BoardController::handleUpdateBoard() {
     int limitInt;
 
     if (!session.isManager()) {
-    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
-    return;
-}
+        std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+        return;
+    }
 
     std::cout << "\n--- ATUALIZAR QUADRO ---" << std::endl;
     std::cout << "Digite o identificador do quadro a ser atualizado: ";
     std::cin >> idStr;
     std::cout << "Digite o novo nome: ";
-    std::cin.ignore();
+    std::cin.ignore(10000, '\n');
     std::getline(std::cin, nameStr);
     std::cout << "Digite o novo limite WIP (1 a 25): ";
-    std::cin >> limitInt;
+    if (!(std::cin >> limitInt)) { std::cin.clear(); std::cin.ignore(10000, '\n'); limitInt = 0; }
 
     try {
         Identifier identifier; identifier.setValue(idStr);
@@ -123,9 +123,9 @@ void BoardController::handleDeleteBoard() {
 
 
     if (!session.isManager()) {
-    std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
-    return;
-}
+        std::cout << "[ACESSO NEGADO] Servico restrito ao GESTOR." << std::endl;
+        return;
+    }
     std::string idStr;
     std::cout << "\n--- EXCLUIR QUADRO ---" << std::endl;
     std::cout << "Digite o identificador do quadro que deseja excluir: ";

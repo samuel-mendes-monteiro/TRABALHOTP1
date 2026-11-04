@@ -81,6 +81,8 @@ long long TaskService::readCycleTime(const Identifier& taskId) {
 }
 
 long long TaskService::readAverageCycleTime(const Identifier& boardId) {
+    if (!boards.exists(boardId)) throw std::invalid_argument("Quadro nao encontrado.");
+
     long long soma = 0;
     int quantidade = 0;
     for (const auto& t : tasks.getByBoard(boardId)) {
@@ -101,6 +103,8 @@ long long TaskService::readLeadTime(const Identifier& taskId) {
 }
 
 long long TaskService::readAverageLeadTime(const Identifier& boardId) {
+    if (!boards.exists(boardId)) throw std::invalid_argument("Quadro nao encontrado.");
+
     long long soma = 0;
     int quantidade = 0;
     for (const auto& t : tasks.getByBoard(boardId)) {
@@ -114,5 +118,6 @@ long long TaskService::readAverageLeadTime(const Identifier& boardId) {
 }
 
 int TaskService::readWip(const Identifier& boardId) {
+    if (!boards.exists(boardId)) throw std::invalid_argument("Quadro nao encontrado.");
     return tasks.countByBoardAndState(boardId, "FAZENDO");
 }

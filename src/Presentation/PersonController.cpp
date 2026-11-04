@@ -23,7 +23,7 @@ void PersonController::handleCreatePerson() {
     std::cout << "Digite o e-mail: ";
     std::cin >> emailStr;
     std::cout << "Digite o nome: ";
-    std::cin.ignore();
+    std::cin.ignore(10000, '\n');
     std::getline(std::cin, nameStr);
     std::cout << "Digite a senha: ";
     std::cin >> passStr;
@@ -87,7 +87,7 @@ void PersonController::handleUpdatePerson() {
     std::cout << "Digite o e-mail da pessoa a ser atualizada: ";
     std::cin >> emailStr;
     std::cout << "Digite o novo nome: ";
-    std::cin.ignore();
+    std::cin.ignore(10000, '\n');
     std::getline(std::cin, nameStr);
     std::cout << "Digite a nova senha: ";
     std::cin >> passStr;
@@ -133,9 +133,9 @@ void PersonController::handleDeletePerson() {
             std::cout << "[SUCESSO] Pessoa excluida com sucesso!" << std::endl;
 
             if (emailStr == session.getEmail().getValue()) {
-        session.logout();
-        std::cout << "Sua conta foi excluida. Sessao encerrada." << std::endl;
-}
+                session.logout();
+                std::cout << "Sua conta foi excluida. Sessao encerrada." << std::endl;
+            }
         } else {
             std::cout << "[ERRO] Pessoa nao encontrada." << std::endl;
         }

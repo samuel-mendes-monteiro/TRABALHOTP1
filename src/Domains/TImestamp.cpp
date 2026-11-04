@@ -1,11 +1,34 @@
 #include "../../include/Domains/Timestamp.h"
+#include <cctype>
 #include <stdexcept>
 
-bool Timestamp::isLeapYear(int year)const{
+namespace {
+    const char* const MONTHS[12] = {"JAN", "FEV", "MAR", "ABR", "MAI", "JUN",
+                                    "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"};
+
+    // Retorna 1 a 12 se a sigla for valida; 0 caso contrario.
+    int monthFromAbbreviation(const std::string& abbreviation) {
+        for (int i = 0; i < 12; ++i) {
+            if (abbreviation == MONTHS[i]) return i + 1;
+        }
+        return 0;
+    }
+
+    // true se o texto nao e vazio e todos os caracteres sao digitos.
+    bool allDigits(const std::string& text) {
+        if (text.empty()) return false;
+        for (size_t i = 0; i < text.length(); ++i) {
+            if (!std::isdigit(static_cast<unsigned char>(text[i]))) return false;
+        }
+        return true;
+    }
+}
+
+bool Timestamp::isLeapYear(int year) const {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
-int Timestamp::getDaysInMonth(int month, int year)const {
+int Timestamp::getDaysInMonth(int month, int year) const {
     switch (month) {
         case 1:  // JAN
         case 3:  // MAR
@@ -21,24 +44,24 @@ int Timestamp::getDaysInMonth(int month, int year)const {
         case 11: // NOV
             return 30;
         case 2:  // FEV
-            return isLeapYear(year) ? 29 : 28; //if isLeapYear == true return 29 else return 28
+            return isLeapYear(year) ? 29 : 28;
         default:
             return 0;
     }
 }
 
 void Timestamp::validate(std::string value) {
-    // Formato esperado: DD-MMM-AAAA-HH:MM (Ex: 25-FEV-2026-14:30 -> 17 caracteres)
+    // Formato esperado: DD-MMM-AAAA-HH:MM (ex.: 25-FEV-2026-14:30), 17 caracteres.
     if (value.length() != 17) {
-        throw std::invalid_argument("Tamanho invalido das datas.");
+        throw std::invalid_argument("Tamanho invalido. Use o formato DD-MMM-AAAA-HH:MM.");
     }
 
     if (value[2] != '-' || value[6] != '-' || value[11] != '-') {
-        throw std::invalid_argument("Separador de datas deve ser um hífen ( - ).");
+        throw std::invalid_argument("Separador da data invalido. Use hifen (-).");
     }
 
     if (value[14] != ':') {
-        throw std::invalid_argument("Separador de horas deve ser um dois pontos ( : ).");
+        throw std::invalid_argument("Separador do horario invalido. Use dois pontos (:).");
     }
 
     std::string sDay = value.substr(0, 2);
@@ -47,43 +70,36 @@ void Timestamp::validate(std::string value) {
     std::string sHour = value.substr(12, 2);
     std::string sMin = value.substr(15, 2);
 
-    int day, year, hour, minute;
-    try {
-        day = std::stoi(sDay);
-        year = std::stoi(sYear);
-        hour = std::stoi(sHour);
-        minute = std::stoi(sMin);
-    } catch (...) {
-        throw std::invalid_argument("Caracteres não numericos na marca de data.");
+    // Garante que so ha digitos antes de converter (stoi aceitaria sinais, espacos e lixo no fim).
+    if (!allDigits(sDay) || !allDigits(sYear) || !allDigits(sHour) || !allDigits(sMin)) {
+        throw std::invalid_argument("Dia, ano, hora e minuto devem conter apenas digitos.");
     }
 
-    // Validação do Ano (2000 a 2099)
+    int day = std::stoi(sDay);
+    int year = std::stoi(sYear);
+    int hour = std::stoi(sHour);
+    int minute = std::stoi(sMin);
+
+    // Ano: 2000 a 2099.
     if (year < 2000 || year > 2099) {
-        throw std::invalid_argument("Ano invalido. Necessariamente entre 2000 e 2099.");
+        throw std::invalid_argument("Ano invalido. Deve estar entre 2000 e 2099.");
     }
 
-    // Validação do Mês (JAN a DEZ)[cite: 1]
-    int monthNum = 0;
-    std::string months[12] = {"JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"};
-    for (int i = 0; i < 12; ++i) {
-        if (sMonth == months[i]) {
-            monthNum = i + 1;
-            break;
-        }
-    }
+    // Mes: JAN a DEZ.
+    int monthNum = monthFromAbbreviation(sMonth);
     if (monthNum == 0) {
-        throw std::invalid_argument("Invalid month abbreviation.");
+        throw std::invalid_argument("Sigla de mes invalida.");
     }
 
-    // Validação do Dia (1 a 31, considerando o mês e ano bissexto)[cite: 1]
+    // Dia: 1 a 31, conforme o mes e o ano (bissexto).
     int maxDays = getDaysInMonth(monthNum, year);
     if (day < 1 || day > maxDays) {
-        throw std::invalid_argument("Invalid day for the specified month/year.");
+        throw std::invalid_argument("Dia invalido para o mes e ano informados.");
     }
 
-    // Validação do Horário (00:00 a 23:59)[cite: 1]
-    if (hour < 0 || hour > 23 || minute < 0 || minute > 59) {
-        throw std::invalid_argument("Invalid time value. Hours 00-23 and minutes 00-59.");
+    // Horario: 00:00 a 23:59.
+    if (hour > 23 || minute > 59) {
+        throw std::invalid_argument("Horario invalido. Horas de 00 a 23 e minutos de 00 a 59.");
     }
 }
 
@@ -96,51 +112,32 @@ std::string Timestamp::getValue() const {
     return value;
 }
 
-
-
-
 long long Timestamp::toMinutes() const {
-    // value ja foi validado em setValue, entao o parse aqui e seguro.
-    std::string sDay = value.substr(0, 2);
-    std::string sMonth = value.substr(3, 3);
-    std::string sYear = value.substr(7, 4);
-    std::string sHour = value.substr(12, 2);
-    std::string sMin = value.substr(15, 2);
- 
-    int day = std::stoi(sDay);
-    int year = std::stoi(sYear);
-    int hour = std::stoi(sHour);
-    int minute = std::stoi(sMin);
- 
-    std::string months[12] = {"JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"};
-    int monthNum = 0;
-    for (int i = 0; i < 12; ++i) {
-        if (sMonth == months[i]) {
-            monthNum = i + 1;
-            break;
-        }
+    if (value.length() != 17) {
+        throw std::logic_error("Timestamp nao definido.");
     }
- 
-    long long totalDays = 0;
- 
-    // dias acumulados dos anos completos desde 2000 ate year - 1
-    for (int y = 2000; y < year; ++y) {
 
-        if (isLeapYear(y))
-        {
-            totalDays+=366;
-        }else{ totalDays += 365;}
-        
-        
+    // value ja foi validado em setValue, entao o parse aqui e seguro.
+    int day = std::stoi(value.substr(0, 2));
+    int monthNum = monthFromAbbreviation(value.substr(3, 3));
+    int year = std::stoi(value.substr(7, 4));
+    int hour = std::stoi(value.substr(12, 2));
+    int minute = std::stoi(value.substr(15, 2));
+
+    long long totalDays = 0;
+
+    // Dias dos anos completos de 2000 ate year - 1.
+    for (int y = 2000; y < year; ++y) {
+        totalDays += isLeapYear(y) ? 366 : 365;
     }
- 
-    // dias acumulados dos meses completos do ano atual
+
+    // Dias dos meses completos do ano atual.
     for (int m = 1; m < monthNum; ++m) {
         totalDays += getDaysInMonth(m, year);
     }
- 
-    // dias completos do mes atual (day - 1, porque o dia atual ainda nao fechou)
+
+    // Dias completos do mes atual (day - 1, porque o dia atual ainda nao fechou).
     totalDays += (day - 1);
- 
+
     return totalDays * 24 * 60 + hour * 60 + minute;
 }

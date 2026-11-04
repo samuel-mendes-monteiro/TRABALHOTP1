@@ -3,7 +3,7 @@
 
 void Size::validate(std::string value) {
     if (value != "GRANDE" && value != "MEDIO" && value != "PEQUENO") {
-        throw std::invalid_argument("Invalid size. Must be 'GRANDE', 'MEDIO', or 'PEQUENO'.");
+        throw std::invalid_argument("Tamanho invalido. Deve ser GRANDE, MEDIO ou PEQUENO.");
     }
 }
 

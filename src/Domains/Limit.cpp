@@ -2,7 +2,7 @@
 
 void Limit::validate(int value) {
     if (value < 1 || value > 25) {
-        throw std::invalid_argument("Invalid limit. Must be an integer between 1 and 25.");
+        throw std::invalid_argument("Limite invalido. Deve ser um inteiro entre 1 e 25.");
     }
 }
 
