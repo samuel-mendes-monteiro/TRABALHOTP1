@@ -4,31 +4,34 @@
 #include "../Interfaces/IBoardService.h"
 #include "Session.h"
 
-
 /**
  * @brief Classe controladora da camada de apresentação para gerenciar interações de Board (Quadro).
- * 
- * Responsável por receber dados do usuário via terminal, validar as entradas
- * e acionar os serviços através da interface IBoardService.
+ *
+ * Responsável por receber dados do usuário via terminal, validar as entradas,
+ * verificar permissões pelo papel da sessão e acionar os serviços através da
+ * interface IBoardService.
  */
 class BoardController {
 private:
     IBoardService* boardService;
     Session& session;
 
-
 public:
     /**
-     * @brief Construtor que recebe a referência para a interface de serviço de quadros.
+     * @brief Construtor.
      * @param service Ponteiro para uma implementação de IBoardService.
+     * @param session Sessão do usuário autenticado.
      */
     BoardController(IBoardService* service, Session& session);
 
     /**
-     * @brief Executa o fluxo de interação para criar um novo quadro.
+     * @brief Executa o fluxo de interação para criar um novo quadro (restrito ao GESTOR).
      */
     void handleCreateBoard();
 
+    /**
+     * @brief Lista os identificadores de todos os quadros.
+     */
     void handleListBoards();
 
     /**
@@ -37,12 +40,12 @@ public:
     void handleReadBoard();
 
     /**
-     * @brief Executa o fluxo de interação para atualizar um quadro existente.
+     * @brief Executa o fluxo de interação para atualizar um quadro existente (restrito ao GESTOR).
      */
     void handleUpdateBoard();
 
     /**
-     * @brief Executa o fluxo de interação para excluir um quadro.
+     * @brief Executa o fluxo de interação para excluir um quadro (restrito ao GESTOR).
      */
     void handleDeleteBoard();
 };

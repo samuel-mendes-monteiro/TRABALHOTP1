@@ -18,13 +18,29 @@ private:
     TaskContainer& tasks;
 
 public:
+    /**
+     * @brief Construtor.
+     * @param projects Contêiner de projetos.
+     * @param persons Contêiner de pessoas (para validar o gestor).
+     * @param boards Contêiner de quadros (para a exclusão em cascata).
+     * @param tasks Contêiner de cartões (para a exclusão em cascata).
+     */
     ProjectService(ProjectContainer& projects, PersonContainer& persons,
                    BoardContainer& boards, TaskContainer& tasks);
 
+    /** @copydoc IProjectService::createProject */
     bool createProject(const Project& project) override;
+
+    /** @copydoc IProjectService::readProject */
     Project readProject(const Identifier& identifier) override;
+
+    /** @copydoc IProjectService::updateProject */
     bool updateProject(const Project& project) override;
+
+    /** @copydoc IProjectService::deleteProject */
     bool deleteProject(const Identifier& identifier) override;
+
+    /** @copydoc IProjectService::listProjects */
     std::vector<Identifier> listProjects() override;
 };
 

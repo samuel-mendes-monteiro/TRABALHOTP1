@@ -12,7 +12,13 @@ private:
     PersonContainer& persons;
 
 public:
+    /**
+     * @brief Construtor.
+     * @param persons Contêiner de pessoas consultado na autenticação.
+     */
     AuthenticationService(PersonContainer& persons);
+
+    /** @copydoc IAuthenticationService::authenticate */
     bool authenticate(const Email& email, const Password& password, Role& role) override;
 };
 

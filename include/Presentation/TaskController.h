@@ -23,11 +23,40 @@ public:
      */
     TaskController(ITaskService* service, Session& session);
 
+    /**
+     * @brief Executa o fluxo de interação para criar um cartão (restrito ao GESTOR).
+     *
+     * Todo cartão novo nasce na coluna A FAZER.
+     */
     void handleCreateTask();
+
+    /**
+     * @brief Executa o fluxo de interação para consultar os dados de um cartão.
+     */
     void handleReadTask();
+
+    /**
+     * @brief Executa o fluxo de interação para atualizar nome, descrição, prioridade
+     *        e tamanho de um cartão (restrito ao GESTOR).
+     *
+     * Estado e datas só mudam por handleMoveTask.
+     */
     void handleUpdateTask();
+
+    /**
+     * @brief Executa o fluxo de interação para excluir um cartão (restrito ao GESTOR).
+     */
     void handleDeleteTask();
+
+    /**
+     * @brief Lista os identificadores de todos os cartões.
+     */
     void handleListTasks();
+
+    /**
+     * @brief Executa o fluxo de interação para mover um cartão entre colunas
+     *        (A FAZER -> FAZENDO ou FAZENDO -> FEITO).
+     */
     void handleMoveTask();
 
     /**

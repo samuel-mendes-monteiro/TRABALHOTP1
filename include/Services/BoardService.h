@@ -16,12 +16,27 @@ private:
     TaskContainer& tasks;
 
 public:
+    /**
+     * @brief Construtor.
+     * @param boards Contêiner de quadros.
+     * @param projects Contêiner de projetos (para validar o projeto do quadro).
+     * @param tasks Contêiner de cartões (para o WIP e a exclusão em cascata).
+     */
     BoardService(BoardContainer& boards, ProjectContainer& projects, TaskContainer& tasks);
 
+    /** @copydoc IBoardService::createBoard */
     bool createBoard(const Board& board) override;
+
+    /** @copydoc IBoardService::readBoard */
     Board readBoard(const Identifier& identifier) override;
+
+    /** @copydoc IBoardService::updateBoard */
     bool updateBoard(const Board& board) override;
+
+    /** @copydoc IBoardService::deleteBoard */
     bool deleteBoard(const Identifier& identifier) override;
+
+    /** @copydoc IBoardService::listBoards */
     std::vector<Identifier> listBoards() override;
 };
 
