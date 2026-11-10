@@ -10,7 +10,7 @@ quadros e cartões de atividade, com limite WIP e métricas de tempo de ciclo e 
 |---|---|
 | Samuel Mendes Monteiro | 252030399 |
 | Rafael Cruxen Da Silva Lima | 252024319 |
-| Paulo Augusto Ferreira Rocha | _preencher_ |
+| Paulo Augusto Ferreira Rocha | 252003275 |
 | Daniel Arruda Silva | _preencher_ |
 
 ## Estrutura do projeto
