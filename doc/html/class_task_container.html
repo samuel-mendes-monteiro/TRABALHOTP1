@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Referência da Classe TaskContainer</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_task_container.html','','class_task_container-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe TaskContainer</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contêiner que armazena objetos <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a> em memória, indexados por identificador.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_task_container_8h_source.html">TaskContainer.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:ab8ba02696d2a6a8fc290821b4ed012c4" id="r_ab8ba02696d2a6a8fc290821b4ed012c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab8ba02696d2a6a8fc290821b4ed012c4">insert</a> (const <a class="el" href="class_task.html">Task</a> &amp;task)</td></tr>
+<tr class="memdesc:ab8ba02696d2a6a8fc290821b4ed012c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um cartão.  <br /></td></tr>
+<tr class="memitem:a899ed216614464f3165b7a7602d02bb5" id="r_a899ed216614464f3165b7a7602d02bb5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a899ed216614464f3165b7a7602d02bb5">find</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;id, <a class="el" href="class_task.html">Task</a> &amp;out) const</td></tr>
+<tr class="memdesc:a899ed216614464f3165b7a7602d02bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca um cartão pelo identificador.  <br /></td></tr>
+<tr class="memitem:a794f435b603b91c356c0c59f958c07a3" id="r_a794f435b603b91c356c0c59f958c07a3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a794f435b603b91c356c0c59f958c07a3">exists</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;id) const</td></tr>
+<tr class="memdesc:a794f435b603b91c356c0c59f958c07a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se existe um cartão com o identificador informado.  <br /></td></tr>
+<tr class="memitem:a14a30e34e1643f2046c78cfe0f59689a" id="r_a14a30e34e1643f2046c78cfe0f59689a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a14a30e34e1643f2046c78cfe0f59689a">update</a> (const <a class="el" href="class_task.html">Task</a> &amp;task)</td></tr>
+<tr class="memdesc:a14a30e34e1643f2046c78cfe0f59689a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Substitui os dados de um cartão existente.  <br /></td></tr>
+<tr class="memitem:a2d19d8065882456bfbfc7bd723878a1a" id="r_a2d19d8065882456bfbfc7bd723878a1a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2d19d8065882456bfbfc7bd723878a1a">remove</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;id)</td></tr>
+<tr class="memdesc:a2d19d8065882456bfbfc7bd723878a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um cartão.  <br /></td></tr>
+<tr class="memitem:aadec32420788dedeef2a88f6dbd0154d" id="r_aadec32420788dedeef2a88f6dbd0154d"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_task.html">Task</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aadec32420788dedeef2a88f6dbd0154d">getAll</a> () const</td></tr>
+<tr class="memdesc:aadec32420788dedeef2a88f6dbd0154d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém todos os cartões armazenados.  <br /></td></tr>
+<tr class="memitem:a9dbbcdb157f3c92f8a94aea50f4cc7cb" id="r_a9dbbcdb157f3c92f8a94aea50f4cc7cb"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_task.html">Task</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9dbbcdb157f3c92f8a94aea50f4cc7cb">getByBoard</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;boardId) const</td></tr>
+<tr class="memdesc:a9dbbcdb157f3c92f8a94aea50f4cc7cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os cartões de um quadro.  <br /></td></tr>
+<tr class="memitem:a89c89ba0b4747b337aceaa31aaccf122" id="r_a89c89ba0b4747b337aceaa31aaccf122"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_task.html">Task</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a89c89ba0b4747b337aceaa31aaccf122">getByDeveloper</a> (const <a class="el" href="class_email.html">Email</a> &amp;email) const</td></tr>
+<tr class="memdesc:a89c89ba0b4747b337aceaa31aaccf122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém os cartões atribuídos a um desenvolvedor.  <br /></td></tr>
+<tr class="memitem:a34477b7cd847e4179a2ad49b1866e996" id="r_a34477b7cd847e4179a2ad49b1866e996"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a34477b7cd847e4179a2ad49b1866e996">countByBoardAndState</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;boardId, const std::string &amp;state) const</td></tr>
+<tr class="memdesc:a34477b7cd847e4179a2ad49b1866e996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conta os cartões de um quadro em determinado estado (base do WIP).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Contêiner que armazena objetos <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a> em memória, indexados por identificador. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a34477b7cd847e4179a2ad49b1866e996" name="a34477b7cd847e4179a2ad49b1866e996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34477b7cd847e4179a2ad49b1866e996">&#9670;&#160;</a></span>countByBoardAndState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TaskContainer::countByBoardAndState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boardId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conta os cartões de um quadro em determinado estado (base do WIP). </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boardId</td><td>Identificador do quadro. </td></tr>
+    <tr><td class="paramname">state</td><td>Estado a contar (A FAZER, FAZENDO ou FEITO). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Quantidade de cartões do quadro nesse estado. </dd></dl>
+
+</div>
+</div>
+<a id="a794f435b603b91c356c0c59f958c07a3" name="a794f435b603b91c356c0c59f958c07a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a794f435b603b91c356c0c59f958c07a3">&#9670;&#160;</a></span>exists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskContainer::exists </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica se existe um cartão com o identificador informado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Identificador do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se existe. </dd></dl>
+
+</div>
+</div>
+<a id="a899ed216614464f3165b7a7602d02bb5" name="a899ed216614464f3165b7a7602d02bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a899ed216614464f3165b7a7602d02bb5">&#9670;&#160;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskContainer::find </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_task.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>out</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Busca um cartão pelo identificador. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Identificador do cartão. </td></tr>
+    <tr><td class="paramname">out</td><td>Recebe uma cópia do cartão encontrado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se encontrou. </dd></dl>
+
+</div>
+</div>
+<a id="aadec32420788dedeef2a88f6dbd0154d" name="aadec32420788dedeef2a88f6dbd0154d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadec32420788dedeef2a88f6dbd0154d">&#9670;&#160;</a></span>getAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_task.html">Task</a> &gt; TaskContainer::getAll </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém todos os cartões armazenados. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Cópia dos cartões, ordenados por identificador. </dd></dl>
+
+</div>
+</div>
+<a id="a9dbbcdb157f3c92f8a94aea50f4cc7cb" name="a9dbbcdb157f3c92f8a94aea50f4cc7cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dbbcdb157f3c92f8a94aea50f4cc7cb">&#9670;&#160;</a></span>getByBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_task.html">Task</a> &gt; TaskContainer::getByBoard </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boardId</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém os cartões de um quadro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boardId</td><td>Identificador do quadro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Cópia dos cartões do quadro. </dd></dl>
+
+</div>
+</div>
+<a id="a89c89ba0b4747b337aceaa31aaccf122" name="a89c89ba0b4747b337aceaa31aaccf122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89c89ba0b4747b337aceaa31aaccf122">&#9670;&#160;</a></span>getByDeveloper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_task.html">Task</a> &gt; TaskContainer::getByDeveloper </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>email</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtém os cartões atribuídos a um desenvolvedor. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-mail do desenvolvedor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Cópia dos cartões do desenvolvedor. </dd></dl>
+
+</div>
+</div>
+<a id="ab8ba02696d2a6a8fc290821b4ed012c4" name="ab8ba02696d2a6a8fc290821b4ed012c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ba02696d2a6a8fc290821b4ed012c4">&#9670;&#160;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskContainer::insert </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_task.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insere um cartão. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>Cartão a ser inserido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>false se já existe cartão com o mesmo identificador. </dd></dl>
+
+</div>
+</div>
+<a id="a2d19d8065882456bfbfc7bd723878a1a" name="a2d19d8065882456bfbfc7bd723878a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d19d8065882456bfbfc7bd723878a1a">&#9670;&#160;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskContainer::remove </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove um cartão. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Identificador do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>false se o cartão não existe. </dd></dl>
+
+</div>
+</div>
+<a id="a14a30e34e1643f2046c78cfe0f59689a" name="a14a30e34e1643f2046c78cfe0f59689a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a30e34e1643f2046c78cfe0f59689a">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskContainer::update </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_task.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Substitui os dados de um cartão existente. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>Cartão com os novos dados (identificado pelo seu identificador). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>false se o cartão não existe. </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li>include/Containers/<a class="el" href="_task_container_8h_source.html">TaskContainer.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_task_container.html">TaskContainer</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

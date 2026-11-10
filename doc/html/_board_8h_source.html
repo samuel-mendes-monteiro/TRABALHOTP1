@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Código-Fonte de include/Entities/Board.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_board_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Board.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BOARD_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BOARD_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Domains/Identifier.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Domains/Name.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Domains/Limit.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_board.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_board.html">Board</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_identifier.html">Identifier</a> identifier;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_identifier.html">Identifier</a> projectId;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_name.html">Name</a> name;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_limit.html">Limit</a> limit;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_board.html#a73676a85da4edbd2a0fa28689d68b863">   26</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board.html#a73676a85da4edbd2a0fa28689d68b863">setIdentifier</a>(<a class="code hl_class" href="class_identifier.html">Identifier</a> identifier);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_board.html#ac27a5020e338281fbe51ef594c3b7433">   32</a></span>    <a class="code hl_class" href="class_identifier.html">Identifier</a> <a class="code hl_function" href="class_board.html#ac27a5020e338281fbe51ef594c3b7433">getIdentifier</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_board.html#a2d60d1e5393ed1c675ef037d6eb41f05">   38</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board.html#a2d60d1e5393ed1c675ef037d6eb41f05">setName</a>(<a class="code hl_class" href="class_name.html">Name</a> name);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_board.html#a1eb4b6b6c5f432288fb06d16c8dbd002">   44</a></span>    <a class="code hl_class" href="class_name.html">Name</a> <a class="code hl_function" href="class_board.html#a1eb4b6b6c5f432288fb06d16c8dbd002">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_board.html#a0fe8392b7ec4034c52cb5694da3d1674">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board.html#a0fe8392b7ec4034c52cb5694da3d1674">setLimit</a>(<a class="code hl_class" href="class_limit.html">Limit</a> limit);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_board.html#ac7700ff410c1333c250f2e0fbc24ceb0">   56</a></span>    <a class="code hl_class" href="class_limit.html">Limit</a> <a class="code hl_function" href="class_board.html#ac7700ff410c1333c250f2e0fbc24ceb0">getLimit</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_board.html#a9d9092fea734143da3cbd28ceb95d11c">   62</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board.html#a9d9092fea734143da3cbd28ceb95d11c">setProjectId</a>(<a class="code hl_class" href="class_identifier.html">Identifier</a> projectId);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_board.html#aa52e48c9a26854a1349635a0b266c717">   68</a></span>    <a class="code hl_class" href="class_identifier.html">Identifier</a> <a class="code hl_function" href="class_board.html#aa52e48c9a26854a1349635a0b266c717">getProjectId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>};</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdoc">Classe que representa a entidade Quadro.</div><div class="ttdef"><b>Definição</b> Board.h:14</div></div>
+<div class="ttc" id="aclass_board_html_a0fe8392b7ec4034c52cb5694da3d1674"><div class="ttname"><a href="class_board.html#a0fe8392b7ec4034c52cb5694da3d1674">Board::setLimit</a></div><div class="ttdeci">void setLimit(Limit limit)</div><div class="ttdoc">Define o limite WIP do quadro.</div></div>
+<div class="ttc" id="aclass_board_html_a1eb4b6b6c5f432288fb06d16c8dbd002"><div class="ttname"><a href="class_board.html#a1eb4b6b6c5f432288fb06d16c8dbd002">Board::getName</a></div><div class="ttdeci">Name getName() const</div><div class="ttdoc">Obtém o nome do quadro.</div></div>
+<div class="ttc" id="aclass_board_html_a2d60d1e5393ed1c675ef037d6eb41f05"><div class="ttname"><a href="class_board.html#a2d60d1e5393ed1c675ef037d6eb41f05">Board::setName</a></div><div class="ttdeci">void setName(Name name)</div><div class="ttdoc">Define o nome do quadro.</div></div>
+<div class="ttc" id="aclass_board_html_a73676a85da4edbd2a0fa28689d68b863"><div class="ttname"><a href="class_board.html#a73676a85da4edbd2a0fa28689d68b863">Board::setIdentifier</a></div><div class="ttdeci">void setIdentifier(Identifier identifier)</div><div class="ttdoc">Define o identificador do quadro.</div></div>
+<div class="ttc" id="aclass_board_html_a9d9092fea734143da3cbd28ceb95d11c"><div class="ttname"><a href="class_board.html#a9d9092fea734143da3cbd28ceb95d11c">Board::setProjectId</a></div><div class="ttdeci">void setProjectId(Identifier projectId)</div><div class="ttdoc">Define o identificador do projeto ao qual o quadro pertence.</div></div>
+<div class="ttc" id="aclass_board_html_aa52e48c9a26854a1349635a0b266c717"><div class="ttname"><a href="class_board.html#aa52e48c9a26854a1349635a0b266c717">Board::getProjectId</a></div><div class="ttdeci">Identifier getProjectId() const</div><div class="ttdoc">Obtém o identificador do projeto ao qual o quadro pertence.</div></div>
+<div class="ttc" id="aclass_board_html_ac27a5020e338281fbe51ef594c3b7433"><div class="ttname"><a href="class_board.html#ac27a5020e338281fbe51ef594c3b7433">Board::getIdentifier</a></div><div class="ttdeci">Identifier getIdentifier() const</div><div class="ttdoc">Obtém o identificador do quadro.</div></div>
+<div class="ttc" id="aclass_board_html_ac7700ff410c1333c250f2e0fbc24ceb0"><div class="ttname"><a href="class_board.html#ac7700ff410c1333c250f2e0fbc24ceb0">Board::getLimit</a></div><div class="ttdeci">Limit getLimit() const</div><div class="ttdoc">Obtém o limite WIP do quadro.</div></div>
+<div class="ttc" id="aclass_identifier_html"><div class="ttname"><a href="class_identifier.html">Identifier</a></div><div class="ttdoc">Classe que representa o domínio Identificador.</div><div class="ttdef"><b>Definição</b> Identifier.h:13</div></div>
+<div class="ttc" id="aclass_limit_html"><div class="ttname"><a href="class_limit.html">Limit</a></div><div class="ttdoc">Classe que representa o domínio Limit (Limite).</div><div class="ttdef"><b>Definição</b> Limit.h:12</div></div>
+<div class="ttc" id="aclass_name_html"><div class="ttname"><a href="class_name.html">Name</a></div><div class="ttdoc">Classe que representa o domínio Name (Nome).</div><div class="ttdef"><b>Definição</b> Name.h:14</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>Entities</b></li><li class="navelem"><b>Board.h</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

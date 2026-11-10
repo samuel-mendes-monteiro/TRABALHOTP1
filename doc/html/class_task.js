@@ -1,0 +1,25 @@
+var class_task =
+[
+    [ "getBoardId", "class_task.html#a04aaa6a6d2e7f1704569b3f773b01fd3", null ],
+    [ "getDescription", "class_task.html#a056c1d5ac6862d69cf5046003cf97eca", null ],
+    [ "getDeveloperEmail", "class_task.html#a73b3ac8ab446f835be0bd61c82a54b36", null ],
+    [ "getEndDate", "class_task.html#ab9a7a8349d525f58e84ce94d74816130", null ],
+    [ "getEntryDate", "class_task.html#a6681f7e30d8da5e89ee705c4c4f6cfde", null ],
+    [ "getIdentifier", "class_task.html#ae8d3763a7269a04be33c69630e34a5c9", null ],
+    [ "getName", "class_task.html#ae15d3a7b9eca4232319c1946260b9111", null ],
+    [ "getPriority", "class_task.html#afccd9d3e33b47f2ed43325a3453907f6", null ],
+    [ "getSize", "class_task.html#a77a4ed6f5ecee91b50955f536a96b5ba", null ],
+    [ "getStartDate", "class_task.html#aab885b4969864eead77a34d5dbd3b14b", null ],
+    [ "getState", "class_task.html#a62993dca8e11ada485c0f7f1a48663bb", null ],
+    [ "setBoardId", "class_task.html#ab0ee9bb3fd08e68850f7d01ce4dcfc77", null ],
+    [ "setDescription", "class_task.html#a9b5a9d92d8719542127f8ed1be36b8f4", null ],
+    [ "setDeveloperEmail", "class_task.html#aa20a1508a1eb62b036475f763cd5d652", null ],
+    [ "setEndDate", "class_task.html#a29eac7f7b1db19856a0027ea5abb8b85", null ],
+    [ "setEntryDate", "class_task.html#ac2f7d9f2ab579d5dc9659b949500c867", null ],
+    [ "setIdentifier", "class_task.html#a0ef911542268db80d52b16398b469709", null ],
+    [ "setName", "class_task.html#a3afa286995aef62a354e456eea6112f3", null ],
+    [ "setPriority", "class_task.html#ae7a47875b478833d9dae1b5117661ed4", null ],
+    [ "setSize", "class_task.html#a4d2474c6ca8b7942a188c3a510a115e2", null ],
+    [ "setStartDate", "class_task.html#ac1d9a9b0f43c4ef65b4abb2a1e94ef29", null ],
+    [ "setState", "class_task.html#ac8e38ef7487ce5a61e6b1db12aa1e8ee", null ]
+];

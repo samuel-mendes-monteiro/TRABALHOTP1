@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Código-Fonte de include/Services/TaskService.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_task_service_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TaskService.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TASK_SERVICE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TASK_SERVICE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Interfaces/ITaskService.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Containers/TaskContainer.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Containers/BoardContainer.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Containers/PersonContainer.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_task_service.html">   12</a></span><span class="keyword">class </span><a class="code hl_function" href="class_task_service.html#ab1126263f6b1b0d3bfb41cbd0c0b91ed">TaskService</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_task_service.html">ITaskService</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_task_container.html">TaskContainer</a>&amp; tasks;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_board_container.html">BoardContainer</a>&amp; boards;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_person_container.html">PersonContainer</a>&amp; persons;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_task_service.html#ab1126263f6b1b0d3bfb41cbd0c0b91ed">   25</a></span>    <a class="code hl_function" href="class_task_service.html#ab1126263f6b1b0d3bfb41cbd0c0b91ed">TaskService</a>(<a class="code hl_class" href="class_task_container.html">TaskContainer</a>&amp; tasks, <a class="code hl_class" href="class_board_container.html">BoardContainer</a>&amp; boards, <a class="code hl_class" href="class_person_container.html">PersonContainer</a>&amp; persons);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_task_service.html#a75a2d6a66c70788f330d2c32c9315f9e">   28</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_task_service.html#a75a2d6a66c70788f330d2c32c9315f9e">createTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_task.html">Task</a>&amp; task) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_task_service.html#a76ea41370e174d01dc7f0067e61684d6">   31</a></span>    <a class="code hl_class" href="class_task.html">Task</a> <a class="code hl_function" href="class_task_service.html#a76ea41370e174d01dc7f0067e61684d6">readTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; identifier) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_task_service.html#a5e12055de9e3374af5c15a0ba2d80d56">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_task_service.html#a5e12055de9e3374af5c15a0ba2d80d56">updateTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_task.html">Task</a>&amp; task) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="class_task_service.html#a0e834c6be56726ee36b9dfce22f06b0e">   37</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_task_service.html#a0e834c6be56726ee36b9dfce22f06b0e">deleteTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; identifier) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_task_service.html#a313608e902f8e0d842311ed03266099b">   40</a></span>    std::vector&lt;Identifier&gt; <a class="code hl_function" href="class_task_service.html#a313608e902f8e0d842311ed03266099b">listTasks</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_task_service.html#a8eb1f9f189edb04df877bafc085043c2">   43</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_task_service.html#a8eb1f9f189edb04df877bafc085043c2">moveTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; identifier, <span class="keyword">const</span> <a class="code hl_class" href="class_state.html">State</a>&amp; newState, <span class="keyword">const</span> <a class="code hl_class" href="class_timestamp.html">Timestamp</a>&amp; moveTime) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_task_service.html#adc13e9306bd646abebeb0f88be2aa407">   46</a></span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_function" href="class_task_service.html#adc13e9306bd646abebeb0f88be2aa407">readCycleTime</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; taskId) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_task_service.html#a4353082a954e869bc3077d20c34ac1f2">   49</a></span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_function" href="class_task_service.html#a4353082a954e869bc3077d20c34ac1f2">readAverageCycleTime</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; boardId) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_task_service.html#a371a4e0e3c53255061eb3eb9501a7d7a">   52</a></span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_function" href="class_task_service.html#a371a4e0e3c53255061eb3eb9501a7d7a">readLeadTime</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; taskId) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_task_service.html#a170fa4912eae4f932c008932d991c5ac">   55</a></span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code hl_function" href="class_task_service.html#a170fa4912eae4f932c008932d991c5ac">readAverageLeadTime</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; boardId) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_task_service.html#a0793c87e16f4b9066fbda13c62d8657d">   58</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_task_service.html#a0793c87e16f4b9066fbda13c62d8657d">readWip</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; boardId) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_board_container_html"><div class="ttname"><a href="class_board_container.html">BoardContainer</a></div><div class="ttdoc">Contêiner que armazena objetos Board em memória, indexados por identificador.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:12</div></div>
+<div class="ttc" id="aclass_i_task_service_html"><div class="ttname"><a href="class_i_task_service.html">ITaskService</a></div><div class="ttdoc">Interface abstrata que define os serviços relacionados à entidade Task (Cartão de Atividade).</div><div class="ttdef"><b>Definição</b> ITaskService.h:13</div></div>
+<div class="ttc" id="aclass_identifier_html"><div class="ttname"><a href="class_identifier.html">Identifier</a></div><div class="ttdoc">Classe que representa o domínio Identificador.</div><div class="ttdef"><b>Definição</b> Identifier.h:13</div></div>
+<div class="ttc" id="aclass_person_container_html"><div class="ttname"><a href="class_person_container.html">PersonContainer</a></div><div class="ttdoc">Contêiner que armazena objetos Person em memória, indexados por e-mail.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:12</div></div>
+<div class="ttc" id="aclass_state_html"><div class="ttname"><a href="class_state.html">State</a></div><div class="ttdoc">Classe que representa o domínio State (Estado).</div><div class="ttdef"><b>Definição</b> State.h:13</div></div>
+<div class="ttc" id="aclass_task_container_html"><div class="ttname"><a href="class_task_container.html">TaskContainer</a></div><div class="ttdoc">Contêiner que armazena objetos Task em memória, indexados por identificador.</div><div class="ttdef"><b>Definição</b> TaskContainer.h:12</div></div>
+<div class="ttc" id="aclass_task_html"><div class="ttname"><a href="class_task.html">Task</a></div><div class="ttdoc">Classe que representa a entidade Cartão de Atividade (Task).</div><div class="ttdef"><b>Definição</b> Task.h:20</div></div>
+<div class="ttc" id="aclass_task_service_html_a0793c87e16f4b9066fbda13c62d8657d"><div class="ttname"><a href="class_task_service.html#a0793c87e16f4b9066fbda13c62d8657d">TaskService::readWip</a></div><div class="ttdeci">int readWip(const Identifier &amp;boardId) override</div><div class="ttdoc">Serviço 26: WIP de um quadro — número de cartões atualmente em FAZENDO.</div></div>
+<div class="ttc" id="aclass_task_service_html_a0e834c6be56726ee36b9dfce22f06b0e"><div class="ttname"><a href="class_task_service.html#a0e834c6be56726ee36b9dfce22f06b0e">TaskService::deleteTask</a></div><div class="ttdeci">bool deleteTask(const Identifier &amp;identifier) override</div><div class="ttdoc">Serviço 19: exclui um cartão.</div></div>
+<div class="ttc" id="aclass_task_service_html_a170fa4912eae4f932c008932d991c5ac"><div class="ttname"><a href="class_task_service.html#a170fa4912eae4f932c008932d991c5ac">TaskService::readAverageLeadTime</a></div><div class="ttdeci">long long readAverageLeadTime(const Identifier &amp;boardId) override</div><div class="ttdoc">Serviço 25: média do lead time dos cartões concluídos de um quadro, em minutos.</div></div>
+<div class="ttc" id="aclass_task_service_html_a313608e902f8e0d842311ed03266099b"><div class="ttname"><a href="class_task_service.html#a313608e902f8e0d842311ed03266099b">TaskService::listTasks</a></div><div class="ttdeci">std::vector&lt; Identifier &gt; listTasks() override</div><div class="ttdoc">Serviço 20: lista os identificadores de todos os cartões.</div></div>
+<div class="ttc" id="aclass_task_service_html_a371a4e0e3c53255061eb3eb9501a7d7a"><div class="ttname"><a href="class_task_service.html#a371a4e0e3c53255061eb3eb9501a7d7a">TaskService::readLeadTime</a></div><div class="ttdeci">long long readLeadTime(const Identifier &amp;taskId) override</div><div class="ttdoc">Serviço 24: lead time de um cartão (A FAZER -&gt; FEITO), em minutos.</div></div>
+<div class="ttc" id="aclass_task_service_html_a4353082a954e869bc3077d20c34ac1f2"><div class="ttname"><a href="class_task_service.html#a4353082a954e869bc3077d20c34ac1f2">TaskService::readAverageCycleTime</a></div><div class="ttdeci">long long readAverageCycleTime(const Identifier &amp;boardId) override</div><div class="ttdoc">Serviço 23: média do tempo de ciclo dos cartões concluídos de um quadro, em minutos.</div></div>
+<div class="ttc" id="aclass_task_service_html_a5e12055de9e3374af5c15a0ba2d80d56"><div class="ttname"><a href="class_task_service.html#a5e12055de9e3374af5c15a0ba2d80d56">TaskService::updateTask</a></div><div class="ttdeci">bool updateTask(const Task &amp;task) override</div><div class="ttdoc">Serviço 18: atualiza os dados de um cartão.</div></div>
+<div class="ttc" id="aclass_task_service_html_a75a2d6a66c70788f330d2c32c9315f9e"><div class="ttname"><a href="class_task_service.html#a75a2d6a66c70788f330d2c32c9315f9e">TaskService::createTask</a></div><div class="ttdeci">bool createTask(const Task &amp;task) override</div><div class="ttdoc">Serviço 16: cria um cartão de atividade.</div></div>
+<div class="ttc" id="aclass_task_service_html_a76ea41370e174d01dc7f0067e61684d6"><div class="ttname"><a href="class_task_service.html#a76ea41370e174d01dc7f0067e61684d6">TaskService::readTask</a></div><div class="ttdeci">Task readTask(const Identifier &amp;identifier) override</div><div class="ttdoc">Serviço 17: lê os dados de um cartão.</div></div>
+<div class="ttc" id="aclass_task_service_html_a8eb1f9f189edb04df877bafc085043c2"><div class="ttname"><a href="class_task_service.html#a8eb1f9f189edb04df877bafc085043c2">TaskService::moveTask</a></div><div class="ttdeci">bool moveTask(const Identifier &amp;identifier, const State &amp;newState, const Timestamp &amp;moveTime) override</div><div class="ttdoc">Serviço 21: move um cartão entre colunas do quadro (A FAZER -&gt; FAZENDO ou FAZENDO -&gt; FEITO).</div></div>
+<div class="ttc" id="aclass_task_service_html_ab1126263f6b1b0d3bfb41cbd0c0b91ed"><div class="ttname"><a href="class_task_service.html#ab1126263f6b1b0d3bfb41cbd0c0b91ed">TaskService::TaskService</a></div><div class="ttdeci">TaskService(TaskContainer &amp;tasks, BoardContainer &amp;boards, PersonContainer &amp;persons)</div><div class="ttdoc">Construtor.</div></div>
+<div class="ttc" id="aclass_task_service_html_adc13e9306bd646abebeb0f88be2aa407"><div class="ttname"><a href="class_task_service.html#adc13e9306bd646abebeb0f88be2aa407">TaskService::readCycleTime</a></div><div class="ttdeci">long long readCycleTime(const Identifier &amp;taskId) override</div><div class="ttdoc">Serviço 22: tempo de ciclo de um cartão (FAZENDO -&gt; FEITO), em minutos.</div></div>
+<div class="ttc" id="aclass_timestamp_html"><div class="ttname"><a href="class_timestamp.html">Timestamp</a></div><div class="ttdoc">Classe que representa o domínio Timestamp.</div><div class="ttdef"><b>Definição</b> Timestamp.h:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>Services</b></li><li class="navelem"><b>TaskService.h</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

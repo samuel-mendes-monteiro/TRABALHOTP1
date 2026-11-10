@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Referência da Classe IPersonService</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_i_person_service.html','','class_i_person_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe IPersonService<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface abstrata que define os serviços relacionados à entidade <a class="el" href="class_person.html" title="Classe que representa a entidade Pessoa.">Person</a> (Pessoa).  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_i_person_service_8h_source.html">IPersonService.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe IPersonService:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_i_person_service.png" usemap="#IPersonService_map" alt=""/>
+  <map id="IPersonService_map" name="IPersonService_map">
+<area href="class_person_service.html" title="Implementa os serviços da entidade Person usando contêineres compartilhados." alt="PersonService" shape="rect" coords="0,56,99,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a29c089fcf425207c351b80b5b59a1ed3" id="r_a29c089fcf425207c351b80b5b59a1ed3"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a29c089fcf425207c351b80b5b59a1ed3">createPerson</a> (const <a class="el" href="class_person.html">Person</a> &amp;person)=0</td></tr>
+<tr class="memdesc:a29c089fcf425207c351b80b5b59a1ed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 1: cria uma pessoa.  <br /></td></tr>
+<tr class="memitem:af54f733b139be229b287e9d0a8e56201" id="r_af54f733b139be229b287e9d0a8e56201"><td class="memItemLeft">virtual <a class="el" href="class_person.html">Person</a>&#160;</td><td class="memItemRight"><a class="el" href="#af54f733b139be229b287e9d0a8e56201">readPerson</a> (const <a class="el" href="class_email.html">Email</a> &amp;email)=0</td></tr>
+<tr class="memdesc:af54f733b139be229b287e9d0a8e56201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 2: lê os dados de uma pessoa.  <br /></td></tr>
+<tr class="memitem:a45b8e42beb85c1f598f139250516407f" id="r_a45b8e42beb85c1f598f139250516407f"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a45b8e42beb85c1f598f139250516407f">updatePerson</a> (const <a class="el" href="class_person.html">Person</a> &amp;person)=0</td></tr>
+<tr class="memdesc:a45b8e42beb85c1f598f139250516407f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 3: atualiza nome, senha e papel de uma pessoa.  <br /></td></tr>
+<tr class="memitem:a43dfe15c3c72ae3afa80aaa87ddf2a11" id="r_a43dfe15c3c72ae3afa80aaa87ddf2a11"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a43dfe15c3c72ae3afa80aaa87ddf2a11">deletePerson</a> (const <a class="el" href="class_email.html">Email</a> &amp;email)=0</td></tr>
+<tr class="memdesc:a43dfe15c3c72ae3afa80aaa87ddf2a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 4: exclui uma pessoa.  <br /></td></tr>
+<tr class="memitem:a1023b9826a5342d6874090d0738e5114" id="r_a1023b9826a5342d6874090d0738e5114"><td class="memItemLeft">virtual std::vector&lt; <a class="el" href="class_email.html">Email</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1023b9826a5342d6874090d0738e5114">listPersons</a> ()=0</td></tr>
+<tr class="memdesc:a1023b9826a5342d6874090d0738e5114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 5: lista os e-mails de todas as pessoas.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Interface abstrata que define os serviços relacionados à entidade <a class="el" href="class_person.html" title="Classe que representa a entidade Pessoa.">Person</a> (Pessoa). </p>
+<p>Contém o contrato de métodos virtuais puros para gerenciar pessoas no sistema. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a29c089fcf425207c351b80b5b59a1ed3" name="a29c089fcf425207c351b80b5b59a1ed3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29c089fcf425207c351b80b5b59a1ed3">&#9670;&#160;</a></span>createPerson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IPersonService::createPerson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_person.html">Person</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>person</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 1: cria uma pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">person</td><td>Pessoa a ser criada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi criada, false se já existe pessoa com o mesmo e-mail. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_person_service.html#a4a1e8efc04f0f27f01d961cd553e726f">PersonService</a>.</p>
+
+</div>
+</div>
+<a id="a43dfe15c3c72ae3afa80aaa87ddf2a11" name="a43dfe15c3c72ae3afa80aaa87ddf2a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43dfe15c3c72ae3afa80aaa87ddf2a11">&#9670;&#160;</a></span>deletePerson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IPersonService::deletePerson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>email</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 4: exclui uma pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-mail da pessoa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi excluída, false se a pessoa não existe. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se a pessoa é gestora de projetos ou responsável por cartões. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementado por <a class="el" href="class_person_service.html#a58ea34000db7a14093501c21bf8d5842">PersonService</a>.</p>
+
+</div>
+</div>
+<a id="a1023b9826a5342d6874090d0738e5114" name="a1023b9826a5342d6874090d0738e5114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1023b9826a5342d6874090d0738e5114">&#9670;&#160;</a></span>listPersons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt; <a class="el" href="class_email.html">Email</a> &gt; IPersonService::listPersons </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 5: lista os e-mails de todas as pessoas. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Lista de e-mails. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_person_service.html#af02414cd29755c1a7ccc5d220c224b4f">PersonService</a>.</p>
+
+</div>
+</div>
+<a id="af54f733b139be229b287e9d0a8e56201" name="af54f733b139be229b287e9d0a8e56201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af54f733b139be229b287e9d0a8e56201">&#9670;&#160;</a></span>readPerson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_person.html">Person</a> IPersonService::readPerson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_email.html">Email</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>email</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 2: lê os dados de uma pessoa. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>E-mail da pessoa. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="class_person.html" title="Classe que representa a entidade Pessoa.">Person</a> A pessoa encontrada. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se a pessoa não existe. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementado por <a class="el" href="class_person_service.html#a38b86720a7e380d32cc839bc870fa04f">PersonService</a>.</p>
+
+</div>
+</div>
+<a id="a45b8e42beb85c1f598f139250516407f" name="a45b8e42beb85c1f598f139250516407f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45b8e42beb85c1f598f139250516407f">&#9670;&#160;</a></span>updatePerson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IPersonService::updatePerson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_person.html">Person</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>person</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 3: atualiza nome, senha e papel de uma pessoa. </p>
+<p>O e-mail (chave primária) não é alterado.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">person</td><td>Pessoa com os novos dados, identificada pelo seu e-mail. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi atualizada, false se a pessoa não existe. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o papel mudou e a pessoa ainda é gestora de projetos ou responsável por cartões. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementado por <a class="el" href="class_person_service.html#a9bdc0cce1916a35054885c94661e1514">PersonService</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li>include/Interfaces/<a class="el" href="_i_person_service_8h_source.html">IPersonService.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_i_person_service.html">IPersonService</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

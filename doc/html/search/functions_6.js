@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['getall_0',['getAll',['../class_board_container.html#a3d9c5fbd12faf292fb4aedddb3f3c25a',1,'BoardContainer::getAll()'],['../class_person_container.html#ad5ca157098baa7a5bf27ceb8841bf606',1,'PersonContainer::getAll()'],['../class_project_container.html#a99310e703d6d61e2ff2d1dc7523e133b',1,'ProjectContainer::getAll()'],['../class_task_container.html#aadec32420788dedeef2a88f6dbd0154d',1,'TaskContainer::getAll()']]],
+  ['getboardid_1',['getBoardId',['../class_task.html#a04aaa6a6d2e7f1704569b3f773b01fd3',1,'Task']]],
+  ['getbyboard_2',['getByBoard',['../class_task_container.html#a9dbbcdb157f3c92f8a94aea50f4cc7cb',1,'TaskContainer']]],
+  ['getbydeveloper_3',['getByDeveloper',['../class_task_container.html#a89c89ba0b4747b337aceaa31aaccf122',1,'TaskContainer']]],
+  ['getbymanager_4',['getByManager',['../class_project_container.html#a3d1a80bde95973fa800ae300e4937c8d',1,'ProjectContainer']]],
+  ['getbyproject_5',['getByProject',['../class_board_container.html#ada4e85256810322118970cdca4b2cc79',1,'BoardContainer']]],
+  ['getdescription_6',['getDescription',['../class_project.html#aea902fb4768e94bb5cabba5c4ceae3b3',1,'Project::getDescription()'],['../class_task.html#a056c1d5ac6862d69cf5046003cf97eca',1,'Task::getDescription() const']]],
+  ['getdeveloperemail_7',['getDeveloperEmail',['../class_task.html#a73b3ac8ab446f835be0bd61c82a54b36',1,'Task']]],
+  ['getemail_8',['getEmail',['../class_person.html#ab531eefe96d133ae50c19395815b4ca7',1,'Person::getEmail()'],['../class_session.html#a185ccc87dcce247bc09ce27322b65d27',1,'Session::getEmail()']]],
+  ['getend_9',['getEnd',['../class_project.html#abb7348303fbc49e306d30e69084e2032',1,'Project']]],
+  ['getenddate_10',['getEndDate',['../class_task.html#ab9a7a8349d525f58e84ce94d74816130',1,'Task']]],
+  ['getentrydate_11',['getEntryDate',['../class_task.html#a6681f7e30d8da5e89ee705c4c4f6cfde',1,'Task']]],
+  ['getidentifier_12',['getIdentifier',['../class_board.html#ac27a5020e338281fbe51ef594c3b7433',1,'Board::getIdentifier()'],['../class_project.html#a848c11bd601684ba507e87c6a6064665',1,'Project::getIdentifier()'],['../class_task.html#ae8d3763a7269a04be33c69630e34a5c9',1,'Task::getIdentifier()']]],
+  ['getlimit_13',['getLimit',['../class_board.html#ac7700ff410c1333c250f2e0fbc24ceb0',1,'Board']]],
+  ['getmanageremail_14',['getManagerEmail',['../class_project.html#a977450d6d3afb255f46bd82ff417bb63',1,'Project']]],
+  ['getname_15',['getName',['../class_board.html#a1eb4b6b6c5f432288fb06d16c8dbd002',1,'Board::getName()'],['../class_person.html#aba9c51600e819969ecee316b241e9363',1,'Person::getName()'],['../class_project.html#a5f84547688a280924862039513f50e9a',1,'Project::getName()'],['../class_task.html#ae15d3a7b9eca4232319c1946260b9111',1,'Task::getName()']]],
+  ['getpassword_16',['getPassword',['../class_person.html#aebeddebbaad2d6947c063a83a6ce230f',1,'Person']]],
+  ['getpriority_17',['getPriority',['../class_task.html#afccd9d3e33b47f2ed43325a3453907f6',1,'Task']]],
+  ['getprojectid_18',['getProjectId',['../class_board.html#aa52e48c9a26854a1349635a0b266c717',1,'Board']]],
+  ['getrole_19',['getRole',['../class_person.html#ab8dbeafb3d62f99b1001d0b5fb27d76f',1,'Person']]],
+  ['getsize_20',['getSize',['../class_task.html#a77a4ed6f5ecee91b50955f536a96b5ba',1,'Task']]],
+  ['getstart_21',['getStart',['../class_project.html#ac82938a75c44383b28b6ec69c57982c3',1,'Project']]],
+  ['getstartdate_22',['getStartDate',['../class_task.html#aab885b4969864eead77a34d5dbd3b14b',1,'Task']]],
+  ['getstate_23',['getState',['../class_task.html#a62993dca8e11ada485c0f7f1a48663bb',1,'Task']]],
+  ['getvalue_24',['getValue',['../class_email.html#a0e971ed3bfc69154e4e582752f924d8a',1,'Email::getValue()'],['../class_identifier.html#ae8609d31a5567b3d2a4c6b883c5f3a08',1,'Identifier::getValue()'],['../class_limit.html#a313e4896c87802a1bf06b038560d94d1',1,'Limit::getValue()'],['../class_name.html#a6ff6b329adc39373bf40968a81ba6491',1,'Name::getValue()'],['../class_password.html#a3c4a038774b68c5a00a26a98c1110edb',1,'Password::getValue()'],['../class_priority.html#a365f566be2638ee081998144602cff9d',1,'Priority::getValue()'],['../class_role.html#a1e29d4ccb61d3acb70bb94b92abe9bb9',1,'Role::getValue()'],['../class_size.html#a64722cf6527098ea0396577ac847947b',1,'Size::getValue()'],['../class_state.html#ac2deb601733bdeabe8aaf14daa615e38',1,'State::getValue()'],['../class_text.html#a464bcc25b2fef679d0c85bdcbf8e722d',1,'Text::getValue()'],['../class_timestamp.html#ae8bf19a0f2e07e6bf83ebf2f271587e1',1,'Timestamp::getValue()']]]
+];

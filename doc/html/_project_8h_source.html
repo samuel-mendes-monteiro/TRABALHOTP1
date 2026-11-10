@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Código-Fonte de include/Entities/Project.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_project_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Project.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PROJECT_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PROJECT_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Domains/Identifier.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Domains/Name.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Domains/Text.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Domains/Timestamp.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../Domains/Email.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_project.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="class_project.html">Project</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_identifier.html">Identifier</a> identifier;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="class_name.html">Name</a> name;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="class_text.html">Text</a> description;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_class" href="class_timestamp.html">Timestamp</a> start;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_timestamp.html">Timestamp</a> end;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_email.html">Email</a> managerEmail;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_project.html#ac06afbd5784661f9a2eca5683450e958">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_project.html#ac06afbd5784661f9a2eca5683450e958">setIdentifier</a>(<a class="code hl_class" href="class_identifier.html">Identifier</a> identifier);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_project.html#a848c11bd601684ba507e87c6a6064665">   36</a></span>    <a class="code hl_class" href="class_identifier.html">Identifier</a> <a class="code hl_function" href="class_project.html#a848c11bd601684ba507e87c6a6064665">getIdentifier</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_project.html#a54133de162c10fc4e853786f087e63dd">   42</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_project.html#a54133de162c10fc4e853786f087e63dd">setName</a>(<a class="code hl_class" href="class_name.html">Name</a> name);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_project.html#a5f84547688a280924862039513f50e9a">   48</a></span>    <a class="code hl_class" href="class_name.html">Name</a> <a class="code hl_function" href="class_project.html#a5f84547688a280924862039513f50e9a">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_project.html#a1f040db89b7c3acf346da84a404104da">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_project.html#a1f040db89b7c3acf346da84a404104da">setDescription</a>(<a class="code hl_class" href="class_text.html">Text</a> description);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_project.html#aea902fb4768e94bb5cabba5c4ceae3b3">   60</a></span>    <a class="code hl_class" href="class_text.html">Text</a> <a class="code hl_function" href="class_project.html#aea902fb4768e94bb5cabba5c4ceae3b3">getDescription</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_project.html#a66310937dc650acded04f7e74e151289">   66</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_project.html#a66310937dc650acded04f7e74e151289">setStart</a>(<a class="code hl_class" href="class_timestamp.html">Timestamp</a> start);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_project.html#ac82938a75c44383b28b6ec69c57982c3">   72</a></span>    <a class="code hl_class" href="class_timestamp.html">Timestamp</a> <a class="code hl_function" href="class_project.html#ac82938a75c44383b28b6ec69c57982c3">getStart</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="class_project.html#a252461eeb07b6153c6d3ad581cac6a01">   78</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_project.html#a252461eeb07b6153c6d3ad581cac6a01">setEnd</a>(<a class="code hl_class" href="class_timestamp.html">Timestamp</a> end);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_project.html#abb7348303fbc49e306d30e69084e2032">   84</a></span>    <a class="code hl_class" href="class_timestamp.html">Timestamp</a> <a class="code hl_function" href="class_project.html#abb7348303fbc49e306d30e69084e2032">getEnd</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="class_project.html#a994dbb14ed5e4e35631e4c1354b3be4b">   90</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_project.html#a994dbb14ed5e4e35631e4c1354b3be4b">setManagerEmail</a>(<a class="code hl_class" href="class_email.html">Email</a> managerEmail);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="class_project.html#a977450d6d3afb255f46bd82ff417bb63">   96</a></span>    <a class="code hl_class" href="class_email.html">Email</a> <a class="code hl_function" href="class_project.html#a977450d6d3afb255f46bd82ff417bb63">getManagerEmail</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_email_html"><div class="ttname"><a href="class_email.html">Email</a></div><div class="ttdoc">Classe que representa o domínio Email.</div><div class="ttdef"><b>Definição</b> Email.h:13</div></div>
+<div class="ttc" id="aclass_identifier_html"><div class="ttname"><a href="class_identifier.html">Identifier</a></div><div class="ttdoc">Classe que representa o domínio Identificador.</div><div class="ttdef"><b>Definição</b> Identifier.h:13</div></div>
+<div class="ttc" id="aclass_name_html"><div class="ttname"><a href="class_name.html">Name</a></div><div class="ttdoc">Classe que representa o domínio Name (Nome).</div><div class="ttdef"><b>Definição</b> Name.h:14</div></div>
+<div class="ttc" id="aclass_project_html"><div class="ttname"><a href="class_project.html">Project</a></div><div class="ttdoc">Classe que representa a entidade Projeto.</div><div class="ttdef"><b>Definição</b> Project.h:16</div></div>
+<div class="ttc" id="aclass_project_html_a1f040db89b7c3acf346da84a404104da"><div class="ttname"><a href="class_project.html#a1f040db89b7c3acf346da84a404104da">Project::setDescription</a></div><div class="ttdeci">void setDescription(Text description)</div><div class="ttdoc">Define a descrição do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_a252461eeb07b6153c6d3ad581cac6a01"><div class="ttname"><a href="class_project.html#a252461eeb07b6153c6d3ad581cac6a01">Project::setEnd</a></div><div class="ttdeci">void setEnd(Timestamp end)</div><div class="ttdoc">Define a data de término do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_a54133de162c10fc4e853786f087e63dd"><div class="ttname"><a href="class_project.html#a54133de162c10fc4e853786f087e63dd">Project::setName</a></div><div class="ttdeci">void setName(Name name)</div><div class="ttdoc">Define o nome do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_a5f84547688a280924862039513f50e9a"><div class="ttname"><a href="class_project.html#a5f84547688a280924862039513f50e9a">Project::getName</a></div><div class="ttdeci">Name getName() const</div><div class="ttdoc">Obtém o nome do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_a66310937dc650acded04f7e74e151289"><div class="ttname"><a href="class_project.html#a66310937dc650acded04f7e74e151289">Project::setStart</a></div><div class="ttdeci">void setStart(Timestamp start)</div><div class="ttdoc">Define a data de início do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_a848c11bd601684ba507e87c6a6064665"><div class="ttname"><a href="class_project.html#a848c11bd601684ba507e87c6a6064665">Project::getIdentifier</a></div><div class="ttdeci">Identifier getIdentifier() const</div><div class="ttdoc">Obtém o identificador do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_a977450d6d3afb255f46bd82ff417bb63"><div class="ttname"><a href="class_project.html#a977450d6d3afb255f46bd82ff417bb63">Project::getManagerEmail</a></div><div class="ttdeci">Email getManagerEmail() const</div><div class="ttdoc">Obtém o e-mail do gestor do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_a994dbb14ed5e4e35631e4c1354b3be4b"><div class="ttname"><a href="class_project.html#a994dbb14ed5e4e35631e4c1354b3be4b">Project::setManagerEmail</a></div><div class="ttdeci">void setManagerEmail(Email managerEmail)</div><div class="ttdoc">Define o e-mail do gestor do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_abb7348303fbc49e306d30e69084e2032"><div class="ttname"><a href="class_project.html#abb7348303fbc49e306d30e69084e2032">Project::getEnd</a></div><div class="ttdeci">Timestamp getEnd() const</div><div class="ttdoc">Obtém a data de término do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_ac06afbd5784661f9a2eca5683450e958"><div class="ttname"><a href="class_project.html#ac06afbd5784661f9a2eca5683450e958">Project::setIdentifier</a></div><div class="ttdeci">void setIdentifier(Identifier identifier)</div><div class="ttdoc">Define o identificador do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_ac82938a75c44383b28b6ec69c57982c3"><div class="ttname"><a href="class_project.html#ac82938a75c44383b28b6ec69c57982c3">Project::getStart</a></div><div class="ttdeci">Timestamp getStart() const</div><div class="ttdoc">Obtém a data de início do projeto.</div></div>
+<div class="ttc" id="aclass_project_html_aea902fb4768e94bb5cabba5c4ceae3b3"><div class="ttname"><a href="class_project.html#aea902fb4768e94bb5cabba5c4ceae3b3">Project::getDescription</a></div><div class="ttdeci">Text getDescription() const</div><div class="ttdoc">Obtém a descrição do projeto.</div></div>
+<div class="ttc" id="aclass_text_html"><div class="ttname"><a href="class_text.html">Text</a></div><div class="ttdoc">Classe que representa o domínio Texto.</div><div class="ttdef"><b>Definição</b> Text.h:13</div></div>
+<div class="ttc" id="aclass_timestamp_html"><div class="ttname"><a href="class_timestamp.html">Timestamp</a></div><div class="ttdoc">Classe que representa o domínio Timestamp.</div><div class="ttdef"><b>Definição</b> Timestamp.h:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>Entities</b></li><li class="navelem"><b>Project.h</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

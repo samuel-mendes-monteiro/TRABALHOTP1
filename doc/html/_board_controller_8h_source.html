@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Código-Fonte de include/Presentation/BoardController.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_board_controller_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BoardController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BOARD_CONTROLLER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BOARD_CONTROLLER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Interfaces/IBoardService.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Session.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_board_controller.html">   14</a></span><span class="keyword">class </span><a class="code hl_function" href="class_board_controller.html#aace3c9dba28a58e06a17630aab7ec067">BoardController</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_i_board_service.html">IBoardService</a>* boardService;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="class_session.html">Session</a>&amp; session;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_board_controller.html#aace3c9dba28a58e06a17630aab7ec067">   25</a></span>    <a class="code hl_function" href="class_board_controller.html#aace3c9dba28a58e06a17630aab7ec067">BoardController</a>(<a class="code hl_class" href="class_i_board_service.html">IBoardService</a>* service, <a class="code hl_class" href="class_session.html">Session</a>&amp; session);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_board_controller.html#a98eb390d39194c19be3f80ec77e44cde">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board_controller.html#a98eb390d39194c19be3f80ec77e44cde">handleCreateBoard</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_board_controller.html#ad70039518e687367e7ae597fb2d35211">   35</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board_controller.html#ad70039518e687367e7ae597fb2d35211">handleListBoards</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_board_controller.html#aa9b279bea376c46d36531f63c88dafec">   40</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board_controller.html#aa9b279bea376c46d36531f63c88dafec">handleReadBoard</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="class_board_controller.html#a28d84f0e8d838344c880491d320fb624">   45</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board_controller.html#a28d84f0e8d838344c880491d320fb624">handleUpdateBoard</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_board_controller.html#aacdcbd187685ea1fd4c38614366cc848">   50</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_board_controller.html#aacdcbd187685ea1fd4c38614366cc848">handleDeleteBoard</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_board_controller_html_a28d84f0e8d838344c880491d320fb624"><div class="ttname"><a href="class_board_controller.html#a28d84f0e8d838344c880491d320fb624">BoardController::handleUpdateBoard</a></div><div class="ttdeci">void handleUpdateBoard()</div><div class="ttdoc">Executa o fluxo de interação para atualizar um quadro existente (restrito ao GESTOR).</div></div>
+<div class="ttc" id="aclass_board_controller_html_a98eb390d39194c19be3f80ec77e44cde"><div class="ttname"><a href="class_board_controller.html#a98eb390d39194c19be3f80ec77e44cde">BoardController::handleCreateBoard</a></div><div class="ttdeci">void handleCreateBoard()</div><div class="ttdoc">Executa o fluxo de interação para criar um novo quadro (restrito ao GESTOR).</div></div>
+<div class="ttc" id="aclass_board_controller_html_aa9b279bea376c46d36531f63c88dafec"><div class="ttname"><a href="class_board_controller.html#aa9b279bea376c46d36531f63c88dafec">BoardController::handleReadBoard</a></div><div class="ttdeci">void handleReadBoard()</div><div class="ttdoc">Executa o fluxo de interação para consultar os dados de um quadro.</div></div>
+<div class="ttc" id="aclass_board_controller_html_aacdcbd187685ea1fd4c38614366cc848"><div class="ttname"><a href="class_board_controller.html#aacdcbd187685ea1fd4c38614366cc848">BoardController::handleDeleteBoard</a></div><div class="ttdeci">void handleDeleteBoard()</div><div class="ttdoc">Executa o fluxo de interação para excluir um quadro (restrito ao GESTOR).</div></div>
+<div class="ttc" id="aclass_board_controller_html_aace3c9dba28a58e06a17630aab7ec067"><div class="ttname"><a href="class_board_controller.html#aace3c9dba28a58e06a17630aab7ec067">BoardController::BoardController</a></div><div class="ttdeci">BoardController(IBoardService *service, Session &amp;session)</div><div class="ttdoc">Construtor.</div></div>
+<div class="ttc" id="aclass_board_controller_html_ad70039518e687367e7ae597fb2d35211"><div class="ttname"><a href="class_board_controller.html#ad70039518e687367e7ae597fb2d35211">BoardController::handleListBoards</a></div><div class="ttdeci">void handleListBoards()</div><div class="ttdoc">Lista os identificadores de todos os quadros.</div></div>
+<div class="ttc" id="aclass_i_board_service_html"><div class="ttname"><a href="class_i_board_service.html">IBoardService</a></div><div class="ttdoc">Interface abstrata que define os serviços relacionados à entidade Board (Quadro).</div><div class="ttdef"><b>Definição</b> IBoardService.h:12</div></div>
+<div class="ttc" id="aclass_session_html"><div class="ttname"><a href="class_session.html">Session</a></div><div class="ttdoc">Sessão do usuário autenticado: e-mail e papel.</div><div class="ttdef"><b>Definição</b> Session.h:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>Presentation</b></li><li class="navelem"><b>BoardController.h</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

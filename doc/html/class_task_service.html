@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Referência da Classe TaskService</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_task_service.html','','class_task_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe TaskService</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementa os serviços de <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a>: CRUD, movimentação (com limite WIP) e métricas.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_task_service_8h_source.html">TaskService.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe TaskService:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_task_service.png" usemap="#TaskService_map" alt=""/>
+  <map id="TaskService_map" name="TaskService_map">
+<area href="class_i_task_service.html" title="Interface abstrata que define os serviços relacionados à entidade Task (Cartão de Atividade)." alt="ITaskService" shape="rect" coords="0,0,85,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:ab1126263f6b1b0d3bfb41cbd0c0b91ed" id="r_ab1126263f6b1b0d3bfb41cbd0c0b91ed"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab1126263f6b1b0d3bfb41cbd0c0b91ed">TaskService</a> (<a class="el" href="class_task_container.html">TaskContainer</a> &amp;tasks, <a class="el" href="class_board_container.html">BoardContainer</a> &amp;boards, <a class="el" href="class_person_container.html">PersonContainer</a> &amp;persons)</td></tr>
+<tr class="memdesc:ab1126263f6b1b0d3bfb41cbd0c0b91ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <br /></td></tr>
+<tr class="memitem:a75a2d6a66c70788f330d2c32c9315f9e" id="r_a75a2d6a66c70788f330d2c32c9315f9e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a75a2d6a66c70788f330d2c32c9315f9e">createTask</a> (const <a class="el" href="class_task.html">Task</a> &amp;task) override</td></tr>
+<tr class="memdesc:a75a2d6a66c70788f330d2c32c9315f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 16: cria um cartão de atividade.     <br /></td></tr>
+<tr class="memitem:a76ea41370e174d01dc7f0067e61684d6" id="r_a76ea41370e174d01dc7f0067e61684d6"><td class="memItemLeft"><a class="el" href="class_task.html">Task</a>&#160;</td><td class="memItemRight"><a class="el" href="#a76ea41370e174d01dc7f0067e61684d6">readTask</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;identifier) override</td></tr>
+<tr class="memdesc:a76ea41370e174d01dc7f0067e61684d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 17: lê os dados de um cartão.     <br /></td></tr>
+<tr class="memitem:a5e12055de9e3374af5c15a0ba2d80d56" id="r_a5e12055de9e3374af5c15a0ba2d80d56"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5e12055de9e3374af5c15a0ba2d80d56">updateTask</a> (const <a class="el" href="class_task.html">Task</a> &amp;task) override</td></tr>
+<tr class="memdesc:a5e12055de9e3374af5c15a0ba2d80d56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 18: atualiza os dados de um cartão.     <br /></td></tr>
+<tr class="memitem:a0e834c6be56726ee36b9dfce22f06b0e" id="r_a0e834c6be56726ee36b9dfce22f06b0e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0e834c6be56726ee36b9dfce22f06b0e">deleteTask</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;identifier) override</td></tr>
+<tr class="memdesc:a0e834c6be56726ee36b9dfce22f06b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 19: exclui um cartão.     <br /></td></tr>
+<tr class="memitem:a313608e902f8e0d842311ed03266099b" id="r_a313608e902f8e0d842311ed03266099b"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_identifier.html">Identifier</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a313608e902f8e0d842311ed03266099b">listTasks</a> () override</td></tr>
+<tr class="memdesc:a313608e902f8e0d842311ed03266099b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 20: lista os identificadores de todos os cartões.     <br /></td></tr>
+<tr class="memitem:a8eb1f9f189edb04df877bafc085043c2" id="r_a8eb1f9f189edb04df877bafc085043c2"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8eb1f9f189edb04df877bafc085043c2">moveTask</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;identifier, const <a class="el" href="class_state.html">State</a> &amp;newState, const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;moveTime) override</td></tr>
+<tr class="memdesc:a8eb1f9f189edb04df877bafc085043c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 21: move um cartão entre colunas do quadro (A FAZER -&gt; FAZENDO ou FAZENDO -&gt; FEITO).     <br /></td></tr>
+<tr class="memitem:adc13e9306bd646abebeb0f88be2aa407" id="r_adc13e9306bd646abebeb0f88be2aa407"><td class="memItemLeft">long long&#160;</td><td class="memItemRight"><a class="el" href="#adc13e9306bd646abebeb0f88be2aa407">readCycleTime</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;taskId) override</td></tr>
+<tr class="memdesc:adc13e9306bd646abebeb0f88be2aa407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 22: tempo de ciclo de um cartão (FAZENDO -&gt; FEITO), em minutos.     <br /></td></tr>
+<tr class="memitem:a4353082a954e869bc3077d20c34ac1f2" id="r_a4353082a954e869bc3077d20c34ac1f2"><td class="memItemLeft">long long&#160;</td><td class="memItemRight"><a class="el" href="#a4353082a954e869bc3077d20c34ac1f2">readAverageCycleTime</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;boardId) override</td></tr>
+<tr class="memdesc:a4353082a954e869bc3077d20c34ac1f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 23: média do tempo de ciclo dos cartões concluídos de um quadro, em minutos.     <br /></td></tr>
+<tr class="memitem:a371a4e0e3c53255061eb3eb9501a7d7a" id="r_a371a4e0e3c53255061eb3eb9501a7d7a"><td class="memItemLeft">long long&#160;</td><td class="memItemRight"><a class="el" href="#a371a4e0e3c53255061eb3eb9501a7d7a">readLeadTime</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;taskId) override</td></tr>
+<tr class="memdesc:a371a4e0e3c53255061eb3eb9501a7d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 24: lead time de um cartão (A FAZER -&gt; FEITO), em minutos.     <br /></td></tr>
+<tr class="memitem:a170fa4912eae4f932c008932d991c5ac" id="r_a170fa4912eae4f932c008932d991c5ac"><td class="memItemLeft">long long&#160;</td><td class="memItemRight"><a class="el" href="#a170fa4912eae4f932c008932d991c5ac">readAverageLeadTime</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;boardId) override</td></tr>
+<tr class="memdesc:a170fa4912eae4f932c008932d991c5ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 25: média do lead time dos cartões concluídos de um quadro, em minutos.     <br /></td></tr>
+<tr class="memitem:a0793c87e16f4b9066fbda13c62d8657d" id="r_a0793c87e16f4b9066fbda13c62d8657d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a0793c87e16f4b9066fbda13c62d8657d">readWip</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;boardId) override</td></tr>
+<tr class="memdesc:a0793c87e16f4b9066fbda13c62d8657d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 26: WIP de um quadro — número de cartões atualmente em FAZENDO.     <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementa os serviços de <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a>: CRUD, movimentação (com limite WIP) e métricas. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="ab1126263f6b1b0d3bfb41cbd0c0b91ed" name="ab1126263f6b1b0d3bfb41cbd0c0b91ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1126263f6b1b0d3bfb41cbd0c0b91ed">&#9670;&#160;</a></span>TaskService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskService::TaskService </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_task_container.html">TaskContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tasks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_board_container.html">BoardContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boards</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_person_container.html">PersonContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>persons</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tasks</td><td>Contêiner de cartões. </td></tr>
+    <tr><td class="paramname">boards</td><td>Contêiner de quadros (para validar o quadro e o limite WIP). </td></tr>
+    <tr><td class="paramname">persons</td><td>Contêiner de pessoas (para validar o desenvolvedor). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a75a2d6a66c70788f330d2c32c9315f9e" name="a75a2d6a66c70788f330d2c32c9315f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a2d6a66c70788f330d2c32c9315f9e">&#9670;&#160;</a></span>createTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskService::createTask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_task.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 16: cria um cartão de atividade.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>Cartão a ser criado. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi criado, false se já existe cartão com o mesmo identificador. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o quadro não existe, se o desenvolvedor não existe ou se ele não tem o papel DESENVOLVEDOR.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a140aa2e27e0774b46675e6095c9b42dd">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a0e834c6be56726ee36b9dfce22f06b0e" name="a0e834c6be56726ee36b9dfce22f06b0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e834c6be56726ee36b9dfce22f06b0e">&#9670;&#160;</a></span>deleteTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskService::deleteTask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 19: exclui um cartão.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Identificador do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi excluído, false se o cartão não existe.    </dd></dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a33a6341db6384130724ef1ec06800c4a">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a313608e902f8e0d842311ed03266099b" name="a313608e902f8e0d842311ed03266099b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a313608e902f8e0d842311ed03266099b">&#9670;&#160;</a></span>listTasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_identifier.html">Identifier</a> &gt; TaskService::listTasks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 20: lista os identificadores de todos os cartões.    </p>
+<dl class="section return"><dt>Retorna</dt><dd>Lista de identificadores.    </dd></dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a0d9dec6fa9854adcc0741d058f3cd78f">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a8eb1f9f189edb04df877bafc085043c2" name="a8eb1f9f189edb04df877bafc085043c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb1f9f189edb04df877bafc085043c2">&#9670;&#160;</a></span>moveTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskService::moveTask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_state.html">State</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newState</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_timestamp.html">Timestamp</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>moveTime</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 21: move um cartão entre colunas do quadro (A FAZER -&gt; FAZENDO ou FAZENDO -&gt; FEITO).    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Identificador do cartão a ser movido. </td></tr>
+    <tr><td class="paramname">newState</td><td>Novo estado desejado. </td></tr>
+    <tr><td class="paramname">moveTime</td><td>Horário em que a movimentação ocorreu; gravado como startDate (entrada em FAZENDO) ou endDate (entrada em FEITO), conforme a transição. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a movimentação foi aplicada, false se a transição é inválida pelas regras do Kanban ou o cartão não existe. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o limite WIP do quadro foi atingido ou se moveTime é anterior à data anterior do cartão (entrada ou início).    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a65b155aba4fb8ca19f84d9c4b8822459">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a4353082a954e869bc3077d20c34ac1f2" name="a4353082a954e869bc3077d20c34ac1f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4353082a954e869bc3077d20c34ac1f2">&#9670;&#160;</a></span>readAverageCycleTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long TaskService::readAverageCycleTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boardId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 23: média do tempo de ciclo dos cartões concluídos de um quadro, em minutos.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boardId</td><td>Identificador do quadro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>long long Média do tempo de ciclo em minutos. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o quadro não existe ou não tem nenhum cartão concluído.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#afefa3a6a1f3119ccc8f341df5319c140">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a170fa4912eae4f932c008932d991c5ac" name="a170fa4912eae4f932c008932d991c5ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a170fa4912eae4f932c008932d991c5ac">&#9670;&#160;</a></span>readAverageLeadTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long TaskService::readAverageLeadTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boardId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 25: média do lead time dos cartões concluídos de um quadro, em minutos.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boardId</td><td>Identificador do quadro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>long long Média do lead time em minutos. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o quadro não existe ou não tem nenhum cartão concluído.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#ac930c100d021da71f87fac041bdda380">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="adc13e9306bd646abebeb0f88be2aa407" name="adc13e9306bd646abebeb0f88be2aa407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc13e9306bd646abebeb0f88be2aa407">&#9670;&#160;</a></span>readCycleTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long TaskService::readCycleTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>taskId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 22: tempo de ciclo de um cartão (FAZENDO -&gt; FEITO), em minutos.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taskId</td><td>Identificador do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>long long Tempo de ciclo em minutos. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o cartão não existe ou ainda não chegou em FEITO.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a46978bbca781db0a86d9a4d86ce611be">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a371a4e0e3c53255061eb3eb9501a7d7a" name="a371a4e0e3c53255061eb3eb9501a7d7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371a4e0e3c53255061eb3eb9501a7d7a">&#9670;&#160;</a></span>readLeadTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long TaskService::readLeadTime </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>taskId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 24: lead time de um cartão (A FAZER -&gt; FEITO), em minutos.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">taskId</td><td>Identificador do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>long long Lead time em minutos. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o cartão não existe ou ainda não chegou em FEITO.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a9e3aed6dae3522a813a99340af403462">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a76ea41370e174d01dc7f0067e61684d6" name="a76ea41370e174d01dc7f0067e61684d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ea41370e174d01dc7f0067e61684d6">&#9670;&#160;</a></span>readTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_task.html">Task</a> TaskService::readTask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 17: lê os dados de um cartão.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Identificador do cartão. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a> O cartão encontrado. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o cartão não existe.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a67a1323cade78be8c0040fbace4a430a">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a0793c87e16f4b9066fbda13c62d8657d" name="a0793c87e16f4b9066fbda13c62d8657d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0793c87e16f4b9066fbda13c62d8657d">&#9670;&#160;</a></span>readWip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TaskService::readWip </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boardId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 26: WIP de um quadro — número de cartões atualmente em FAZENDO.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boardId</td><td>Identificador do quadro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int Quantidade de cartões em FAZENDO. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o quadro não existe.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a01ea085b3a48842513f5d095f01dd8a9">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="a5e12055de9e3374af5c15a0ba2d80d56" name="a5e12055de9e3374af5c15a0ba2d80d56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e12055de9e3374af5c15a0ba2d80d56">&#9670;&#160;</a></span>updateTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TaskService::updateTask </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_task.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>task</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 18: atualiza os dados de um cartão.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>Cartão com os novos dados, identificado pelo seu identificador. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi atualizado, false se o cartão não existe.    </dd></dl>
+
+<p>Implementa <a class="el" href="class_i_task_service.html#a32a1cdeab3aba758729e85f77cbea7e9">ITaskService</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li>include/Services/<a class="el" href="_task_service_8h_source.html">TaskService.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_task_service.html">TaskService</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

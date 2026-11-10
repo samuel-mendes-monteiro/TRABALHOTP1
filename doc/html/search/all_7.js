@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['handlecreateboard_0',['handleCreateBoard',['../class_board_controller.html#a98eb390d39194c19be3f80ec77e44cde',1,'BoardController']]],
+  ['handlecreateperson_1',['handleCreatePerson',['../class_person_controller.html#a89647663d5507b7cbbe609813d215a84',1,'PersonController']]],
+  ['handlecreateproject_2',['handleCreateProject',['../class_project_controller.html#abb0ad10706787e41fca57773fc9e983e',1,'ProjectController']]],
+  ['handlecreatetask_3',['handleCreateTask',['../class_task_controller.html#aa99c5826839ea7c9efe31d9c11e10b17',1,'TaskController']]],
+  ['handledeleteboard_4',['handleDeleteBoard',['../class_board_controller.html#aacdcbd187685ea1fd4c38614366cc848',1,'BoardController']]],
+  ['handledeleteperson_5',['handleDeletePerson',['../class_person_controller.html#a0838d960241bba0b1f1c666652e77de7',1,'PersonController']]],
+  ['handledeleteproject_6',['handleDeleteProject',['../class_project_controller.html#a45bd0148375a79d9b34cf6e1bc16a08b',1,'ProjectController']]],
+  ['handledeletetask_7',['handleDeleteTask',['../class_task_controller.html#a0100b4083e55d3c48d72cf50a4538759',1,'TaskController']]],
+  ['handlelistboards_8',['handleListBoards',['../class_board_controller.html#ad70039518e687367e7ae597fb2d35211',1,'BoardController']]],
+  ['handlelistpersons_9',['handleListPersons',['../class_person_controller.html#abb66a551a3e3701ffc06ee2b2c4e6f00',1,'PersonController']]],
+  ['handlelistprojects_10',['handleListProjects',['../class_project_controller.html#ac8662ff852c0f0926a405dd68afc1c97',1,'ProjectController']]],
+  ['handlelisttasks_11',['handleListTasks',['../class_task_controller.html#a50a3fb3f1034af864b8d9900cf137f79',1,'TaskController']]],
+  ['handlelogin_12',['handleLogin',['../class_auth_controller.html#adfd2837661b783780cbb7edf818ef047',1,'AuthController']]],
+  ['handlelogout_13',['handleLogout',['../class_auth_controller.html#abf7f08bdc03e6936f6ec824e91645fe3',1,'AuthController']]],
+  ['handlemovetask_14',['handleMoveTask',['../class_task_controller.html#a59f751e87e8b05ad07eeb992526236fd',1,'TaskController']]],
+  ['handlereadboard_15',['handleReadBoard',['../class_board_controller.html#aa9b279bea376c46d36531f63c88dafec',1,'BoardController']]],
+  ['handlereadmetrics_16',['handleReadMetrics',['../class_task_controller.html#a4a29c6751dff9a39ecae1d872deed6ab',1,'TaskController']]],
+  ['handlereadperson_17',['handleReadPerson',['../class_person_controller.html#a1ca4b2360ef994005a180d9d68c262c2',1,'PersonController']]],
+  ['handlereadproject_18',['handleReadProject',['../class_project_controller.html#a12844658825f845dd92f03a522c37331',1,'ProjectController']]],
+  ['handlereadtask_19',['handleReadTask',['../class_task_controller.html#a6a0d615d7eb8676bb01b20aa30a9c93a',1,'TaskController']]],
+  ['handleupdateboard_20',['handleUpdateBoard',['../class_board_controller.html#a28d84f0e8d838344c880491d320fb624',1,'BoardController']]],
+  ['handleupdateperson_21',['handleUpdatePerson',['../class_person_controller.html#a84ca24c419049a22cc60f46d7187442e',1,'PersonController']]],
+  ['handleupdateproject_22',['handleUpdateProject',['../class_project_controller.html#a921e0752454d0b8908f046e7d58c3fb7',1,'ProjectController']]],
+  ['handleupdatetask_23',['handleUpdateTask',['../class_task_controller.html#a9d759de750c41b08f9c8fb4b906d50f6',1,'TaskController']]]
+];

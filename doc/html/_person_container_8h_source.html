@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Código-Fonte de include/Containers/PersonContainer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_person_container_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">PersonContainer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PERSON_CONTAINER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PERSON_CONTAINER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Entities/Person.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_person_container.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_person_container.html">PersonContainer</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::map&lt;std::string, Person&gt; items;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_person_container.html#a6524fffb97d1c40187b988dbdc29104d">   22</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_person_container.html#a6524fffb97d1c40187b988dbdc29104d">insert</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_person.html">Person</a>&amp; person) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> items.insert({person.<a class="code hl_function" href="class_person.html#ab531eefe96d133ae50c19395815b4ca7">getEmail</a>().<a class="code hl_function" href="class_email.html#a0e971ed3bfc69154e4e582752f924d8a">getValue</a>(), person}).second;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_person_container.html#a005be07de22c63a51b256ccdff7d218d">   32</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_person_container.html#a005be07de22c63a51b256ccdff7d218d">find</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; email, <a class="code hl_class" href="class_person.html">Person</a>&amp; out)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">auto</span> it = items.find(email.<a class="code hl_function" href="class_email.html#a0e971ed3bfc69154e4e582752f924d8a">getValue</a>());</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">if</span> (it == items.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        out = it-&gt;second;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_person_container.html#ab20294882afb43bb20107a4c5dd923cd">   44</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_person_container.html#ab20294882afb43bb20107a4c5dd923cd">exists</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; email)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> items.count(email.<a class="code hl_function" href="class_email.html#a0e971ed3bfc69154e4e582752f924d8a">getValue</a>()) &gt; 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_person_container.html#acd8e1dbdf2483e977c51f8be12563772">   53</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_person_container.html#acd8e1dbdf2483e977c51f8be12563772">update</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_person.html">Person</a>&amp; person) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">auto</span> it = items.find(person.<a class="code hl_function" href="class_person.html#ab531eefe96d133ae50c19395815b4ca7">getEmail</a>().<a class="code hl_function" href="class_email.html#a0e971ed3bfc69154e4e582752f924d8a">getValue</a>());</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (it == items.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        it-&gt;second = person;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_person_container.html#aa873f7f3ec0c1ce962617d4d28bdca4d">   65</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_person_container.html#aa873f7f3ec0c1ce962617d4d28bdca4d">remove</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_email.html">Email</a>&amp; email) {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">return</span> items.erase(email.<a class="code hl_function" href="class_email.html#a0e971ed3bfc69154e4e582752f924d8a">getValue</a>()) &gt; 0;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_person_container.html#ad5ca157098baa7a5bf27ceb8841bf606">   73</a></span>    std::vector&lt;Person&gt; <a class="code hl_function" href="class_person_container.html#ad5ca157098baa7a5bf27ceb8841bf606">getAll</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::vector&lt;Person&gt; result;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; pair : items) result.push_back(pair.second);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>};</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_email_html"><div class="ttname"><a href="class_email.html">Email</a></div><div class="ttdoc">Classe que representa o domínio Email.</div><div class="ttdef"><b>Definição</b> Email.h:13</div></div>
+<div class="ttc" id="aclass_email_html_a0e971ed3bfc69154e4e582752f924d8a"><div class="ttname"><a href="class_email.html#a0e971ed3bfc69154e4e582752f924d8a">Email::getValue</a></div><div class="ttdeci">std::string getValue() const</div><div class="ttdoc">Obtém o valor do email.</div></div>
+<div class="ttc" id="aclass_person_container_html"><div class="ttname"><a href="class_person_container.html">PersonContainer</a></div><div class="ttdoc">Contêiner que armazena objetos Person em memória, indexados por e-mail.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:12</div></div>
+<div class="ttc" id="aclass_person_container_html_a005be07de22c63a51b256ccdff7d218d"><div class="ttname"><a href="class_person_container.html#a005be07de22c63a51b256ccdff7d218d">PersonContainer::find</a></div><div class="ttdeci">bool find(const Email &amp;email, Person &amp;out) const</div><div class="ttdoc">Busca uma pessoa pelo e-mail.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:32</div></div>
+<div class="ttc" id="aclass_person_container_html_a6524fffb97d1c40187b988dbdc29104d"><div class="ttname"><a href="class_person_container.html#a6524fffb97d1c40187b988dbdc29104d">PersonContainer::insert</a></div><div class="ttdeci">bool insert(const Person &amp;person)</div><div class="ttdoc">Insere uma pessoa.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:22</div></div>
+<div class="ttc" id="aclass_person_container_html_aa873f7f3ec0c1ce962617d4d28bdca4d"><div class="ttname"><a href="class_person_container.html#aa873f7f3ec0c1ce962617d4d28bdca4d">PersonContainer::remove</a></div><div class="ttdeci">bool remove(const Email &amp;email)</div><div class="ttdoc">Remove uma pessoa.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:65</div></div>
+<div class="ttc" id="aclass_person_container_html_ab20294882afb43bb20107a4c5dd923cd"><div class="ttname"><a href="class_person_container.html#ab20294882afb43bb20107a4c5dd923cd">PersonContainer::exists</a></div><div class="ttdeci">bool exists(const Email &amp;email) const</div><div class="ttdoc">Verifica se existe uma pessoa com o e-mail informado.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:44</div></div>
+<div class="ttc" id="aclass_person_container_html_acd8e1dbdf2483e977c51f8be12563772"><div class="ttname"><a href="class_person_container.html#acd8e1dbdf2483e977c51f8be12563772">PersonContainer::update</a></div><div class="ttdeci">bool update(const Person &amp;person)</div><div class="ttdoc">Substitui os dados de uma pessoa existente.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:53</div></div>
+<div class="ttc" id="aclass_person_container_html_ad5ca157098baa7a5bf27ceb8841bf606"><div class="ttname"><a href="class_person_container.html#ad5ca157098baa7a5bf27ceb8841bf606">PersonContainer::getAll</a></div><div class="ttdeci">std::vector&lt; Person &gt; getAll() const</div><div class="ttdoc">Obtém todas as pessoas armazenadas.</div><div class="ttdef"><b>Definição</b> PersonContainer.h:73</div></div>
+<div class="ttc" id="aclass_person_html"><div class="ttname"><a href="class_person.html">Person</a></div><div class="ttdoc">Classe que representa a entidade Pessoa.</div><div class="ttdef"><b>Definição</b> Person.h:14</div></div>
+<div class="ttc" id="aclass_person_html_ab531eefe96d133ae50c19395815b4ca7"><div class="ttname"><a href="class_person.html#ab531eefe96d133ae50c19395815b4ca7">Person::getEmail</a></div><div class="ttdeci">Email getEmail() const</div><div class="ttdoc">Obtém o e-mail da pessoa.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>Containers</b></li><li class="navelem"><b>PersonContainer.h</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

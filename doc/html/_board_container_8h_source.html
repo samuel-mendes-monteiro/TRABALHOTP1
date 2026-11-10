@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Código-Fonte de include/Containers/BoardContainer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_board_container_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BoardContainer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BOARD_CONTAINER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BOARD_CONTAINER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Entities/Board.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_board_container.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="class_board_container.html">BoardContainer</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::map&lt;std::string, Board&gt; items;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_board_container.html#ab69da46f6f031b9232f0c83abd20f151">   22</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_board_container.html#ab69da46f6f031b9232f0c83abd20f151">insert</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_board.html">Board</a>&amp; board) {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> items.insert({board.<a class="code hl_function" href="class_board.html#ac27a5020e338281fbe51ef594c3b7433">getIdentifier</a>().<a class="code hl_function" href="class_identifier.html#ae8609d31a5567b3d2a4c6b883c5f3a08">getValue</a>(), board}).second;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_board_container.html#a61a3538b68f859c999522455c50d0050">   32</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_board_container.html#a61a3538b68f859c999522455c50d0050">find</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; <span class="keywordtype">id</span>, <a class="code hl_class" href="class_board.html">Board</a>&amp; out)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">auto</span> it = items.find(<span class="keywordtype">id</span>.getValue());</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">if</span> (it == items.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        out = it-&gt;second;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_board_container.html#a88a77d166c477bdfdd46af05c5617633">   44</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_board_container.html#a88a77d166c477bdfdd46af05c5617633">exists</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; <span class="keywordtype">id</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> items.count(<span class="keywordtype">id</span>.getValue()) &gt; 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_board_container.html#a280111598e07bcba1303b868dcf14bcd">   53</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_board_container.html#a280111598e07bcba1303b868dcf14bcd">update</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_board.html">Board</a>&amp; board) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">auto</span> it = items.find(board.<a class="code hl_function" href="class_board.html#ac27a5020e338281fbe51ef594c3b7433">getIdentifier</a>().<a class="code hl_function" href="class_identifier.html#ae8609d31a5567b3d2a4c6b883c5f3a08">getValue</a>());</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (it == items.end()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        it-&gt;second = board;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_board_container.html#af08bf68e37c0a429f93f6b8938f558c9">   65</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_board_container.html#af08bf68e37c0a429f93f6b8938f558c9">remove</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; <span class="keywordtype">id</span>) {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">return</span> items.erase(<span class="keywordtype">id</span>.getValue()) &gt; 0;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_board_container.html#a3d9c5fbd12faf292fb4aedddb3f3c25a">   73</a></span>    std::vector&lt;Board&gt; <a class="code hl_function" href="class_board_container.html#a3d9c5fbd12faf292fb4aedddb3f3c25a">getAll</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::vector&lt;Board&gt; result;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; pair : items) result.push_back(pair.second);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="class_board_container.html#ada4e85256810322118970cdca4b2cc79">   84</a></span>    std::vector&lt;Board&gt; <a class="code hl_function" href="class_board_container.html#ada4e85256810322118970cdca4b2cc79">getByProject</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_identifier.html">Identifier</a>&amp; projectId)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        std::vector&lt;Board&gt; result;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; pair : items)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordflow">if</span> (pair.second.getProjectId().getValue() == projectId.<a class="code hl_function" href="class_identifier.html#ae8609d31a5567b3d2a4c6b883c5f3a08">getValue</a>())</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                result.push_back(pair.second);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_board_container_html"><div class="ttname"><a href="class_board_container.html">BoardContainer</a></div><div class="ttdoc">Contêiner que armazena objetos Board em memória, indexados por identificador.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:12</div></div>
+<div class="ttc" id="aclass_board_container_html_a280111598e07bcba1303b868dcf14bcd"><div class="ttname"><a href="class_board_container.html#a280111598e07bcba1303b868dcf14bcd">BoardContainer::update</a></div><div class="ttdeci">bool update(const Board &amp;board)</div><div class="ttdoc">Substitui os dados de um quadro existente.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:53</div></div>
+<div class="ttc" id="aclass_board_container_html_a3d9c5fbd12faf292fb4aedddb3f3c25a"><div class="ttname"><a href="class_board_container.html#a3d9c5fbd12faf292fb4aedddb3f3c25a">BoardContainer::getAll</a></div><div class="ttdeci">std::vector&lt; Board &gt; getAll() const</div><div class="ttdoc">Obtém todos os quadros armazenados.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:73</div></div>
+<div class="ttc" id="aclass_board_container_html_a61a3538b68f859c999522455c50d0050"><div class="ttname"><a href="class_board_container.html#a61a3538b68f859c999522455c50d0050">BoardContainer::find</a></div><div class="ttdeci">bool find(const Identifier &amp;id, Board &amp;out) const</div><div class="ttdoc">Busca um quadro pelo identificador.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:32</div></div>
+<div class="ttc" id="aclass_board_container_html_a88a77d166c477bdfdd46af05c5617633"><div class="ttname"><a href="class_board_container.html#a88a77d166c477bdfdd46af05c5617633">BoardContainer::exists</a></div><div class="ttdeci">bool exists(const Identifier &amp;id) const</div><div class="ttdoc">Verifica se existe um quadro com o identificador informado.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:44</div></div>
+<div class="ttc" id="aclass_board_container_html_ab69da46f6f031b9232f0c83abd20f151"><div class="ttname"><a href="class_board_container.html#ab69da46f6f031b9232f0c83abd20f151">BoardContainer::insert</a></div><div class="ttdeci">bool insert(const Board &amp;board)</div><div class="ttdoc">Insere um quadro.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:22</div></div>
+<div class="ttc" id="aclass_board_container_html_ada4e85256810322118970cdca4b2cc79"><div class="ttname"><a href="class_board_container.html#ada4e85256810322118970cdca4b2cc79">BoardContainer::getByProject</a></div><div class="ttdeci">std::vector&lt; Board &gt; getByProject(const Identifier &amp;projectId) const</div><div class="ttdoc">Obtém os quadros pertencentes a um projeto.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:84</div></div>
+<div class="ttc" id="aclass_board_container_html_af08bf68e37c0a429f93f6b8938f558c9"><div class="ttname"><a href="class_board_container.html#af08bf68e37c0a429f93f6b8938f558c9">BoardContainer::remove</a></div><div class="ttdeci">bool remove(const Identifier &amp;id)</div><div class="ttdoc">Remove um quadro.</div><div class="ttdef"><b>Definição</b> BoardContainer.h:65</div></div>
+<div class="ttc" id="aclass_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdoc">Classe que representa a entidade Quadro.</div><div class="ttdef"><b>Definição</b> Board.h:14</div></div>
+<div class="ttc" id="aclass_board_html_ac27a5020e338281fbe51ef594c3b7433"><div class="ttname"><a href="class_board.html#ac27a5020e338281fbe51ef594c3b7433">Board::getIdentifier</a></div><div class="ttdeci">Identifier getIdentifier() const</div><div class="ttdoc">Obtém o identificador do quadro.</div></div>
+<div class="ttc" id="aclass_identifier_html"><div class="ttname"><a href="class_identifier.html">Identifier</a></div><div class="ttdoc">Classe que representa o domínio Identificador.</div><div class="ttdef"><b>Definição</b> Identifier.h:13</div></div>
+<div class="ttc" id="aclass_identifier_html_ae8609d31a5567b3d2a4c6b883c5f3a08"><div class="ttname"><a href="class_identifier.html#ae8609d31a5567b3d2a4c6b883c5f3a08">Identifier::getValue</a></div><div class="ttdeci">std::string getValue() const</div><div class="ttdoc">Obtém o valor do identificador.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>include</b></li><li class="navelem"><b>Containers</b></li><li class="navelem"><b>BoardContainer.h</b></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

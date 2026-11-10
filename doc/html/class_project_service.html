@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.18.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Gestao Kanban: Referência da Classe ProjectService</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Gestao Kanban
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.18.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="application/json" id="doxygen-config">
+{
+  "relPath": "",
+  "generateTreeView": true,
+  "searchEngine": true,
+  "serverBasedSearch": false,
+  "disableIndex": false,
+  "dynamicMenus": true,
+  "fullSidebar": false
+}
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Busca" accesskey="S"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_project_service.html','','class_project_service-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência da Classe ProjectService</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementa os serviços da entidade <a class="el" href="class_project.html" title="Classe que representa a entidade Projeto.">Project</a>. Excluir um projeto exclui seus quadros e cartões.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_project_service_8h_source.html">ProjectService.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe ProjectService:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_project_service.png" usemap="#ProjectService_map" alt=""/>
+  <map id="ProjectService_map" name="ProjectService_map">
+<area href="class_i_project_service.html" title="Interface abstrata que define os serviços relacionados à entidade Project (Projeto)." alt="IProjectService" shape="rect" coords="0,0,99,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:ac20ca9988eec5078ea886dc715c78bfa" id="r_ac20ca9988eec5078ea886dc715c78bfa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac20ca9988eec5078ea886dc715c78bfa">ProjectService</a> (<a class="el" href="class_project_container.html">ProjectContainer</a> &amp;projects, <a class="el" href="class_person_container.html">PersonContainer</a> &amp;persons, <a class="el" href="class_board_container.html">BoardContainer</a> &amp;boards, <a class="el" href="class_task_container.html">TaskContainer</a> &amp;tasks)</td></tr>
+<tr class="memdesc:ac20ca9988eec5078ea886dc715c78bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <br /></td></tr>
+<tr class="memitem:a23b9437123b237937c4fa985a1d742bf" id="r_a23b9437123b237937c4fa985a1d742bf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a23b9437123b237937c4fa985a1d742bf">createProject</a> (const <a class="el" href="class_project.html">Project</a> &amp;project) override</td></tr>
+<tr class="memdesc:a23b9437123b237937c4fa985a1d742bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 6: cria um projeto.     <br /></td></tr>
+<tr class="memitem:a211dc4a01bff8d266c87173fccba1a45" id="r_a211dc4a01bff8d266c87173fccba1a45"><td class="memItemLeft"><a class="el" href="class_project.html">Project</a>&#160;</td><td class="memItemRight"><a class="el" href="#a211dc4a01bff8d266c87173fccba1a45">readProject</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;identifier) override</td></tr>
+<tr class="memdesc:a211dc4a01bff8d266c87173fccba1a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 7: lê os dados de um projeto.     <br /></td></tr>
+<tr class="memitem:abe27204bb90b2128eb6df70c7a782e70" id="r_abe27204bb90b2128eb6df70c7a782e70"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abe27204bb90b2128eb6df70c7a782e70">updateProject</a> (const <a class="el" href="class_project.html">Project</a> &amp;project) override</td></tr>
+<tr class="memdesc:abe27204bb90b2128eb6df70c7a782e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 8: atualiza nome, descrição e datas de um projeto.     <br /></td></tr>
+<tr class="memitem:a03b5fd48536ef3d83679c957cbc65c22" id="r_a03b5fd48536ef3d83679c957cbc65c22"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a03b5fd48536ef3d83679c957cbc65c22">deleteProject</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;identifier) override</td></tr>
+<tr class="memdesc:a03b5fd48536ef3d83679c957cbc65c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 9: exclui um projeto, seus quadros e os cartões desses quadros.     <br /></td></tr>
+<tr class="memitem:ae0523fdd388ec94bf19f8eb71bc959df" id="r_ae0523fdd388ec94bf19f8eb71bc959df"><td class="memItemLeft">std::vector&lt; <a class="el" href="class_identifier.html">Identifier</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae0523fdd388ec94bf19f8eb71bc959df">listProjects</a> () override</td></tr>
+<tr class="memdesc:ae0523fdd388ec94bf19f8eb71bc959df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 10: lista os identificadores de todos os projetos.     <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementa os serviços da entidade <a class="el" href="class_project.html" title="Classe que representa a entidade Projeto.">Project</a>. Excluir um projeto exclui seus quadros e cartões. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
+<a id="ac20ca9988eec5078ea886dc715c78bfa" name="ac20ca9988eec5078ea886dc715c78bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac20ca9988eec5078ea886dc715c78bfa">&#9670;&#160;</a></span>ProjectService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ProjectService::ProjectService </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_project_container.html">ProjectContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>projects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_person_container.html">PersonContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>persons</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_board_container.html">BoardContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boards</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_task_container.html">TaskContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tasks</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">projects</td><td>Contêiner de projetos. </td></tr>
+    <tr><td class="paramname">persons</td><td>Contêiner de pessoas (para validar o gestor). </td></tr>
+    <tr><td class="paramname">boards</td><td>Contêiner de quadros (para a exclusão em cascata). </td></tr>
+    <tr><td class="paramname">tasks</td><td>Contêiner de cartões (para a exclusão em cascata). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a23b9437123b237937c4fa985a1d742bf" name="a23b9437123b237937c4fa985a1d742bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23b9437123b237937c4fa985a1d742bf">&#9670;&#160;</a></span>createProject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjectService::createProject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_project.html">Project</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>project</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 6: cria um projeto.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">project</td><td>Projeto a ser criado; o e-mail do gestor deve estar preenchido. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi criado, false se já existe projeto com o mesmo identificador. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o gestor não existe, se ele não tem o papel GESTOR ou se a data de término é anterior à de início.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_project_service.html#a08cae80394ec94e11f7f1193412cade8">IProjectService</a>.</p>
+
+</div>
+</div>
+<a id="a03b5fd48536ef3d83679c957cbc65c22" name="a03b5fd48536ef3d83679c957cbc65c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03b5fd48536ef3d83679c957cbc65c22">&#9670;&#160;</a></span>deleteProject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjectService::deleteProject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 9: exclui um projeto, seus quadros e os cartões desses quadros.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Identificador do projeto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi excluído, false se o projeto não existe.    </dd></dl>
+
+<p>Implementa <a class="el" href="class_i_project_service.html#a4c12d7a5bb9263e5b841253287a07e9a">IProjectService</a>.</p>
+
+</div>
+</div>
+<a id="ae0523fdd388ec94bf19f8eb71bc959df" name="ae0523fdd388ec94bf19f8eb71bc959df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0523fdd388ec94bf19f8eb71bc959df">&#9670;&#160;</a></span>listProjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_identifier.html">Identifier</a> &gt; ProjectService::listProjects </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 10: lista os identificadores de todos os projetos.    </p>
+<dl class="section return"><dt>Retorna</dt><dd>Lista de identificadores.    </dd></dl>
+
+<p>Implementa <a class="el" href="class_i_project_service.html#a575442af62e47476e38fdda1d05be32f">IProjectService</a>.</p>
+
+</div>
+</div>
+<a id="a211dc4a01bff8d266c87173fccba1a45" name="a211dc4a01bff8d266c87173fccba1a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a211dc4a01bff8d266c87173fccba1a45">&#9670;&#160;</a></span>readProject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_project.html">Project</a> ProjectService::readProject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_identifier.html">Identifier</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 7: lê os dados de um projeto.    </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Identificador do projeto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="class_project.html" title="Classe que representa a entidade Projeto.">Project</a> O projeto encontrado. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se o projeto não existe.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_project_service.html#a774562c691064a4a8522d108b88aebd6">IProjectService</a>.</p>
+
+</div>
+</div>
+<a id="abe27204bb90b2128eb6df70c7a782e70" name="abe27204bb90b2128eb6df70c7a782e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe27204bb90b2128eb6df70c7a782e70">&#9670;&#160;</a></span>updateProject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProjectService::updateProject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_project.html">Project</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>project</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serviço 8: atualiza nome, descrição e datas de um projeto.    </p>
+<p>O identificador e o gestor do projeto não são alterados.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">project</td><td>Projeto com os novos dados, identificado pelo seu identificador. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se foi atualizado, false se o projeto não existe. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>se a data de término é anterior à de início.    </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implementa <a class="el" href="class_i_project_service.html#a4b121042b7ce59173e0b232da2fde1be">IProjectService</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir do seguinte arquivo:<ul>
+<li>include/Services/<a class="el" href="_project_service_8h_source.html">ProjectService.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_project_service.html">ProjectService</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
+</body>
+</html>

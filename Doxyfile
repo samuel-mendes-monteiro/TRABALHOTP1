@@ -1,0 +1,14 @@
+# Doxyfile minimo: gera a documentacao HTML das classes em include/.
+# Uso: doxygen Doxyfile   (as paginas saem em doc/html/index.html)
+
+PROJECT_NAME           = "Sistema de Gestao Kanban"
+OUTPUT_DIRECTORY       = doc
+INPUT                  = include
+FILE_PATTERNS          = *.h
+RECURSIVE              = YES
+OUTPUT_LANGUAGE        = Brazilian
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+WARN_IF_UNDOCUMENTED   = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
