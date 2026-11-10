@@ -1,5 +1,6 @@
 var class_i_task_service =
 [
+    [ "~ITaskService", "class_i_task_service.html#aa40b75c5b4d9e8949f2c379bdb4661f3", null ],
     [ "createTask", "class_i_task_service.html#a140aa2e27e0774b46675e6095c9b42dd", null ],
     [ "deleteTask", "class_i_task_service.html#a33a6341db6384130724ef1ec06800c4a", null ],
     [ "listTasks", "class_i_task_service.html#a0d9dec6fa9854adcc0741d058f3cd78f", null ],

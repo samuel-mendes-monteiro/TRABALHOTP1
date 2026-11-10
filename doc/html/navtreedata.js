@@ -43,7 +43,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_auth_controller_8h_source.html",
-"class_task_service.html#a313608e902f8e0d842311ed03266099b"
+"class_task_controller.html#aa99c5826839ea7c9efe31d9c11e10b17"
 ];
 
 const SYNCONMSG = 'clique para desativar a sincronização do painel';

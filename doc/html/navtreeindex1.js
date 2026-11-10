@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"class_task_controller.html#aa99c5826839ea7c9efe31d9c11e10b17":[0,0,31,1],
+"class_task_service.html":[0,0,32],
+"class_task_service.html#a0793c87e16f4b9066fbda13c62d8657d":[0,0,32,10],
+"class_task_service.html#a0e834c6be56726ee36b9dfce22f06b0e":[0,0,32,2],
+"class_task_service.html#a170fa4912eae4f932c008932d991c5ac":[0,0,32,6],
 "class_task_service.html#a313608e902f8e0d842311ed03266099b":[0,0,32,3],
 "class_task_service.html#a371a4e0e3c53255061eb3eb9501a7d7a":[0,0,32,8],
 "class_task_service.html#a4353082a954e869bc3077d20c34ac1f2":[0,0,32,5],

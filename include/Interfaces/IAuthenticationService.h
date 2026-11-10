@@ -10,6 +10,9 @@
  */
 class IAuthenticationService {
 public:
+    /**
+     * @brief Destrutor virtual, garante a destruição correta das implementações.
+     */
     virtual ~IAuthenticationService() {}
 
     /**

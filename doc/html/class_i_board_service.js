@@ -1,5 +1,6 @@
 var class_i_board_service =
 [
+    [ "~IBoardService", "class_i_board_service.html#a930c9cdf3dc3e76f3b0e03fbcb66c003", null ],
     [ "createBoard", "class_i_board_service.html#a26a62773dfba64def363177961569f60", null ],
     [ "deleteBoard", "class_i_board_service.html#a17e22ee972998e0baafe1f636853d9bc", null ],
     [ "listBoards", "class_i_board_service.html#afea4e595f85897be3604677e47d92379", null ],
