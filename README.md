@@ -56,9 +56,9 @@ Na pasta do projeto:
 g++ -std=c++11 -Wall -Wextra -o kanban src/main.cpp src/Domains/*.cpp src/Entities/*.cpp src/Presentation/*.cpp src/Services/*.cpp
 ```
 
-No Code::Blocks: crie um projeto de console C++, adicione todos os `.cpp` de `src/` e
-ative C++11 em *Settings > Compiler*. Não é preciso configurar pastas de include, porque
-os `#include` são relativos.
+No Code::Blocks: abra o arquivo `kanban.cbp` e use *Build > Build and run* (F9). O projeto
+já vem com C++11 ativado. No alvo *Release*, o executável é gerado em
+`bin/Release/kanban.exe` e funciona sozinho, sem precisar do Code::Blocks instalado.
 
 ## Como executar
 

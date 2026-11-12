@@ -1,3 +1,7 @@
 kanban_system
 kanban
 .DS_Store
+bin/
+obj/
+*.depend
+*.layout

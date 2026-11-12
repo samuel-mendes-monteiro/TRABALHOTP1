@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="kanban" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/kanban" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/kanban" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-static" />
+					<Add option="-static-libgcc" />
+					<Add option="-static-libstdc++" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="include/Containers/BoardContainer.h" />
+		<Unit filename="include/Containers/PersonContainer.h" />
+		<Unit filename="include/Containers/ProjectContainer.h" />
+		<Unit filename="include/Containers/TaskContainer.h" />
+		<Unit filename="include/Domains/Email.h" />
+		<Unit filename="include/Domains/Identifier.h" />
+		<Unit filename="include/Domains/Limit.h" />
+		<Unit filename="include/Domains/Name.h" />
+		<Unit filename="include/Domains/Password.h" />
+		<Unit filename="include/Domains/Priority.h" />
+		<Unit filename="include/Domains/Role.h" />
+		<Unit filename="include/Domains/Size.h" />
+		<Unit filename="include/Domains/State.h" />
+		<Unit filename="include/Domains/Text.h" />
+		<Unit filename="include/Domains/Timestamp.h" />
+		<Unit filename="include/Entities/Board.h" />
+		<Unit filename="include/Entities/Person.h" />
+		<Unit filename="include/Entities/Project.h" />
+		<Unit filename="include/Entities/Task.h" />
+		<Unit filename="include/Interfaces/IAuthenticationService.h" />
+		<Unit filename="include/Interfaces/IBoardService.h" />
+		<Unit filename="include/Interfaces/IPersonService.h" />
+		<Unit filename="include/Interfaces/IProjectService.h" />
+		<Unit filename="include/Interfaces/ITaskService.h" />
+		<Unit filename="include/Presentation/AuthController.h" />
+		<Unit filename="include/Presentation/BoardController.h" />
+		<Unit filename="include/Presentation/PersonController.h" />
+		<Unit filename="include/Presentation/ProjectController.h" />
+		<Unit filename="include/Presentation/Session.h" />
+		<Unit filename="include/Presentation/TaskController.h" />
+		<Unit filename="include/Services/AuthenticationService.h" />
+		<Unit filename="include/Services/BoardService.h" />
+		<Unit filename="include/Services/PersonService.h" />
+		<Unit filename="include/Services/ProjectService.h" />
+		<Unit filename="include/Services/TaskService.h" />
+		<Unit filename="src/Domains/Email.cpp" />
+		<Unit filename="src/Domains/Identifier.cpp" />
+		<Unit filename="src/Domains/Limit.cpp" />
+		<Unit filename="src/Domains/Name.cpp" />
+		<Unit filename="src/Domains/Password.cpp" />
+		<Unit filename="src/Domains/Priority.cpp" />
+		<Unit filename="src/Domains/Role.cpp" />
+		<Unit filename="src/Domains/Size.cpp" />
+		<Unit filename="src/Domains/State.cpp" />
+		<Unit filename="src/Domains/Text.cpp" />
+		<Unit filename="src/Domains/Timestamp.cpp" />
+		<Unit filename="src/Entities/Board.cpp" />
+		<Unit filename="src/Entities/Person.cpp" />
+		<Unit filename="src/Entities/Project.cpp" />
+		<Unit filename="src/Entities/Task.cpp" />
+		<Unit filename="src/Presentation/AuthController.cpp" />
+		<Unit filename="src/Presentation/BoardController.cpp" />
+		<Unit filename="src/Presentation/PersonController.cpp" />
+		<Unit filename="src/Presentation/ProjectController.cpp" />
+		<Unit filename="src/Presentation/TaskController.cpp" />
+		<Unit filename="src/Services/AuthenticationService.cpp" />
+		<Unit filename="src/Services/BoardService.cpp" />
+		<Unit filename="src/Services/PersonService.cpp" />
+		<Unit filename="src/Services/ProjectService.cpp" />
+		<Unit filename="src/Services/TaskService.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
