@@ -45,9 +45,7 @@ contêiner próprio e conversa com os outros módulos apenas pelas interfaces de
 ligações entre eles são feitas no `main`.
 
 O modelo de arquitetura (diagramas UML e descrição dos módulos) está em
-`arquitetura/Modelo-de-Arquitetura-TP1.pdf`. Para regerar o PDF depois de mudar o texto ou os
-diagramas, rode `python3 arquitetura/gerar_modelo.py` e imprima
-`arquitetura/modelo-arquitetura.html` em PDF (no navegador ou com o Chrome em modo headless).
+`arquitetura/Modelo-de-Arquitetura-TP1.pdf`.
 
 ## Como compilar
 
