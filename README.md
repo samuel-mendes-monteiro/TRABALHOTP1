@@ -109,8 +109,9 @@ Não há acentuação nem `ç` nas validações.
 
 ## Permissões
 
-- **Pessoas (1 a 5):** qualquer papel. A criação de conta não exige login. Atualizar e excluir
-  só valem para a própria conta.
+- **Pessoas (1 a 5):** qualquer papel. A criação de conta não exige login. Atualizar só vale
+  para a própria conta. O gestor pode excluir qualquer pessoa; o desenvolvedor, só a própria
+  conta.
 - **Ler e listar** projetos, quadros e cartões: gestor e desenvolvedor.
 - **Criar, atualizar e excluir** projetos, quadros e cartões: apenas gestor.
 - **Atualizar e excluir um projeto:** apenas o gestor que o criou.

@@ -40,12 +40,15 @@ public:
 
     /**
      * @brief Executa o fluxo de interação para atualizar os dados de uma pessoa.
+     *
+     * Só é permitido atualizar a própria conta.
      */
     void handleUpdatePerson();
 
     /**
      * @brief Executa o fluxo de interação para excluir uma pessoa.
      *
+     * O GESTOR pode excluir qualquer pessoa; o DESENVOLVEDOR, apenas a própria conta.
      * Se a pessoa excluída é o próprio usuário autenticado, a sessão é encerrada.
      */
     void handleDeletePerson();

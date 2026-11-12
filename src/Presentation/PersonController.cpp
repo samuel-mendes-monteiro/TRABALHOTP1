@@ -128,10 +128,12 @@ void PersonController::handleDeletePerson() {
     std::cout << "\n--- EXCLUIR PESSOA ---" << std::endl;
     std::cout << "Digite o e-mail da pessoa que deseja excluir: ";
     std::cin >> emailStr;
-    if (emailStr != session.getEmail().getValue()) {
-    std::cout << "[ACESSO NEGADO] So e possivel excluir a propria conta." << std::endl;
-    return;
-}
+
+    // O GESTOR pode excluir qualquer pessoa; o DESENVOLVEDOR, apenas a propria conta.
+    if (!session.isManager() && emailStr != session.getEmail().getValue()) {
+        std::cout << "[ACESSO NEGADO] Desenvolvedor so pode excluir a propria conta." << std::endl;
+        return;
+    }
 
     try {
         Email email;
