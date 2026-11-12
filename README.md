@@ -25,7 +25,6 @@ include/                 Declarações (.h), documentadas com Doxygen
   Services/              implementações dos serviços
 src/                     Implementações (.cpp) e main.cpp
 Doxyfile                 Configuração do Doxygen
-teste_fumaca_entrada.txt Entrada pronta para o teste fumaça
 doc/html/                Documentação gerada pelo Doxygen (abrir index.html)
 ```
 
@@ -110,7 +109,8 @@ Não há acentuação nem `ç` nas validações.
 
 ## Permissões
 
-- **Pessoas (1 a 5):** qualquer papel. A criação de conta não exige login.
+- **Pessoas (1 a 5):** qualquer papel. A criação de conta não exige login. Atualizar e excluir
+  só valem para a própria conta.
 - **Ler e listar** projetos, quadros e cartões: gestor e desenvolvedor.
 - **Criar, atualizar e excluir** projetos, quadros e cartões: apenas gestor.
 - **Atualizar e excluir um projeto:** apenas o gestor que o criou.
@@ -136,26 +136,6 @@ Não há acentuação nem `ç` nas validações.
 - Excluir um projeto exclui seus quadros e cartões. Excluir um quadro exclui seus cartões.
 - Uma pessoa que é gestora de projetos ou responsável por cartões não pode ser excluída nem
   trocar de papel.
-
-## Teste fumaça
-
-O arquivo `teste_fumaca_entrada.txt` reproduz uma sessão completa, com pelo menos um caso de
-sucesso para cada um dos 26 serviços. Para rodar:
-
-```
-./kanban < teste_fumaca_entrada.txt
-```
-
-O programa deve começar sem dados. Para ver só os resultados:
-
-```
-./kanban < teste_fumaca_entrada.txt | grep -E "SUCESSO|ERRO|NEGADO|Tempo|Lead|WIP atual"
-```
-
-Resultados esperados incluem: bloqueio do terceiro cartão em FAZENDO com limite 2
-("Limite WIP do quadro atingido."), tempo de ciclo `1d 2h 30m` e lead time `2d 3h 30m`,
-bloqueio da troca de papel de gestor com projeto, e `ACESSO NEGADO` quando outro gestor tenta
-alterar ou excluir o projeto.
 
 ## Documentação
 
