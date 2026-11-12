@@ -2,27 +2,41 @@
 #define BOARD_SERVICE_H
 
 #include "../Interfaces/IBoardService.h"
-#include "../Containers/ProjectContainer.h"
+#include "../Interfaces/IProjectService.h"
+#include "../Interfaces/ITaskService.h"
 #include "../Containers/BoardContainer.h"
-#include "../Containers/TaskContainer.h"
 
 /**
- * @brief Implementa os serviços da entidade Board. Excluir um quadro exclui seus cartões.
+ * @brief Implementa os serviços da entidade Board (módulo Quadros).
+ *
+ * Armazena os quadros no próprio contêiner. Valida o projeto do quadro por meio da
+ * interface IProjectService e usa a interface ITaskService para obter o WIP atual e
+ * para excluir os cartões de um quadro excluído.
  */
 class BoardService : public IBoardService {
 private:
     BoardContainer& boards;
-    ProjectContainer& projects;
-    TaskContainer& tasks;
+    IProjectService* projectService;
+    ITaskService* taskService;
 
 public:
     /**
      * @brief Construtor.
-     * @param boards Contêiner de quadros.
-     * @param projects Contêiner de projetos (para validar o projeto do quadro).
-     * @param tasks Contêiner de cartões (para o WIP e a exclusão em cascata).
+     * @param boards Contêiner de quadros, de uso exclusivo deste módulo.
      */
-    BoardService(BoardContainer& boards, ProjectContainer& projects, TaskContainer& tasks);
+    explicit BoardService(BoardContainer& boards);
+
+    /**
+     * @brief Define o serviço de projetos usado para validar o projeto do quadro.
+     * @param service Ponteiro para a interface IProjectService (deve ser definido antes do uso).
+     */
+    void setProjectService(IProjectService* service);
+
+    /**
+     * @brief Define o serviço de cartões usado para obter o WIP e para a exclusão em cascata.
+     * @param service Ponteiro para a interface ITaskService (deve ser definido antes do uso).
+     */
+    void setTaskService(ITaskService* service);
 
     /** @copydoc IBoardService::createBoard */
     bool createBoard(const Board& board) override;

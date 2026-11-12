@@ -86,6 +86,10 @@ void PersonController::handleUpdatePerson() {
     std::cout << "\n--- ATUALIZAR PESSOA ---" << std::endl;
     std::cout << "Digite o e-mail da pessoa a ser atualizada: ";
     std::cin >> emailStr;
+    if (emailStr != session.getEmail().getValue()) {
+    std::cout << "[ACESSO NEGADO] So e possivel atualizar a propria conta." << std::endl;
+    return;
+}
     std::cout << "Digite o novo nome: ";
     std::cin.ignore(10000, '\n');
     std::getline(std::cin, nameStr);
@@ -124,6 +128,10 @@ void PersonController::handleDeletePerson() {
     std::cout << "\n--- EXCLUIR PESSOA ---" << std::endl;
     std::cout << "Digite o e-mail da pessoa que deseja excluir: ";
     std::cin >> emailStr;
+    if (emailStr != session.getEmail().getValue()) {
+    std::cout << "[ACESSO NEGADO] So e possivel excluir a propria conta." << std::endl;
+    return;
+}
 
     try {
         Email email;

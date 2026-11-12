@@ -7,7 +7,7 @@
 /**
  * @brief Classe que representa o domínio Email.
  * 
- * Um email consiste em parte-local@domínio. A parte local e o domínio possuem 
+ * Um email consiste em parte-local\@domínio. A parte local e o domínio possuem 
  * regras estritas de caracteres e comprimento máximo de acordo com a especificação.
  */
 class Email {

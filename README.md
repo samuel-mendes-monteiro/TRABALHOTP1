@@ -38,9 +38,16 @@ Estilo em camadas, com duas camadas.
 - **Serviço:** lógica de negócio e armazenamento dos dados em memória. Implementa as
   interfaces de serviço.
 
-A camada de serviço é dividida em quatro módulos: Pessoas, Projetos, Quadros e Cartões de
-Atividades. O modelo de arquitetura (diagramas UML e descrição dos módulos) está no PDF
-entregue junto com o trabalho.
+A camada de apresentação tem cinco módulos (Autenticação, Pessoas, Projetos, Quadros e
+Cartões de Atividades), um por controladora. A camada de serviço tem quatro módulos: Pessoas,
+Projetos, Quadros e Cartões de Atividades. Cada módulo de serviço guarda seus dados num
+contêiner próprio e conversa com os outros módulos apenas pelas interfaces de serviço; as
+ligações entre eles são feitas no `main`.
+
+O modelo de arquitetura (diagramas UML e descrição dos módulos) está em
+`arquitetura/Modelo-de-Arquitetura-TP1.pdf`. Para regerar o PDF depois de mudar o texto ou os
+diagramas, rode `python3 arquitetura/gerar_modelo.py` e imprima
+`arquitetura/modelo-arquitetura.html` em PDF (no navegador ou com o Chrome em modo headless).
 
 ## Como compilar
 

@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_task_ser
 </div><!--header-->
 <div class="contents">
 
-<p>Implementa os serviços de <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a>: CRUD, movimentação (com limite WIP) e métricas.  
+<p>Implementa os serviços de <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a> (módulo Cartões de Atividades): CRUD, movimentação (com limite WIP) e métricas.  
  <a href="#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_task_service_8h_source.html">TaskService.h</a>&gt;</code></p>
@@ -128,8 +128,12 @@ Diagrama de hierarquia da classe TaskService:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:ab1126263f6b1b0d3bfb41cbd0c0b91ed" id="r_ab1126263f6b1b0d3bfb41cbd0c0b91ed"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab1126263f6b1b0d3bfb41cbd0c0b91ed">TaskService</a> (<a class="el" href="class_task_container.html">TaskContainer</a> &amp;tasks, <a class="el" href="class_board_container.html">BoardContainer</a> &amp;boards, <a class="el" href="class_person_container.html">PersonContainer</a> &amp;persons)</td></tr>
-<tr class="memdesc:ab1126263f6b1b0d3bfb41cbd0c0b91ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <br /></td></tr>
+<tr class="memitem:adb80341f1071c0f3eb8e8384470f1c73" id="r_adb80341f1071c0f3eb8e8384470f1c73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adb80341f1071c0f3eb8e8384470f1c73">TaskService</a> (<a class="el" href="class_task_container.html">TaskContainer</a> &amp;tasks)</td></tr>
+<tr class="memdesc:adb80341f1071c0f3eb8e8384470f1c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <br /></td></tr>
+<tr class="memitem:af4f2457a530cf15a919ab826bbf3876d" id="r_af4f2457a530cf15a919ab826bbf3876d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af4f2457a530cf15a919ab826bbf3876d">setBoardService</a> (<a class="el" href="class_i_board_service.html">IBoardService</a> *service)</td></tr>
+<tr class="memdesc:af4f2457a530cf15a919ab826bbf3876d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o serviço de quadros usado para validar o quadro e o limite WIP.  <br /></td></tr>
+<tr class="memitem:a55366b1e10739abdb7c3be11215b1768" id="r_a55366b1e10739abdb7c3be11215b1768"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55366b1e10739abdb7c3be11215b1768">setPersonService</a> (<a class="el" href="class_i_person_service.html">IPersonService</a> *service)</td></tr>
+<tr class="memdesc:a55366b1e10739abdb7c3be11215b1768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o serviço de pessoas usado para validar o desenvolvedor responsável.  <br /></td></tr>
 <tr class="memitem:a75a2d6a66c70788f330d2c32c9315f9e" id="r_a75a2d6a66c70788f330d2c32c9315f9e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a75a2d6a66c70788f330d2c32c9315f9e">createTask</a> (const <a class="el" href="class_task.html">Task</a> &amp;task) override</td></tr>
 <tr class="memdesc:a75a2d6a66c70788f330d2c32c9315f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 16: cria um cartão de atividade.     <br /></td></tr>
 <tr class="memitem:a76ea41370e174d01dc7f0067e61684d6" id="r_a76ea41370e174d01dc7f0067e61684d6"><td class="memItemLeft"><a class="el" href="class_task.html">Task</a>&#160;</td><td class="memItemRight"><a class="el" href="#a76ea41370e174d01dc7f0067e61684d6">readTask</a> (const <a class="el" href="class_identifier.html">Identifier</a> &amp;identifier) override</td></tr>
@@ -158,38 +162,36 @@ virtual&#160;</td><td class="memItemRight"><b>~ITaskService</b> ()</td></tr>
 <tr class="memdesc:aa40b75c5b4d9e8949f2c379bdb4661f3 pub_methods_class_i_task_service"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual, garante a destruição correta das implementações. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Implementa os serviços de <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a>: CRUD, movimentação (com limite WIP) e métricas. </p>
+<div class="textblock"><p>Implementa os serviços de <a class="el" href="class_task.html" title="Classe que representa a entidade Cartão de Atividade (Task).">Task</a> (módulo Cartões de Atividades): CRUD, movimentação (com limite WIP) e métricas. </p>
+<p>Armazena os cartões no próprio contêiner. Valida o quadro e o limite WIP por meio da interface <a class="el" href="class_i_board_service.html" title="Interface abstrata que define os serviços relacionados à entidade Board (Quadro).">IBoardService</a> e valida o desenvolvedor responsável por meio da interface <a class="el" href="class_i_person_service.html" title="Interface abstrata que define os serviços relacionados à entidade Person (Pessoa).">IPersonService</a>. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
-<a id="ab1126263f6b1b0d3bfb41cbd0c0b91ed" name="ab1126263f6b1b0d3bfb41cbd0c0b91ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1126263f6b1b0d3bfb41cbd0c0b91ed">&#9670;&#160;</a></span>TaskService()</h2>
+<a id="adb80341f1071c0f3eb8e8384470f1c73" name="adb80341f1071c0f3eb8e8384470f1c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb80341f1071c0f3eb8e8384470f1c73">&#9670;&#160;</a></span>TaskService()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">TaskService::TaskService </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_task_container.html">TaskContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tasks</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_task_container.html">TaskContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tasks</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_board_container.html">BoardContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>boards</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_person_container.html">PersonContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>persons</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Construtor. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tasks</td><td>Contêiner de cartões. </td></tr>
-    <tr><td class="paramname">boards</td><td>Contêiner de quadros (para validar o quadro e o limite WIP). </td></tr>
-    <tr><td class="paramname">persons</td><td>Contêiner de pessoas (para validar o desenvolvedor). </td></tr>
+    <tr><td class="paramname">tasks</td><td>Contêiner de cartões, de uso exclusivo deste módulo. </td></tr>
   </table>
   </dd>
 </dl>
@@ -607,6 +609,56 @@ virtual&#160;</td><td class="memItemRight"><b>~ITaskService</b> ()</td></tr>
 </dl>
 
 <p>Implementa <a class="el" href="class_i_task_service.html#a01ea085b3a48842513f5d095f01dd8a9">ITaskService</a>.</p>
+
+</div>
+</div>
+<a id="af4f2457a530cf15a919ab826bbf3876d" name="af4f2457a530cf15a919ab826bbf3876d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f2457a530cf15a919ab826bbf3876d">&#9670;&#160;</a></span>setBoardService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskService::setBoardService </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_board_service.html">IBoardService</a> *</td>          <td class="paramname"><span class="paramname"><em>service</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o serviço de quadros usado para validar o quadro e o limite WIP. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service</td><td>Ponteiro para a interface <a class="el" href="class_i_board_service.html" title="Interface abstrata que define os serviços relacionados à entidade Board (Quadro).">IBoardService</a> (deve ser definido antes do uso). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55366b1e10739abdb7c3be11215b1768" name="a55366b1e10739abdb7c3be11215b1768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55366b1e10739abdb7c3be11215b1768">&#9670;&#160;</a></span>setPersonService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TaskService::setPersonService </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_person_service.html">IPersonService</a> *</td>          <td class="paramname"><span class="paramname"><em>service</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o serviço de pessoas usado para validar o desenvolvedor responsável. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service</td><td>Ponteiro para a interface <a class="el" href="class_i_person_service.html" title="Interface abstrata que define os serviços relacionados à entidade Person (Pessoa).">IPersonService</a> (deve ser definido antes do uso). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

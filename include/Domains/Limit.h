@@ -11,7 +11,7 @@
  */
 class Limit {
 private:
-    int value;
+    int value = 0;
     void validate(int value);
 
 public:

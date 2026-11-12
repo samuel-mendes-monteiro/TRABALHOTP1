@@ -1,14 +1,27 @@
 #include "../../include/Services/ProjectService.h"
 #include <stdexcept>
 
-ProjectService::ProjectService(ProjectContainer& projects, PersonContainer& persons,
-                               BoardContainer& boards, TaskContainer& tasks)
-    : projects(projects), persons(persons), boards(boards), tasks(tasks) {}
+ProjectService::ProjectService(ProjectContainer& projects)
+    : projects(projects), personService(nullptr), boardService(nullptr) {}
+
+void ProjectService::setPersonService(IPersonService* service) {
+    personService = service;
+}
+
+void ProjectService::setBoardService(IBoardService* service) {
+    boardService = service;
+}
 
 bool ProjectService::createProject(const Project& project) {
+    if (!personService) throw std::logic_error("Servico de pessoas nao configurado.");
+
+    // Valida o gestor pelo modulo Pessoas (interface IPersonService).
     Person manager;
-    if (!persons.find(project.getManagerEmail(), manager))
+    try {
+        manager = personService->readPerson(project.getManagerEmail());
+    } catch (const std::invalid_argument&) {
         throw std::invalid_argument("Gestor nao encontrado.");
+    }
     if (manager.getRole().getValue() != "GESTOR")
         throw std::invalid_argument("O criador do projeto deve ter o papel GESTOR.");
     if (project.getEnd().toMinutes() < project.getStart().toMinutes())
@@ -38,13 +51,14 @@ bool ProjectService::updateProject(const Project& project) {
 
 bool ProjectService::deleteProject(const Identifier& identifier) {
     if (!projects.exists(identifier)) return false;
+    if (!boardService) throw std::logic_error("Servico de quadros nao configurado.");
 
-    // Cascata: cartoes -> quadros -> projeto
-    for (const auto& board : boards.getByProject(identifier)) {
-        for (const auto& task : tasks.getByBoard(board.getIdentifier()))
-            tasks.remove(task.getIdentifier());
-        boards.remove(board.getIdentifier());
-    }
+    // Cascata pelo modulo Quadros (interface IBoardService): excluir o quadro
+    // tambem exclui os cartoes dele.
+    for (const auto& boardId : boardService->listBoards())
+        if (boardService->readBoard(boardId).getProjectId().getValue() == identifier.getValue())
+            boardService->deleteBoard(boardId);
+
     return projects.remove(identifier);
 }
 

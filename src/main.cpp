@@ -22,18 +22,28 @@
 using namespace std;
 
 int main() {
-    // Contêineres compartilhados
-    PersonContainer  personContainer;
-    ProjectContainer projectContainer;
-    BoardContainer   boardContainer;
-    TaskContainer    taskContainer;
+    // Contêineres: cada um pertence a um único módulo da camada de serviço.
+    PersonContainer  personContainer;   // módulo Pessoas
+    ProjectContainer projectContainer;  // módulo Projetos
+    BoardContainer   boardContainer;    // módulo Quadros
+    TaskContainer    taskContainer;     // módulo Cartões de Atividades
 
-    // Serviços
+    // Serviços (camada de serviço)
     AuthenticationService authService(personContainer);
-    PersonService  personService(personContainer, projectContainer, taskContainer);
-    ProjectService projectService(projectContainer, personContainer, boardContainer, taskContainer);
-    BoardService   boardService(boardContainer, projectContainer, taskContainer);
-    TaskService    taskService(taskContainer, boardContainer, personContainer);
+    PersonService  personService(personContainer);
+    ProjectService projectService(projectContainer);
+    BoardService   boardService(boardContainer);
+    TaskService    taskService(taskContainer);
+
+    // Ligações entre os módulos de serviço, sempre por meio das interfaces.
+    personService.setProjectService(&projectService);
+    personService.setTaskService(&taskService);
+    projectService.setPersonService(&personService);
+    projectService.setBoardService(&boardService);
+    boardService.setProjectService(&projectService);
+    boardService.setTaskService(&taskService);
+    taskService.setBoardService(&boardService);
+    taskService.setPersonService(&personService);
 
     // Sessão e controladoras
     Session session;

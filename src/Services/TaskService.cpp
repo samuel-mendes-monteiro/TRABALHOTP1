@@ -1,16 +1,38 @@
 #include "../../include/Services/TaskService.h"
 #include <stdexcept>
 
-TaskService::TaskService(TaskContainer& tasks, BoardContainer& boards, PersonContainer& persons)
-    : tasks(tasks), boards(boards), persons(persons) {}
+TaskService::TaskService(TaskContainer& tasks)
+    : tasks(tasks), boardService(nullptr), personService(nullptr) {}
+
+void TaskService::setBoardService(IBoardService* service) {
+    boardService = service;
+}
+
+void TaskService::setPersonService(IPersonService* service) {
+    personService = service;
+}
+
+// Obtem o quadro pelo modulo Quadros (interface IBoardService).
+Board TaskService::findBoard(const Identifier& boardId, const char* notFoundMessage) {
+    if (!boardService) throw std::logic_error("Servico de quadros nao configurado.");
+    try {
+        return boardService->readBoard(boardId);
+    } catch (const std::invalid_argument&) {
+        throw std::invalid_argument(notFoundMessage);
+    }
+}
 
 bool TaskService::createTask(const Task& task) {
-    if (!boards.exists(task.getBoardId()))
-        throw std::invalid_argument("Quadro nao encontrado.");
+    findBoard(task.getBoardId(), "Quadro nao encontrado.");
 
+    // Valida o desenvolvedor pelo modulo Pessoas (interface IPersonService).
+    if (!personService) throw std::logic_error("Servico de pessoas nao configurado.");
     Person dev;
-    if (!persons.find(task.getDeveloperEmail(), dev))
+    try {
+        dev = personService->readPerson(task.getDeveloperEmail());
+    } catch (const std::invalid_argument&) {
         throw std::invalid_argument("Desenvolvedor nao encontrado.");
+    }
     if (dev.getRole().getValue() != "DESENVOLVEDOR")
         throw std::invalid_argument("A pessoa atribuida ao cartao deve ter o papel DESENVOLVEDOR.");
 
@@ -48,9 +70,7 @@ bool TaskService::moveTask(const Identifier& identifier, const State& newState, 
         if (moveTime.toMinutes() < t.getEntryDate().toMinutes())
             throw std::invalid_argument("Horario da movimentacao anterior a data de entrada.");
 
-        Board board;
-        if (!boards.find(t.getBoardId(), board))
-            throw std::invalid_argument("Quadro do cartao nao encontrado.");
+        Board board = findBoard(t.getBoardId(), "Quadro do cartao nao encontrado.");
 
         int wip = tasks.countByBoardAndState(t.getBoardId(), "FAZENDO");
         if (wip >= board.getLimit().getValue())
@@ -81,7 +101,7 @@ long long TaskService::readCycleTime(const Identifier& taskId) {
 }
 
 long long TaskService::readAverageCycleTime(const Identifier& boardId) {
-    if (!boards.exists(boardId)) throw std::invalid_argument("Quadro nao encontrado.");
+    findBoard(boardId, "Quadro nao encontrado.");
 
     long long soma = 0;
     int quantidade = 0;
@@ -103,7 +123,7 @@ long long TaskService::readLeadTime(const Identifier& taskId) {
 }
 
 long long TaskService::readAverageLeadTime(const Identifier& boardId) {
-    if (!boards.exists(boardId)) throw std::invalid_argument("Quadro nao encontrado.");
+    findBoard(boardId, "Quadro nao encontrado.");
 
     long long soma = 0;
     int quantidade = 0;
@@ -118,6 +138,6 @@ long long TaskService::readAverageLeadTime(const Identifier& boardId) {
 }
 
 int TaskService::readWip(const Identifier& boardId) {
-    if (!boards.exists(boardId)) throw std::invalid_argument("Quadro nao encontrado.");
+    findBoard(boardId, "Quadro nao encontrado.");
     return tasks.countByBoardAndState(boardId, "FAZENDO");
 }

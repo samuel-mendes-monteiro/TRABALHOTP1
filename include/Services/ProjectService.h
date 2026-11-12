@@ -2,31 +2,41 @@
 #define PROJECT_SERVICE_H
 
 #include "../Interfaces/IProjectService.h"
-#include "../Containers/PersonContainer.h"
+#include "../Interfaces/IPersonService.h"
+#include "../Interfaces/IBoardService.h"
 #include "../Containers/ProjectContainer.h"
-#include "../Containers/BoardContainer.h"
-#include "../Containers/TaskContainer.h"
 
 /**
- * @brief Implementa os serviços da entidade Project. Excluir um projeto exclui seus quadros e cartões.
+ * @brief Implementa os serviços da entidade Project (módulo Projetos).
+ *
+ * Armazena os projetos no próprio contêiner. Valida o gestor por meio da interface
+ * IPersonService e, ao excluir um projeto, exclui seus quadros por meio da interface
+ * IBoardService (que, por sua vez, exclui os cartões de cada quadro).
  */
 class ProjectService : public IProjectService {
 private:
     ProjectContainer& projects;
-    PersonContainer& persons;
-    BoardContainer& boards;
-    TaskContainer& tasks;
+    IPersonService* personService;
+    IBoardService* boardService;
 
 public:
     /**
      * @brief Construtor.
-     * @param projects Contêiner de projetos.
-     * @param persons Contêiner de pessoas (para validar o gestor).
-     * @param boards Contêiner de quadros (para a exclusão em cascata).
-     * @param tasks Contêiner de cartões (para a exclusão em cascata).
+     * @param projects Contêiner de projetos, de uso exclusivo deste módulo.
      */
-    ProjectService(ProjectContainer& projects, PersonContainer& persons,
-                   BoardContainer& boards, TaskContainer& tasks);
+    explicit ProjectService(ProjectContainer& projects);
+
+    /**
+     * @brief Define o serviço de pessoas usado para validar o gestor do projeto.
+     * @param service Ponteiro para a interface IPersonService (deve ser definido antes do uso).
+     */
+    void setPersonService(IPersonService* service);
+
+    /**
+     * @brief Define o serviço de quadros usado na exclusão em cascata.
+     * @param service Ponteiro para a interface IBoardService (deve ser definido antes do uso).
+     */
+    void setBoardService(IBoardService* service);
 
     /** @copydoc IProjectService::createProject */
     bool createProject(const Project& project) override;

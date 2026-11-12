@@ -2,27 +2,44 @@
 #define TASK_SERVICE_H
 
 #include "../Interfaces/ITaskService.h"
+#include "../Interfaces/IBoardService.h"
+#include "../Interfaces/IPersonService.h"
 #include "../Containers/TaskContainer.h"
-#include "../Containers/BoardContainer.h"
-#include "../Containers/PersonContainer.h"
 
 /**
- * @brief Implementa os serviços de Task: CRUD, movimentação (com limite WIP) e métricas.
+ * @brief Implementa os serviços de Task (módulo Cartões de Atividades): CRUD,
+ * movimentação (com limite WIP) e métricas.
+ *
+ * Armazena os cartões no próprio contêiner. Valida o quadro e o limite WIP por meio da
+ * interface IBoardService e valida o desenvolvedor responsável por meio da interface
+ * IPersonService.
  */
 class TaskService : public ITaskService {
 private:
     TaskContainer& tasks;
-    BoardContainer& boards;
-    PersonContainer& persons;
+    IBoardService* boardService;
+    IPersonService* personService;
+
+    Board findBoard(const Identifier& boardId, const char* notFoundMessage);
 
 public:
     /**
      * @brief Construtor.
-     * @param tasks Contêiner de cartões.
-     * @param boards Contêiner de quadros (para validar o quadro e o limite WIP).
-     * @param persons Contêiner de pessoas (para validar o desenvolvedor).
+     * @param tasks Contêiner de cartões, de uso exclusivo deste módulo.
      */
-    TaskService(TaskContainer& tasks, BoardContainer& boards, PersonContainer& persons);
+    explicit TaskService(TaskContainer& tasks);
+
+    /**
+     * @brief Define o serviço de quadros usado para validar o quadro e o limite WIP.
+     * @param service Ponteiro para a interface IBoardService (deve ser definido antes do uso).
+     */
+    void setBoardService(IBoardService* service);
+
+    /**
+     * @brief Define o serviço de pessoas usado para validar o desenvolvedor responsável.
+     * @param service Ponteiro para a interface IPersonService (deve ser definido antes do uso).
+     */
+    void setPersonService(IPersonService* service);
 
     /** @copydoc ITaskService::createTask */
     bool createTask(const Task& task) override;

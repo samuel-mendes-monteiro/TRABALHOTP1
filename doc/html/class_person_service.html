@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_person_s
 </div><!--header-->
 <div class="contents">
 
-<p>Implementa os serviços da entidade <a class="el" href="class_person.html" title="Classe que representa a entidade Pessoa.">Person</a> usando contêineres compartilhados.  
+<p>Implementa os serviços da entidade <a class="el" href="class_person.html" title="Classe que representa a entidade Pessoa.">Person</a> (módulo Pessoas).  
  <a href="#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_person_service_8h_source.html">PersonService.h</a>&gt;</code></p>
@@ -128,8 +128,12 @@ Diagrama de hierarquia da classe PersonService:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Membros Públicos</h2></td></tr>
-<tr class="memitem:a79269a489e37ba1f33edfc68fe0ef102" id="r_a79269a489e37ba1f33edfc68fe0ef102"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a79269a489e37ba1f33edfc68fe0ef102">PersonService</a> (<a class="el" href="class_person_container.html">PersonContainer</a> &amp;persons, <a class="el" href="class_project_container.html">ProjectContainer</a> &amp;projects, <a class="el" href="class_task_container.html">TaskContainer</a> &amp;tasks)</td></tr>
-<tr class="memdesc:a79269a489e37ba1f33edfc68fe0ef102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <br /></td></tr>
+<tr class="memitem:aeffe27d9beb9f05094e6e7c3f1209c63" id="r_aeffe27d9beb9f05094e6e7c3f1209c63"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aeffe27d9beb9f05094e6e7c3f1209c63">PersonService</a> (<a class="el" href="class_person_container.html">PersonContainer</a> &amp;persons)</td></tr>
+<tr class="memdesc:aeffe27d9beb9f05094e6e7c3f1209c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor.  <br /></td></tr>
+<tr class="memitem:a9f6dd0a6bb8dfad49b4ef79e3e70862d" id="r_a9f6dd0a6bb8dfad49b4ef79e3e70862d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9f6dd0a6bb8dfad49b4ef79e3e70862d">setProjectService</a> (<a class="el" href="class_i_project_service.html">IProjectService</a> *service)</td></tr>
+<tr class="memdesc:a9f6dd0a6bb8dfad49b4ef79e3e70862d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o serviço de projetos usado para verificar se a pessoa é gestora de algum projeto.  <br /></td></tr>
+<tr class="memitem:a97550b162f223e23394de9d590bf4340" id="r_a97550b162f223e23394de9d590bf4340"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a97550b162f223e23394de9d590bf4340">setTaskService</a> (<a class="el" href="class_i_task_service.html">ITaskService</a> *service)</td></tr>
+<tr class="memdesc:a97550b162f223e23394de9d590bf4340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define o serviço de cartões usado para verificar se a pessoa é responsável por algum cartão.  <br /></td></tr>
 <tr class="memitem:a4a1e8efc04f0f27f01d961cd553e726f" id="r_a4a1e8efc04f0f27f01d961cd553e726f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4a1e8efc04f0f27f01d961cd553e726f">createPerson</a> (const <a class="el" href="class_person.html">Person</a> &amp;person) override</td></tr>
 <tr class="memdesc:a4a1e8efc04f0f27f01d961cd553e726f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serviço 1: cria uma pessoa.     <br /></td></tr>
 <tr class="memitem:a38b86720a7e380d32cc839bc870fa04f" id="r_a38b86720a7e380d32cc839bc870fa04f"><td class="memItemLeft"><a class="el" href="class_person.html">Person</a>&#160;</td><td class="memItemRight"><a class="el" href="#a38b86720a7e380d32cc839bc870fa04f">readPerson</a> (const <a class="el" href="class_email.html">Email</a> &amp;email) override</td></tr>
@@ -146,39 +150,37 @@ virtual&#160;</td><td class="memItemRight"><b>~IPersonService</b> ()</td></tr>
 <tr class="memdesc:a245b1f3075ee0cc697c091315a5d6b81 pub_methods_class_i_person_service"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual, garante a destruição correta das implementações. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Implementa os serviços da entidade <a class="el" href="class_person.html" title="Classe que representa a entidade Pessoa.">Person</a> usando contêineres compartilhados. </p>
+<div class="textblock"><p>Implementa os serviços da entidade <a class="el" href="class_person.html" title="Classe que representa a entidade Pessoa.">Person</a> (módulo Pessoas). </p>
+<p>Armazena as pessoas no próprio contêiner. Para saber se uma pessoa tem vínculos, consulta os módulos Projetos e Cartões de Atividades apenas por meio das interfaces <a class="el" href="class_i_project_service.html" title="Interface abstrata que define os serviços relacionados à entidade Project (Projeto).">IProjectService</a> e <a class="el" href="class_i_task_service.html" title="Interface abstrata que define os serviços relacionados à entidade Task (Cartão de Atividade).">ITaskService</a>.</p>
 <p>Uma pessoa que é gestora de projetos ou responsável por cartões não pode ser excluída nem trocar de papel. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Construtores e Destrutores</h2>
-<a id="a79269a489e37ba1f33edfc68fe0ef102" name="a79269a489e37ba1f33edfc68fe0ef102"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79269a489e37ba1f33edfc68fe0ef102">&#9670;&#160;</a></span>PersonService()</h2>
+<a id="aeffe27d9beb9f05094e6e7c3f1209c63" name="aeffe27d9beb9f05094e6e7c3f1209c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeffe27d9beb9f05094e6e7c3f1209c63">&#9670;&#160;</a></span>PersonService()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">PersonService::PersonService </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_person_container.html">PersonContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>persons</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="class_person_container.html">PersonContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>persons</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_project_container.html">ProjectContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>projects</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_task_container.html">TaskContainer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tasks</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Construtor. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">persons</td><td>Contêiner de pessoas. </td></tr>
-    <tr><td class="paramname">projects</td><td>Contêiner de projetos (para verificar vínculos de gestor). </td></tr>
-    <tr><td class="paramname">tasks</td><td>Contêiner de cartões (para verificar vínculos de desenvolvedor). </td></tr>
+    <tr><td class="paramname">persons</td><td>Contêiner de pessoas, de uso exclusivo deste módulo. </td></tr>
   </table>
   </dd>
 </dl>
@@ -333,6 +335,56 @@ virtual&#160;</td><td class="memItemRight"><b>~IPersonService</b> ()</td></tr>
 </dl>
 
 <p>Implementa <a class="el" href="class_i_person_service.html#af54f733b139be229b287e9d0a8e56201">IPersonService</a>.</p>
+
+</div>
+</div>
+<a id="a9f6dd0a6bb8dfad49b4ef79e3e70862d" name="a9f6dd0a6bb8dfad49b4ef79e3e70862d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f6dd0a6bb8dfad49b4ef79e3e70862d">&#9670;&#160;</a></span>setProjectService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PersonService::setProjectService </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_project_service.html">IProjectService</a> *</td>          <td class="paramname"><span class="paramname"><em>service</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o serviço de projetos usado para verificar se a pessoa é gestora de algum projeto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service</td><td>Ponteiro para a interface <a class="el" href="class_i_project_service.html" title="Interface abstrata que define os serviços relacionados à entidade Project (Projeto).">IProjectService</a> (deve ser definido antes do uso). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a97550b162f223e23394de9d590bf4340" name="a97550b162f223e23394de9d590bf4340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97550b162f223e23394de9d590bf4340">&#9670;&#160;</a></span>setTaskService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PersonService::setTaskService </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_task_service.html">ITaskService</a> *</td>          <td class="paramname"><span class="paramname"><em>service</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define o serviço de cartões usado para verificar se a pessoa é responsável por algum cartão. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service</td><td>Ponteiro para a interface <a class="el" href="class_i_task_service.html" title="Interface abstrata que define os serviços relacionados à entidade Task (Cartão de Atividade).">ITaskService</a> (deve ser definido antes do uso). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
